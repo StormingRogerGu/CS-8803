@@ -51,7 +51,7 @@
                     android:includeFontPadding="false"
                     android:paddingLeft="17dp"
                     android:text="Name"
-                    android:textColor="#ff333333"
+                    android:textColor="#4169E1"
                     android:textSize="16dp"
                     />
 
@@ -80,7 +80,7 @@
                     android:includeFontPadding="false"
                     android:paddingLeft="17dp"
                     android:text="Age"
-                    android:textColor="ff333333"
+                    android:textColor="#4169E1"
                     android:textSize="16dp"/>
 
                 <EditText
@@ -108,7 +108,7 @@
                     android:includeFontPadding="false"
                     android:paddingLeft="17dp"
                     android:text="email"
-                    android:textColor="ff333333"
+                    android:textColor="#4169E1"
                     android:textSize="16dp"/>
                 <EditText
                     android:id="@+id/editText3"
@@ -134,7 +134,7 @@
                     android:includeFontPadding="false"
                     android:paddingLeft="17dp"
                     android:text="gender"
-                    android:textColor="ff333333"
+                    android:textColor="#4169E1"
                     android:textSize="16dp"/>
                 <EditText
                     android:id="@+id/editText4"
