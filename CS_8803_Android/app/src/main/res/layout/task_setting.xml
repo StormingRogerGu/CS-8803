@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:text="Confirm"/>
 
-
+    <include layout = "@layout/navigation_bar"/>
 
 
 </LinearLayout>
