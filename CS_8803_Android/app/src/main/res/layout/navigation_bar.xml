@@ -4,41 +4,42 @@
     android:layout_height="match_parent">
 
 
-   <TableLayout
-       android:id="@+id/TableLayout2"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_marginTop="20dp">
+    <TableLayout
+        android:id="@+id/TableLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
 
-        <TableRow
-            android:layout_marginLeft="15dp">
-            <Button
-                android:id="@+id/friend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="friend"/>
+         <TableRow android:layout_marginLeft="15dp">
 
-            <Button
-                android:id="@+id/task"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="task"/>
+             <Button
+                 android:id="@+id/friend"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="friend" />
 
-            <Button
-                android:id="@+id/home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="home"/>
+             <Button
+                 android:id="@+id/home"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="home" />
 
-            <Button
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="time"/>
-        </TableRow>>
+             <Button
+                 android:id="@+id/time"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="time" />
+
+             <Button
+                 android:id="@+id/setting"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="setting" />
+         </TableRow>
+        >
 
 
-   </TableLayout>
+    </TableLayout>
 
 
 </LinearLayout>
