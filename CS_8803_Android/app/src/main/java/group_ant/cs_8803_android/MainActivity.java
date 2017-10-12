@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.task:
                 break;
             case R.id.add:
-                final Intent addtask = new 
+                final Intent addtask = new Intent()
 
         }
 
