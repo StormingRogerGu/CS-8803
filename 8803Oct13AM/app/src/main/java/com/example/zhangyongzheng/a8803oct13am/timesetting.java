@@ -1,8 +1,13 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -17,6 +22,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.widget.Button;
+
 
 import org.w3c.dom.Text;
 
@@ -30,6 +37,7 @@ public class timesetting extends Activity {
     TextView time;
     TimePicker simpleTimePicker;
     NumberPicker nopicker = null;
+    private Button start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,27 @@ public class timesetting extends Activity {
         nopicker.setMaxValue(30);
         nopicker.setMinValue(1);
         nopicker.setWrapSelectorWheel(true);
+        startTiming();
 
     }
+
+    public void startTiming(){
+        start = (Button)findViewById(R.id.btn_start);
+        start.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v){
+                int seconds = (int)(simpleTimePicker.getHour() * 3600 + simpleTimePicker.getMinute()*60);
+                Log.v("Key", String.valueOf(seconds));
+                Intent intent = new Intent(timesetting.this,timecounting.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("Key", seconds);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+            }
+        });
+
+    }
+
 }
