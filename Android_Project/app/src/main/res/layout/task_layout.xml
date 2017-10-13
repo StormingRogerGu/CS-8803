@@ -37,11 +37,10 @@
             android:text="add"
             android:textSize="20dp"/>
     </LinearLayout>
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="330dp">
 
-    </ListView>
 
     <ListView
         android:id="@+id/task_item_listview"
@@ -49,5 +48,7 @@
         android:layout_height="wrap_content">
 
     </ListView>
+    </LinearLayout>
+    <include layout="@layout/navigation_bar"/>
 
 </LinearLayout>
