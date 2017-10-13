@@ -80,16 +80,25 @@
         <EditText
             android:id="@+id/add_content"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:enabled="true"
             android:gravity="top"
             android:inputType="textMultiLine"
             android:minLines="8"
-            android:maxLines="10"
+            android:maxLines="5"
             android:scrollbars="vertical"
             android:background="@android:drawable/edit_text"
             android:text="@string/note"
             />
 
     </LinearLayout>
+
+    <Button
+
+        android:id="@+id/confirm_button"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/Confirm"/>
 </LinearLayout>
