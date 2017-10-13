@@ -14,22 +14,15 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ongoing" />
+            android:text="ongoing" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/completed" />
+            android:text="complete" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizaontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/stary" />
 </LinearLayout>
 
 

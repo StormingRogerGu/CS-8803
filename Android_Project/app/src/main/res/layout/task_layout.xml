@@ -11,13 +11,13 @@
             android:id="@+id/task_layout_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Today"
+            android:text="today"
             android:textSize="20dp"/>
         <Button
             android:id="@+id/task_layout_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Week"
+            android:text="week"
             android:textSize="20dp"
             />
         <Button
@@ -25,7 +25,7 @@
             android:id="@+id/task_layout_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/All"
+            android:text="all"
             android:textSize="20dp"/>
     </LinearLayout>
     <LinearLayout
@@ -34,7 +34,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Add"
+            android:text="add"
             android:textSize="20dp"/>
     </LinearLayout>
     <ListView
