@@ -12,7 +12,7 @@
     <string name="row_3_column_1">Row 3 column 1</string>
     <string name="ongoing">ongoing</string>
     <string name="row_3_column_2">Row 3 column 2</string>
-    <string name="finsih">finsih</string>
+    <string name="finish">×</string>
     <string name="week">week</string>
     <string name="today">today</string>
     <string name="all">all</string>
