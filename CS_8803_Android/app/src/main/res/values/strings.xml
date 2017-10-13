@@ -5,4 +5,6 @@
     <string name="All">All</string>
     <string name="Add">Add</string>
     <string name="Finish">Finish</string>
+    <string name="ongoing">on going</string>
+    <string name="completed">completed</string>
 </resources>

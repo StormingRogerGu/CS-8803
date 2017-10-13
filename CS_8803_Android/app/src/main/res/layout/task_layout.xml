@@ -42,6 +42,7 @@
         android:layout_height="wrap_content">
 
     </ListView>
+
     <ListView
         android:id="@+id/task_item_listview"
         android:layout_width="wrap_content"
