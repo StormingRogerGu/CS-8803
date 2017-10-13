@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tasksetting"/>
+        <activity android:name=".tasksetting">
+
+        </activity>
         <activity android:name=".friend"/>
         <activity android:name=".profile"/>
         <activity android:name=".puzzle"/>
