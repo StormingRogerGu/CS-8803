@@ -79,21 +79,21 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_weight="wrap_content"
+                android:layout_width="wrap_content"
                 android:padding="2dp"
                 android:src="@drawable/puzzle_pic0_4"
                 android:text="Image Display" />
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_weight="wrap_content"
+                android:layout_width="wrap_content"
                 android:padding="2dp"
                 android:src="@drawable/puzzle_pic0_5"
                 android:text="Image Display" />
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_weight="wrap_content"
+                android:layout_width="wrap_content"
                 android:padding="2dp"
                 android:src="@drawable/puzzle_pic0_6"
                 android:text="Image Display" />
