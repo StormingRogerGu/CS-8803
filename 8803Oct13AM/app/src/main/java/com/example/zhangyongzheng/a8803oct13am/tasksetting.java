@@ -1,30 +1,37 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
+import java.util.Date;
 
 /**
  * Created by guxiaofeng on 10/12/17.
  */
 
 public class tasksetting extends Activity{
-    private EditText showDate = null;
+    private TextView showDate = null;
     private Button pickDate = null;
-    private EditText showTime = null;
+    private TextView showTime = null;
     private Button pickTime = null;
+    private Button confirm_btn;
 
     private static final int SHOW_DATAPICK = 0;
     private static final int DATE_DIALOG_ID = 1;
@@ -36,6 +43,7 @@ public class tasksetting extends Activity{
     private int mDay;
     private int mHour;
     private int mMinute;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,12 +63,35 @@ public class tasksetting extends Activity{
 
         setDateTime();
         setTimeOfDay();
+        confirm_task();
+    }
+
+    public void confirm_task(){
+        confirm_btn = (Button)findViewById(R.id.confirm_button);
+        confirm_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String due_date = (String)showDate.getText();
+                Log.v("key",due_date);
+                Intent intent = new Intent(tasksetting.this,MainActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("key",due_date);
+
+                intent.putExtras(bundle);
+
+                startActivity(intent);
+
+
+
+
+            }
+        });
     }
 
     public void initializeViews(){
-        showDate = (EditText) findViewById(R.id.show_date);
+        showDate = (TextView) findViewById(R.id.show_date);
         pickDate = (Button) findViewById(R.id.pick_date);
-        showTime = (EditText) findViewById(R.id.show_time);
+        showTime = (TextView) findViewById(R.id.show_time);
         pickTime = (Button) findViewById(R.id.pick_time);
 
         pickDate.setOnClickListener(new View.OnClickListener(){
@@ -171,6 +202,17 @@ public class tasksetting extends Activity{
         }
 
     };
+
+//    private String dateprase(String origin_date){
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//        Date nowDate = null;
+//        try{
+//            nowDate = df.parse(origin_date);
+//        }catch (ParseException e){
+//            e.printStackTrace();
+//        }
+//
+//    }
 
 
 }
