@@ -45,7 +45,16 @@ public class tasksetting extends Activity implements View.OnTouchListener{
             final TimePicker timePicker = (android.widget.TimePicker) view.findViewById(R.id.Remind_time);
             builder.setView(view);
 
-            Calendar cal = 
+            Calendar cal = Calendar.getInstance();
+            cal.setTimeInMillis(System.currentTimeMillis());
+            datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH),null);
+
+            timePicker.setIs24HourView(true);
+
+            if (v.getId() == R.id.Due_date){
+                final int inType = Duedate.getInputType();
+                Duedate
+            }
         }
         return false;
     }
