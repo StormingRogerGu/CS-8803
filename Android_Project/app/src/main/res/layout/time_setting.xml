@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="#0000000"
-                android:text="Clear"
+                android:text="@string/clear"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"/>
 
@@ -32,7 +32,7 @@
                 android:layout_marginLeft="57dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Timer"
+                android:text="@string/timer2"
                 android:textColor="#FFFFFF"
                 android:textSize="26sp"
                 android:textStyle="bold"
@@ -45,7 +45,7 @@
                 android:layout_marginLeft="57dp"
                 android:layout_marginTop="20dp"
                 android:background="#0000000"
-                android:text="done"
+                android:text="@string/done"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"/>
         </TableRow>
@@ -63,6 +63,6 @@
             android:layout_marginLeft="140dp"
             android:layout_marginTop="220dp"
             android:background="@drawable/start_button"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

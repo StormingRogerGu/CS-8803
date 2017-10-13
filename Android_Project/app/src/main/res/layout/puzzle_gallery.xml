@@ -3,6 +3,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,13 +17,15 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ongoing" />
+            android:text="@string/ongoing"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="complete" />
+            android:text="@string/complete"
+            tools:ignore="ButtonStyle" />
 
     </LinearLayout>
 
@@ -45,7 +48,7 @@
                 android:id="@+id/imageView1"
                 android:src="@drawable/puzzle_pic0_1"
                 android:layout_weight="1"
-                />
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -55,7 +58,7 @@
                 android:src="@drawable/puzzle_pic0_2"
                 android:layout_weight="1"
 
-         />
+                tools:ignore="ContentDescription" />
 
 
             <ImageView
@@ -65,7 +68,8 @@
                 android:padding="2dp"
                 android:src="@drawable/puzzle_pic0_3"
                 android:layout_weight="1"
-                android:gravity="fill_vertical"/>
+                android:gravity="fill_vertical"
+                tools:ignore="ContentDescription" />
         </TableRow>
 
         <!-- Row 2 with 3 columns -->
@@ -82,21 +86,24 @@
                 android:layout_width="wrap_content"
                 android:padding="2dp"
                 android:src="@drawable/puzzle_pic0_4"
-                android:text="Image Display" />
+                android:text="@string/image_display"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:padding="2dp"
                 android:src="@drawable/puzzle_pic0_5"
-                android:text="Image Display" />
+                android:text="@string/image_display2"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="wrap_content"
                 android:padding="2dp"
                 android:src="@drawable/puzzle_pic0_6"
-                android:text="Image Display" />
+                android:text="@string/image_display3"
+                tools:ignore="ContentDescription" />
 
         </TableRow>
 
@@ -108,7 +115,7 @@
 
             <TextView
                 android:id="@+id/TextView07"
-                android:text="Row 3 column 1"
+                android:text="@string/row_3_column_1"
                 android:layout_weight="1"
                 android:background="#b0b0b0"
             android:textColor="#000000"
@@ -116,7 +123,7 @@
 
             <TextView
                 android:id="@+id/TextView08"
-                android:text="Row 3 column 2"
+                android:text="@string/row_3_column_2"
                 android:layout_weight="1" android:background="#a09f9f"
                 android:textColor="#000000"
                 android:padding="18dip" android:gravity="center"/>

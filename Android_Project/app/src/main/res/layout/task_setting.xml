@@ -12,13 +12,13 @@
         <Button
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:text="B"/>
+            android:text="@string/b"/>
 
         <EditText
             android:id="@+id/taskname"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Task Name"
+            android:text="@string/task_name"
             android:textAlignment="center"/>
 
     </LinearLayout>
@@ -32,7 +32,7 @@
 
         <EditText
             android:id="@+id/show_date"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:drawable/edit_text"/>
@@ -41,7 +41,7 @@
             android:id="@+id/pick_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  Due_Date  "
+            android:text="@string/due_date"
             android:textSize="15sp"/>
 
     </LinearLayout>
@@ -56,7 +56,7 @@
 
         <EditText
             android:id="@+id/show_time"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:drawable/edit_text"/>
@@ -65,7 +65,7 @@
             android:id="@+id/pick_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remind_Time"/>
+            android:text="@string/remind_time"/>
 
     </LinearLayout>
 
@@ -88,7 +88,7 @@
             android:maxLines="10"
             android:scrollbars="vertical"
             android:background="@android:drawable/edit_text"
-            android:text="Note"
+            android:text="@string/note"
            />
 
     </LinearLayout>
