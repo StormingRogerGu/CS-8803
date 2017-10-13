@@ -39,6 +39,7 @@ public class timesetting extends Activity {
     NumberPicker nopicker = null;
     private Button start;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class timesetting extends Activity {
         time = (TextView) findViewById(R.id.time);
         simpleTimePicker = (TimePicker) findViewById(R.id.simpleTimePicker);
         simpleTimePicker.setIs24HourView(true); // used to not display AM/PM mode
+        simpleTimePicker.setHour(0);
         // perform set on time changed listener event
         simpleTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
@@ -59,7 +61,7 @@ public class timesetting extends Activity {
 
         //numberpicker1
         nopicker = (NumberPicker)findViewById(R.id.numberPicker1);
-        nopicker.setMaxValue(30);
+        nopicker.setMaxValue(10);
         nopicker.setMinValue(1);
         nopicker.setWrapSelectorWheel(true);
         startTiming();
