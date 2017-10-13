@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
-                addnewtask.setClass(MainActivity.this,friend.class);
+                addnewtask.setClass(MainActivity.this,timesetting.class);
                 startActivity(addnewtask);
             }
         });
