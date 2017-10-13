@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TableLayout
+        android:id="@+id/TableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="b"/>
+
+            <EditText
+                android:id="@+id/edit_text1"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Task Tittle"
+                android:textAlignment="center"/>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due_date"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <DatePicker
+                android:id="@+id/Due_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Due Date" />
+
+        </TableRow>
+
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Remind_time"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <TimePicker
+                android:id="@+id/Remind_time"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remind Time"/>
+
+        </TableRow>
+
+
+        <TableRow>
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Note"/>
+
+            <EditText
+                android:id="@+id/edit_text2"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_marginTop="150dp"
+        android:layout_width="300dp"
+        android:layout_marginLeft="35dp"
+        android:layout_height="wrap_content"
+        android:text="Confirm"/>
+
+
+</LinearLayout>
