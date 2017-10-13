@@ -79,12 +79,14 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/confirm_btn"
         android:layout_marginTop="150dp"
         android:layout_width="300dp"
         android:layout_marginLeft="35dp"
         android:layout_height="wrap_content"
         android:text="Confirm"/>
+
+    <include layout = "@layout/navigation_bar"/>
 
 
 </LinearLayout>
