@@ -16,7 +16,7 @@
             android:background="@drawable/pause_button"
             />
 
-<<<<<<< Updated upstream
+
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -34,7 +34,5 @@
             android:layout_marginLeft="-70dp"
             android:background="@drawable/puzzle_carried"
             />
-    </LinearLayout>
-=======
->>>>>>> Stashed changes
+
 </LinearLayout>
