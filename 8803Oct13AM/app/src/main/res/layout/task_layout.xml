@@ -12,6 +12,8 @@
             android:id="@+id/task_layout_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:text="@string/today"
             android:textSize="20sp"
             tools:ignore="ButtonStyle" />
@@ -19,16 +21,19 @@
             android:id="@+id/task_layout_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/week"
             android:textSize="20sp"
+            android:layout_weight="1"
             tools:ignore="ButtonStyle" />
         <Button
-
             android:id="@+id/task_layout_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:text="@string/all"
             android:textSize="20sp"
+            android:layout_weight="1"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
     <LinearLayout
@@ -38,11 +43,15 @@
             android:id="@+id/addnewtask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/add"
             android:textSize="20sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="350dp">
 
 
