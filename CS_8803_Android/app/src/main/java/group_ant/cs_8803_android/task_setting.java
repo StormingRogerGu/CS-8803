@@ -9,7 +9,7 @@ import android.widget.Button;
  */
 
 public class task_setting extends Activity{
-    
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_setting);
