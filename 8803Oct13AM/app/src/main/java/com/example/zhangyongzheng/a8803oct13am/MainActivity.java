@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         home = (Button)findViewById(R.id.home);
         tasklist = (Button)findViewById(R.id.puzzle);
         addtask = (Button)findViewById(R.id.addnewtask);
+
+        
     }
 
 
