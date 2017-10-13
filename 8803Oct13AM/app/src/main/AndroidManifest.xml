@@ -17,6 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".tasksetting"/>
+        <activity android:name=".friend"/>
+        <activity android:name=".profile"/>
+        <activity android:name=".puzzle"/>
+        <activity android:name=".timesetting"/>
     </application>
 
 </manifest>
