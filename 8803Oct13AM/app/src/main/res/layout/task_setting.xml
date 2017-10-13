@@ -18,7 +18,7 @@
             android:id="@+id/taskname"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/task_name"
+            android:hint="Task name"
             android:textAlignment="center"/>
 
     </LinearLayout>
