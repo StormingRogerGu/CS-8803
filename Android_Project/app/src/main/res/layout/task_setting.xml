@@ -25,19 +25,20 @@
         </TableRow>
 
         <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Due_date"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
 
-            <DatePicker
-                android:id="@+id/Due_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Due Date" />
+                <EditText android:id="@+id/show_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/pick_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="select date"
+                    android:layout_weight="1"/>
+
+
 
         </TableRow>
 
@@ -51,7 +52,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
 
-            <TimePicker
+            <EditText
                 android:id="@+id/Remind_time"
                 android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
