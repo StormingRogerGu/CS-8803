@@ -75,10 +75,13 @@ public class timesetting extends Activity {
             @Override
             public void onClick(View v){
                 int seconds = (int)(simpleTimePicker.getHour() * 3600 + simpleTimePicker.getMinute()*60);
-                Log.v("Key", String.valueOf(seconds));
+                int pause_seconds = (int)(nopicker.getValue() * 60);
+
                 Intent intent = new Intent(timesetting.this,timecounting.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("Key", seconds);
+                bundle.putInt("Pause", pause_seconds);
+
                 intent.putExtras(bundle);
                 startActivity(intent);
 
