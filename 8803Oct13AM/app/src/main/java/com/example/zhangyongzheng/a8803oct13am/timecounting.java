@@ -43,6 +43,10 @@ public class timecounting extends Activity{
         public void onFinish() {
             mTvShow.setText("You have successfully finished your study time!");
 
+            Intent jumptogallery = new Intent();
+            jumptogallery.setClass(timecounting.this,puzzle.class);
+            startActivity(jumptogallery);
+
 
         }
         @Override

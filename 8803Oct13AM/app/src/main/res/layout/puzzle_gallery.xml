@@ -5,11 +5,92 @@
 
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
 
+        <ImageView
+            android:id="@+id/puzzle_1"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
 
-    <include layout="@layout/navigation_bar"/>
+        <ImageView
+            android:id="@+id/puzzle_2"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_3"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <ImageView
+            android:id="@+id/puzzle_4"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_5"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_6"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <ImageView
+            android:id="@+id/puzzle_7"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_8"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_9"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/navigation_bar"/>
     </LinearLayout>
 
 </LinearLayout>
