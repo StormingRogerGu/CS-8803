@@ -11,8 +11,9 @@ public class MainActivity extends AppCompatActivity {
     private Button friend;
     private Button timer;
     private Button home;
-    private Button tasklist;
+    private Button puzzle;
     private Button profile;
+
     private Button addtask;
 
     @Override
@@ -29,6 +30,40 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(addnewtask);
             }
         });
+
+        friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(MainActivity.this,friend.class);
+                startActivity(addnewtask);
+            }
+        });
+        timer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(MainActivity.this,friend.class);
+                startActivity(addnewtask);
+            }
+        });
+        puzzle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(MainActivity.this,puzzle.class);
+                startActivity(addnewtask);
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(MainActivity.this,profile.class);
+                startActivity(addnewtask);
+            }
+        });
+
     }
 
     private void setUpView(){
@@ -36,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
         friend = (Button)findViewById(R.id.friend_bar);
         timer = (Button)findViewById(R.id.timer);
         home = (Button)findViewById(R.id.home);
-        tasklist = (Button)findViewById(R.id.puzzle);
+        puzzle = (Button)findViewById(R.id.puzzle);
+        profile = (Button)findViewById(R.id.profile);
         addtask = (Button)findViewById(R.id.addnewtask);
 
         
