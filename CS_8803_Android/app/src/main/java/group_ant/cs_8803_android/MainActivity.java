@@ -1,24 +1,19 @@
 package group_ant.cs_8803_android;
 
+<<<<<<< HEAD
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+=======
+>>>>>>> parent of b20e89b... puzzle_gallery
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-    private Button Friend;
-    private Button Home;
-    private Button TimeMode;
-    private Button Setting;
-    private Button addtask;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); HEAD
         setContentView(R.layout.task_layout);
 
         Friend = (Button)findViewById(R.id.friend);
@@ -41,4 +36,8 @@ public class MainActivity extends Activity {
     };
 
 
+=======
+        setContentView(R.layout.activity_main);
+    }
+>>>>>>> parent of b20e89b... puzzle_gallery
 }

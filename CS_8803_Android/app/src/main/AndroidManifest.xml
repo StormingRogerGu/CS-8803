@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".task_setting"/>
+=======
+>>>>>>> parent of b20e89b... puzzle_gallery
     </application>
 
 </manifest>
