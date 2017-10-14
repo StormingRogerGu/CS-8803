@@ -76,9 +76,9 @@ public class timecounting extends Activity{
         @Override
         public void onTick(long millisUntilFinished) {
             
-            mTvShow.setText( (millisUntilFinished / 1000) / 3600 + "Hours " +
-                        millisUntilFinished / 1000 % 3600 / 60 + "Minutes "+
-                        millisUntilFinished / 1000 % 60 + "Seconds");
+            mTvShow.setText( (millisUntilFinished / 1000) / 3600 + ":" +
+                        millisUntilFinished / 1000 % 3600 / 60 + ":"+
+                        millisUntilFinished / 1000 % 60);
 
             timetofinfish = millisUntilFinished;
         }
