@@ -1,8 +1,10 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
@@ -36,8 +38,12 @@ public class login extends Activity  {
             public void onClick(View v) {
                 if(ed1.getText().toString().equals("admin") &&
                         ed2.getText().toString().equals("admin")) {
-                    Toast.makeText(getApplicationContext(),
-                            "Redirecting...",Toast.LENGTH_SHORT).show();
+
+                    Intent directToMain = new Intent();
+                    directToMain.setClass(login.this, MainActivity.class);
+                    startActivity(directToMain);
+
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
 
