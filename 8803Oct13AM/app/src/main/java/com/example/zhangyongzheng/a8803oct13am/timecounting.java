@@ -13,6 +13,7 @@ import android.os.CountDownTimer;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -29,12 +30,16 @@ public class timecounting extends Activity{
     private TextView mTvShow;
     Context mContext;
     private int seconds;
+    private Button pause;
+    private Button resume;
+    long current_seconds;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.time_count);
         mTvShow = (TextView) findViewById(R.id.counting_time);
-
+        pause = (Button) findViewById(R.id.pause_button);
+        resume = (Button) findViewById(R.id.resume_button);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -47,12 +52,16 @@ public class timecounting extends Activity{
 
         myCount = new Mycount(seconds, 1000);
         myCount.start();
+        setPause();
+        setResume();
     }
 
     class Mycount extends CountDownTimer{
+        long timetofinfish;
 
         public Mycount(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
+
         }
         @Override
         public void onFinish() {
@@ -71,7 +80,29 @@ public class timecounting extends Activity{
                         millisUntilFinished / 1000 % 3600 / 60 + "Minutes "+
                         millisUntilFinished / 1000 % 60 + "Seconds");
 
+            timetofinfish = millisUntilFinished;
         }
+    }
+
+    public void setPause(){
+        pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current_seconds = myCount.timetofinfish;
+                myCount.cancel();
+            }
+        });
+    }
+
+    public void setResume(){
+        resume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+                myCount = new Mycount(current_seconds, 1000);
+                myCount.start();
+            }
+        });
     }
 
     private boolean isTopActivity(String activityName){
