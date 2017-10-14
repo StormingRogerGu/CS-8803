@@ -69,7 +69,6 @@ public class myadapter extends BaseAdapter{
         holder.title.setText((String) listItem.get(position).get("ItemTitle"));
         holder.text.setText((String) listItem.get(position).get("ItemText"));
 
-
         return convertView;
 
 
