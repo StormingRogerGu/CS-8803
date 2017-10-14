@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -53,11 +53,13 @@
     </TableLayout>
 
     <LinearLayout
+        android:id="@+id/time_setting_layout1"
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_weight="0.29"
         android:gravity="center"
-        android:background="#F5FFFA">
+        android:background="#F5FFFA"
+        android:layout_below="@id/headertimer">
 
         <NumberPicker
             android:id="@+id/numberPicker_hour"
@@ -94,7 +96,8 @@
         android:id="@+id/headertimer2"
         android:layout_width="match_parent"
         android:layout_height="51dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/time_setting_layout1">
 
         <TableRow android:layout_marginLeft="15dp">
 
@@ -119,7 +122,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:gravity="center"
                 android:text="min"
                 android:textSize="20sp"
@@ -128,24 +131,31 @@
         </TableRow>
     </TableLayout>
     <LinearLayout
+        android:id="@+id/time_setting_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="150dp"
+        android:layout_below="@+id/headertimer2"
+        >
     <ImageButton
         android:background="@drawable/start_button"
         android:id="@+id/btn_start"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="0dp"
-        android:layout_weight="0.17" />
+
+        />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/time_setting_include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
     <include
-        layout="@layout/navigation_bar"
-        android:gravity="bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_weight="0.36" />
+        layout="@layout/navigation_bar" />
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
