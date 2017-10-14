@@ -17,10 +17,10 @@
     <string name="today">today</string>
     <string name="all">all</string>
     <string name="add">add</string>
-    <string name="due_date">Due_Date</string>
+    <string name="due_date">Due Date</string>
     <string name="b">B</string>
     <string name="note">Note</string>
-    <string name="remind_time">Remind_Time</string>
+    <string name="remind_time">Reminder</string>
     <string name="task_name">Task Name</string>
     <string name="clear">Clear</string>
     <string name="timer2">Timer</string>
