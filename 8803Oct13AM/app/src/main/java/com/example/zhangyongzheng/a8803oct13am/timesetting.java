@@ -8,6 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -37,7 +38,7 @@ public class timesetting extends Activity {
     TextView time;
     //TimePicker simpleTimePicker;
     NumberPicker nopicker = null;
-    private Button start;
+    private ImageButton start;
     NumberPicker nopicker_hour = null;
     NumberPicker nopicker_min = null;
 
@@ -135,7 +136,7 @@ public class timesetting extends Activity {
     }
 
     public void startTiming(){
-        start = (Button)findViewById(R.id.btn_start);
+        start = (ImageButton)findViewById(R.id.btn_start);
         start.setOnClickListener(new View.OnClickListener(){
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override

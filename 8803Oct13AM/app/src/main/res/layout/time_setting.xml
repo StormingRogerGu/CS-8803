@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="71dp"
         android:layout_marginTop="20dp"
-        android:layout_weight="0.02">
+        android:layout_weight="0.02"
+        android:background="#DC143C">
 
         <TableRow android:layout_marginLeft="15dp">
 
@@ -56,31 +57,36 @@
         android:layout_height="140dp"
         android:layout_weight="0.29"
         android:gravity="center"
-        tools:context=".MainActivity">
+        android:background="#F5FFFA">
 
         <NumberPicker
             android:id="@+id/numberPicker_hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent">
+            android:background="@android:color/white">
         </NumberPicker>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hour"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Hour"
+            android:textColor="#000000"/>
 
         <NumberPicker
             android:id="@+id/numberPicker_min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent">
+            android:background="@android:color/white">
         </NumberPicker>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Minute"/>
+            android:layout_marginLeft="10dp"
+            android:text="Minute"
+            android:textColor="#000000"/>
 
     </LinearLayout>
 
@@ -121,19 +127,23 @@
                 android:textColor="#000000"/>
         </TableRow>
     </TableLayout>
-
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="88dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="0dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="start"
+        android:layout_marginTop="20dp">
+    <ImageButton
+        android:background="@drawable/start_button"
+        android:id="@+id/btn_start"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="0dp"
         android:layout_weight="0.17" />
+    </LinearLayout>
 
     <include
         layout="@layout/navigation_bar"
+        android:gravity="bottom"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_weight="0.36" />

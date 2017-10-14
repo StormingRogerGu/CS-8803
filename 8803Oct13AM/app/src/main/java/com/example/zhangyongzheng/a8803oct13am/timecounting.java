@@ -98,7 +98,7 @@ public class timecounting extends Activity{
         resume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
                 myCount = new Mycount(current_seconds, 1000);
                 myCount.start();
             }
