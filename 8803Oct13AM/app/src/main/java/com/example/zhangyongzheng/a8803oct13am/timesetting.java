@@ -39,11 +39,62 @@ public class timesetting extends Activity {
     NumberPicker nopicker = null;
     private Button start;
 
+    private Button friend;
+    private Button timer;
+    private Button home;
+    private Button puzzle;
+    private Button profile;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.time_setting);
+        setUpView();
+
+        friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(timesetting.this,friend.class);
+                startActivity(addnewtask);
+            }
+        });
+        timer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(timesetting.this,timesetting.class);
+                startActivity(addnewtask);
+            }
+        });
+        puzzle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(timesetting.this,puzzle.class);
+                startActivity(addnewtask);
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(timesetting.this,profile.class);
+                startActivity(addnewtask);
+            }
+        });
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addnewtask = new Intent();
+                addnewtask.setClass(timesetting.this,MainActivity.class);
+                startActivity(addnewtask);
+            }
+        });
+
+
+
 
         //  initiate the view's
         time = (TextView) findViewById(R.id.time);
@@ -87,6 +138,16 @@ public class timesetting extends Activity {
 
             }
         });
+
+    }
+
+    private void setUpView(){
+
+        friend = (Button)findViewById(R.id.friend_bar);
+        timer = (Button)findViewById(R.id.timer);
+        home = (Button)findViewById(R.id.home);
+        puzzle = (Button)findViewById(R.id.puzzle);
+        profile = (Button)findViewById(R.id.profile);
 
     }
 
