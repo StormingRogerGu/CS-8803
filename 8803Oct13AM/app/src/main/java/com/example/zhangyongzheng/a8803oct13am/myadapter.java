@@ -73,4 +73,8 @@ public class myadapter extends BaseAdapter{
 
 
     }
+    public void updateData(ArrayList<HashMap<String, Object>> listItem){
+        this.listItem = listItem;
+        notifyDataSetChanged();
+    }
 }

@@ -31,6 +31,7 @@ public class tasksetting extends Activity{
     private Button pickDate = null;
     private TextView showTime = null;
     private Button pickTime = null;
+    private EditText taskname = null;
     private Button confirm_btn;
 
     private static final int SHOW_DATAPICK = 0;
@@ -72,10 +73,12 @@ public class tasksetting extends Activity{
             @Override
             public void onClick(View view) {
                 String due_date = (String)showDate.getText();
+                String task_name = taskname.getText().toString();
                 Log.v("key",due_date);
                 Intent intent = new Intent(tasksetting.this,MainActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("key",due_date);
+                bundle.putString("due_date",due_date);
+                bundle.putString("task_name",task_name);
 
                 intent.putExtras(bundle);
 
@@ -93,6 +96,7 @@ public class tasksetting extends Activity{
         pickDate = (Button) findViewById(R.id.pick_date);
         showTime = (TextView) findViewById(R.id.show_time);
         pickTime = (Button) findViewById(R.id.pick_time);
+        taskname = (EditText)findViewById(R.id.task_name);
 
         pickDate.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private Button friend;
@@ -24,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private Button addtask;
     private TextView due_date;
 
-    private ListView lv;
-    private ArrayList<HashMap<String, Object>> listItem;
+    private static ListView lv;
+    private static ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,19 +75,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(addnewtask);
             }
         });
-        due_date = (TextView)findViewById(R.id.date);
+        //due_date = (TextView)findViewById(R.id.date);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
+        myadapter myownadapter = new myadapter(this, listItem);
 
         if(bundle != null){
-            Log.v("test",bundle.getString("key"));
-            due_date.setText(bundle.getString("key"));
-        }
-        initiData();
+            Log.v("test",bundle.getString("due_date"));
+            Log.v("test2",bundle.getString("task_name"));
+            //due_date.setText(bundle.getString("due_date"));
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("ItemText",bundle.getString("task_name"));
+            map.put("ItemTitle",bundle.getString("due_date"));
+            map.put("ItemImage",R.mipmap.ic_launcher);
+            listItem.add(map);
 
-        myadapter myownadapter = new myadapter(this, listItem);
+        }
+        //initiData();
+
+
+        myownadapter.updateData(listItem);
         lv.setAdapter(myownadapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -113,13 +123,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initiData(){
         listItem = new ArrayList<HashMap<String, Object>>();
-        for(int i = 0; i<100;i++){
-            HashMap<String, Object> map = new HashMap<String, Object>();
-            map.put("ItemImage",R.mipmap.ic_launcher);
-            map.put("ItemTitle",i + "th lane");
-            map.put("ItemText", "this is" + i + "th lane");
-            listItem.add(map);
-        }
+
+//        for(int i = 0; i<100;i++){
+//            HashMap<String, Object> map = new HashMap<String, Object>();
+//            map.put("ItemImage",R.mipmap.ic_launcher);
+//            map.put("ItemTitle",i + "th lane");
+//            map.put("ItemText", "this is" + i + "th lane");
+//            listItem.add(map);
+//        }
     }
 
 
