@@ -83,6 +83,7 @@ public class tasksetting extends Activity{
                 intent.putExtras(bundle);
 
                 startActivity(intent);
+                finish();
 
 
 

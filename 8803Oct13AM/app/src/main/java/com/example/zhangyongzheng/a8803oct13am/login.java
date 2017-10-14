@@ -42,6 +42,7 @@ public class login extends Activity  {
                     Intent directToMain = new Intent();
                     directToMain.setClass(login.this, MainActivity.class);
                     startActivity(directToMain);
+                    finish();
 
 
                 }else{

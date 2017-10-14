@@ -1,67 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/TableLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        tools:ignore="UselessParent">
-
+        android:layout_height="50dp"
+        >
             <Button
                 android:id="@+id/friend_bar"
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
                 android:text="@string/friend"
                 android:layout_weight="1"
-                android:layout_alignParentBottom="true"
                 tools:ignore="ButtonStyle" />
-
             <Button
                 android:id="@+id/timer"
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="81dp"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
                 android:text="@string/timer"
-                android:layout_alignParentBottom="true"
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/home"
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="156dp"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
                 android:text="@string/home"
-                android:layout_alignParentBottom="true"
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/puzzle"
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="231dp"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
                 android:text="@string/maze"
                 android:layout_weight="1"
-                android:layout_alignParentBottom="true"
                 tools:ignore="ButtonStyle" />
             <Button
                 android:id="@+id/profile"
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="306dp"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
                 android:text="@string/prof"
                 android:layout_weight="1"
-                android:layout_alignParentBottom="true"
                 tools:ignore="ButtonStyle" />
 
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
