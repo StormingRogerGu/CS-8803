@@ -53,7 +53,7 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/for_recycle_layout"
         android:layout_width="match_parent"
         android:layout_marginLeft="10dp"
@@ -61,16 +61,12 @@
         android:layout_height="350dp"
         tools:context="${relativePackage}.${activityClass}">
 
-        <!--
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle_view"
+        <ListView
+            android:id="@+id/listview1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            android:fadeScrollbars="true"/>
-        -->
+            android:layout_height="match_parent"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <include layout="@layout/navigation_bar"/>
 

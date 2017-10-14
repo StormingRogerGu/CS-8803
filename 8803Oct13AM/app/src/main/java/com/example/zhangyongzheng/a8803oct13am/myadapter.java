@@ -2,9 +2,12 @@ package com.example.zhangyongzheng.a8803oct13am;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,72 +18,60 @@ import java.util.HashMap;
  * Created by zhangyongzheng on 10/13/17.
  */
 
-public class myadapter extends RecyclerView.Adapter{
-    private LayoutInflater inflater;
-    private ArrayList<HashMap<String, Object>> listItem;
-    private MyItemClickListener myItemClickListener;
+public class myadapter extends BaseAdapter{
+    private LayoutInflater mInflater;
+    ArrayList<HashMap<String, Object>> listItem;
+    static class ViewHolder{
+        public ImageView img;
+        public TextView title;
+        public TextView text;
+        public Button btn;
+    }
 
     public myadapter(Context context, ArrayList<HashMap<String, Object>> listItem){
-        inflater = LayoutInflater.from(context);
+        this.mInflater = LayoutInflater.from(context);
         this.listItem = listItem;
     }
 
-    class Viewholder extends RecyclerView.ViewHolder  {
-        private TextView Title, Text;
-        private ImageView ima;
-
-        public Viewholder(View root) {
-            super(root);
-            Title = (TextView) root.findViewById(R.id.task_deadline);
-            Text = (TextView) root.findViewById(R.id.task_name);
-            ima = (ImageView) root.findViewById(R.id.top);
-            root.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            if (myItemClickListener != null)
-                                                myItemClickListener .onItemClick(v,getPosition());
-                                        }
-
-                                    }
-            );
-
-        }
-
-        public TextView getTitle() {
-            return Title;
-        }
-
-        public TextView getText() {
-            return Text;
-        }
-
-        public ImageView getIma() {
-            return ima;
-        }
-
-
-    }
-
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new Viewholder(inflater.inflate(R.layout.task_item, null));
-    }
-
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Viewholder vh = (Viewholder) holder;
-        vh.Title.setText((String) listItem.get(position).get("Deadline"));
-        vh.Text.setText((String) listItem.get(position).get("TaskName"));
-        vh.ima.setImageResource((Integer) listItem.get(position).get("TaskImage"));
-
-    }
-
-    @Override
-    public int getItemCount() {
+    public int getCount() {
         return listItem.size();
     }
 
-    public void setOnItemClickListener(MyItemClickListener listener){
-        myItemClickListener = listener;
+    @Override
+    public Object getItem(int position) {
+        return listItem.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder ;
+        if(convertView == null)
+        {
+            holder = new ViewHolder();
+            convertView = mInflater.inflate(R.layout.task_item, null);
+            holder.img = (ImageView)convertView.findViewById(R.id.task_image);
+            holder.title = (TextView)convertView.findViewById(R.id.task_deadline);
+            holder.text = (TextView)convertView.findViewById(R.id.task_name);
+            holder.btn = (Button) convertView.findViewById(R.id.finish_task);
+            convertView.setTag(holder);
+        }
+        else {
+            holder = (ViewHolder)convertView.getTag();
+
+        }
+        holder.img.setImageResource((Integer) listItem.get(position).get("ItemImage"));
+        holder.title.setText((String) listItem.get(position).get("ItemTitle"));
+        holder.text.setText((String) listItem.get(position).get("ItemText"));
+
+
+        return convertView;
+
+
     }
 }
