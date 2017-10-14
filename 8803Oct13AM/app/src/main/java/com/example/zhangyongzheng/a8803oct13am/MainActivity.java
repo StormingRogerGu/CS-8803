@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,11 +17,11 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button friend;
-    private Button timer;
-    private Button home;
-    private Button puzzle;
-    private Button profile;
+    private ImageButton friend;
+    private ImageButton timer;
+    private ImageButton home;
+    private ImageButton puzzle;
+    private ImageButton profile;
 
     private Button addtask;
     private TextView due_date;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("ItemText",bundle.getString("task_name"));
             map.put("ItemTitle",bundle.getString("due_date"));
-            map.put("ItemImage",R.mipmap.ic_launcher);
+            map.put("ItemImage",R.drawable.up_button_default);
             listItem.add(map);
 
         }
@@ -112,11 +113,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpView(){
 
-        friend = (Button)findViewById(R.id.friend_bar);
-        timer = (Button)findViewById(R.id.timer);
-        home = (Button)findViewById(R.id.home);
-        puzzle = (Button)findViewById(R.id.puzzle);
-        profile = (Button)findViewById(R.id.profile);
+        friend = (ImageButton)findViewById(R.id.friend_bar);
+        timer = (ImageButton)findViewById(R.id.timer);
+        home = (ImageButton)findViewById(R.id.home);
+        puzzle = (ImageButton)findViewById(R.id.puzzle);
+        profile = (ImageButton)findViewById(R.id.profile);
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
     }

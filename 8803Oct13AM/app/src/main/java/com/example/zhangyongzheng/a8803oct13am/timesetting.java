@@ -42,11 +42,11 @@ public class timesetting extends Activity {
     NumberPicker nopicker_hour = null;
     NumberPicker nopicker_min = null;
 
-    private Button friend;
-    private Button timer;
-    private Button home;
-    private Button puzzle;
-    private Button profile;
+    private ImageButton friend;
+    private ImageButton timer;
+    private ImageButton home;
+    private ImageButton puzzle;
+    private ImageButton profile;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -159,11 +159,11 @@ public class timesetting extends Activity {
 
     private void setUpView(){
 
-        friend = (Button)findViewById(R.id.friend_bar);
-        timer = (Button)findViewById(R.id.timer);
-        home = (Button)findViewById(R.id.home);
-        puzzle = (Button)findViewById(R.id.puzzle);
-        profile = (Button)findViewById(R.id.profile);
+        friend = (ImageButton)findViewById(R.id.friend_bar);
+        timer = (ImageButton)findViewById(R.id.timer);
+        home = (ImageButton)findViewById(R.id.home);
+        puzzle = (ImageButton)findViewById(R.id.puzzle);
+        profile = (ImageButton)findViewById(R.id.profile);
 
     }
 

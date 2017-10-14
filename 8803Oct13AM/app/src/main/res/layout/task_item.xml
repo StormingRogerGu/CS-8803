@@ -6,10 +6,10 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="80dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="20dp">
         <TextView
             android:id="@+id/task_deadline"
             android:layout_width="wrap_content"
@@ -23,9 +23,9 @@
         android:orientation="horizontal">
         <Button
             android:id="@+id/finish_task"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:text="@string/finish"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="Done"
             android:layout_weight="1"
             />
         <TextView
@@ -42,6 +42,11 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp">
 
     </LinearLayout>
 
