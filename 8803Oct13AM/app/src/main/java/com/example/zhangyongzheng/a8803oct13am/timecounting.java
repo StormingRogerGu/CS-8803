@@ -28,13 +28,24 @@ public class timecounting extends Activity{
     private Mycount myCount;
     private TextView mTvShow;
     Context mContext;
-
+    private int seconds;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.time_count);
         mTvShow = (TextView) findViewById(R.id.counting_time);
-        myCount = new Mycount(10000, 1000);
+
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        if (bundle != null){
+            //Log.v("Key", bundle.getString("Key"));
+             seconds = bundle.getInt("Key") * 1000;
+        }
+
+
+        myCount = new Mycount(seconds, 1000);
         myCount.start();
     }
 

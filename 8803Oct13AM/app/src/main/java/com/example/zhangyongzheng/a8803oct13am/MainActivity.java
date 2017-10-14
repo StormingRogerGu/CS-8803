@@ -5,8 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button addtask;
     private TextView due_date;
+
+    private ListView lv;
+    private ArrayList<HashMap<String, Object>> listItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +84,18 @@ public class MainActivity extends AppCompatActivity {
             Log.v("test",bundle.getString("key"));
             due_date.setText(bundle.getString("key"));
         }
+        initiData();
+
+        myadapter myownadapter = new myadapter(this, listItem);
+        lv.setAdapter(myownadapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.v("test","click click");
+
+            }
+        });
 
 
     }
@@ -88,8 +108,18 @@ public class MainActivity extends AppCompatActivity {
         puzzle = (Button)findViewById(R.id.puzzle);
         profile = (Button)findViewById(R.id.profile);
         addtask = (Button)findViewById(R.id.addnewtask);
+        lv = (ListView)findViewById(R.id.listview1);
+    }
 
-        
+    private void initiData(){
+        listItem = new ArrayList<HashMap<String, Object>>();
+        for(int i = 0; i<100;i++){
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("ItemImage",R.mipmap.ic_launcher);
+            map.put("ItemTitle",i + "th lane");
+            map.put("ItemText", "this is" + i + "th lane");
+            listItem.add(map);
+        }
     }
 
 
