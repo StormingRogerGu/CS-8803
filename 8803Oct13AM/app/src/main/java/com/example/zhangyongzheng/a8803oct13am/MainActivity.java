@@ -17,6 +17,12 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,9 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
     private Button addtask;
     private TextView due_date;
+    final String TAG = "FireDatabase";
 
     private static ListView lv;
-    private static ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();;
+    private static ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("message");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        initiDatabase();
+        readDatabase();
 
 
     }
@@ -169,20 +180,24 @@ public class MainActivity extends AppCompatActivity {
         drawable.draw(canvas);
         return bitmap;
     }
-
-    private void initiData(){
-        listItem = new ArrayList<HashMap<String, Object>>();
-
-//        for(int i = 0; i<100;i++){
-//            HashMap<String, Object> map = new HashMap<String, Object>();
-//            map.put("ItemImage",R.mipmap.ic_launcher);
-//            map.put("ItemTitle",i + "th lane");
-//            map.put("ItemText", "this is" + i + "th lane");
-//            listItem.add(map);
-//        }
+    public void initiDatabase(){
+        myRef.setValue("initiDatabase");
+        Log.v("initialDatabase","success");
     }
+    public void readDatabase(){
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                Log.d(TAG, "Value is: " + value);
+            }
 
-
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value.");
+            }
+        });
+    }
 
 
 }
