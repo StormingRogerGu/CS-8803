@@ -152,7 +152,8 @@
         android:id="@+id/time_setting_include"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="#FAFAFA">
 
     <include
         layout="@layout/navigation_bar" />

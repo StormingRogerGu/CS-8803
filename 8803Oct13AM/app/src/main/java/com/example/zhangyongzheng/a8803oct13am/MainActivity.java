@@ -1,6 +1,12 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton puzzle;
     private ImageButton profile;
 
+
     private Button addtask;
     private TextView due_date;
 
@@ -34,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_layout);
         setUpView();
+
+        
+
 
         addtask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,timesetting.class);
+                Drawable image = getResources().getDrawable(R.drawable.clock_icon_highlight);
+                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
+
             }
         });
         puzzle.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,puzzle.class);
+                Drawable image = getResources().getDrawable(R.drawable.puzzle_icon_highlight);
+                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
             }
         });
@@ -80,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+
+
 
         myadapter myownadapter = new myadapter(this, listItem);
 
@@ -120,6 +138,36 @@ public class MainActivity extends AppCompatActivity {
         profile = (ImageButton)findViewById(R.id.profile);
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
+    }
+
+    public static byte[] drawable2Bytes(Drawable drawable) {
+
+
+        if (drawable == null) {
+            return null;
+        }
+        Bitmap bitmap = drawableToBitmap(drawable);
+
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
+    }
+    public static Bitmap drawableToBitmap(Drawable drawable) {
+
+
+        Bitmap bitmap = Bitmap
+                .createBitmap(
+                        drawable.getIntrinsicWidth(),
+                        drawable.getIntrinsicHeight(),
+                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                                : Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        // canvas.setBitmap(bitmap);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
+                drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return bitmap;
     }
 
     private void initiData(){

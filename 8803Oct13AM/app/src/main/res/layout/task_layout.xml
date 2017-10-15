@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper_white">
     <LinearLayout
         android:id="@+id/task_layout_layout1"
         android:layout_gravity="center"
@@ -67,14 +68,15 @@
             android:layout_height="match_parent"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp">
+        android:background="#FAFAFA"
+        >
 
-    <include layout="@layout/navigation_bar" />
+        <include layout="@layout/navigation_bar" />
     </LinearLayout>
 
 </RelativeLayout>

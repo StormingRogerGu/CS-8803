@@ -2,14 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent">
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="40dp">
     <LinearLayout
         android:id="@+id/TableLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:background="#FAFAFA"
         >
             <ImageButton
                 android:id="@+id/friend_bar"
@@ -19,6 +23,7 @@
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle"
                 android:src="@drawable/friends_icon_line"
+                android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
             <ImageButton
                 android:id="@+id/timer"
@@ -28,6 +33,7 @@
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle"
                 android:src="@drawable/clock_icon_line"
+                android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
 
             <ImageButton
@@ -38,6 +44,7 @@
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle"
                 android:src="@drawable/deadline_icon_line"
+                android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
 
             <ImageButton
@@ -48,7 +55,9 @@
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle"
                 android:src="@drawable/puzzle_icon_line"
+                android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
+
             <ImageButton
                 android:id="@+id/profile"
                 android:layout_width="fill_parent"
@@ -57,8 +66,10 @@
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle"
                 android:src="@drawable/profile_icon"
+                android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
 
     </LinearLayout>
+    </LinearLayout>>
 
 </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:scrollbars="vertical"
-    android:background="@drawable/wallpaper_white">
+    android:background="#F4F3F1">
 
     <LinearLayout
         android:id="@+id/task_setting_1"
@@ -32,16 +32,18 @@
         android:id="@+id/task_setting_2"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/task_setting_1">
+        android:layout_below="@+id/task_setting_1"
+        android:background="#FAFAFA">
 
         <ImageView
             android:background="@drawable/calender_icon_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            android:layout_marginLeft="30px"/>
 
         <TextView
             android:id="@+id/show_date"
@@ -66,15 +68,17 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="#FAFAFA"
         android:layout_below="@+id/task_setting_2">
 
         <ImageView
             android:background="@drawable/alarm_bell_grey"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30px"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"/>
 
         <TextView
             android:id="@+id/show_time"
@@ -99,27 +103,34 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/task_setting_3">
+        android:layout_below="@+id/task_setting_3"
+        android:background="#FAFAFA">
+        <ImageView
+            android:id="@+id/pencil"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="30px"
+            android:src="@drawable/note_icon_defult"/>
 
         <EditText
             android:id="@+id/add_content"
             android:layout_width="fill_parent"
             android:layout_height="100dp"
-            android:enabled="true"
-            android:gravity="top"
-            android:inputType="textMultiLine"
-            android:minLines="8"
-            android:maxLines="5"
-            android:scrollbars="vertical"
             android:background="@android:drawable/edit_text"
-            android:text="@string/note" />
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:gravity="top"
+            android:hint="note"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:minLines="8"
+            android:scrollbars="vertical" />
 
     </LinearLayout>
 
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_below="@+id/task_setting_4"
