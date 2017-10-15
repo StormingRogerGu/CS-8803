@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 
@@ -26,11 +29,61 @@ public class puzzle extends Activity {
     private ImageButton home;
     private ImageButton puzzle;
     private ImageButton profile;
+    private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
+    private Button bt1;
+    private TextView tx1;
+    int counter=9;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle_gallery);
         setUpView();
+
+
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(counter==9) {
+                    img1.setImageResource(R.drawable.pic1);
+                    counter--;
+                }
+                else if(counter==8) {
+                    img2.setImageResource(R.drawable.pic2);
+                    counter--;
+                }
+                else if(counter==7) {
+                    img3.setImageResource(R.drawable.pic3);
+                    counter--;
+                }
+                else if(counter==6) {
+                    img4.setImageResource(R.drawable.pic4);
+                    counter--;
+                }
+                else if(counter==5) {
+                    img5.setImageResource(R.drawable.pic5);
+                    counter--;
+                }
+                else if(counter==4) {
+                    img6.setImageResource(R.drawable.pic6);
+                    counter--;
+                }
+                else if(counter==3) {
+                    img7.setImageResource(R.drawable.pic7);
+                    counter--;
+                }
+                else if(counter==2) {
+                    img8.setImageResource(R.drawable.pic8);
+                    counter--;
+                }
+                else if(counter==1) {
+                    img9.setImageResource(R.drawable.pic9);
+                    tx1.setVisibility(View.VISIBLE);
+                    tx1.setBackgroundColor(Color.RED);
+                }
+            }
+        });
+
 
         //change icon
         Intent intent = getIntent();
@@ -91,6 +144,20 @@ public class puzzle extends Activity {
         home = (ImageButton)findViewById(R.id.home);
         puzzle = (ImageButton)findViewById(R.id.puzzle);
         profile = (ImageButton)findViewById(R.id.profile);
+        img1=(ImageView)findViewById(R.id.puzzle_1);
+        img2=(ImageView)findViewById(R.id.puzzle_2);
+        img3=(ImageView)findViewById(R.id.puzzle_3);
+        img4=(ImageView)findViewById(R.id.puzzle_4);
+        img5=(ImageView)findViewById(R.id.puzzle_5);
+        img6=(ImageView)findViewById(R.id.puzzle_6);
+        img7=(ImageView)findViewById(R.id.puzzle_7);
+        img8=(ImageView)findViewById(R.id.puzzle_8);
+        img9=(ImageView)findViewById(R.id.puzzle_9);
+        tx1=(TextView)findViewById(R.id.textView);
+        tx1.setVisibility(View.GONE);
+        bt1=(Button)findViewById(R.id.button_id);
+
+
 
     }
 
