@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="@string/today"
+            android:text="Week"
             android:textSize="20sp"
             tools:ignore="ButtonStyle" />
         <Button
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/week"
+            android:text="All"
             android:textSize="20sp"
             android:layout_weight="1"
             tools:ignore="ButtonStyle" />
@@ -33,7 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="@string/all"
+            android:text="Overdue"
+            android:textStyle="normal"
             android:textSize="20sp"
             android:layout_weight="1"
             tools:ignore="ButtonStyle" />
