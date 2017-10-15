@@ -30,16 +30,15 @@ public class timecounting extends Activity{
     private TextView mTvShow;
     Context mContext;
     private int seconds;
-    private Button pause;
-    private Button resume;
+    private Button pause_resume;
     long current_seconds;
+    private boolean button_resume = true;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.time_count);
         mTvShow = (TextView) findViewById(R.id.counting_time);
-        pause = (Button) findViewById(R.id.pause_button);
-        resume = (Button) findViewById(R.id.resume_button);
+        pause_resume = (Button) findViewById(R.id.pause_resume_button);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -52,8 +51,8 @@ public class timecounting extends Activity{
 
         myCount = new Mycount(seconds, 1000);
         myCount.start();
-        setPause();
-        setResume();
+        setPause_Resume();
+
     }
 
     class Mycount extends CountDownTimer{
@@ -85,26 +84,29 @@ public class timecounting extends Activity{
         }
     }
 
-    public void setPause(){
-        pause.setOnClickListener(new View.OnClickListener() {
+    public void setPause_Resume(){
+        pause_resume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                current_seconds = myCount.timetofinfish;
-                myCount.cancel();
+                if (button_resume == true){
+                    current_seconds = myCount.timetofinfish;
+                    myCount.cancel();
+                    button_resume = false;
+                    pause_resume.setBackgroundResource(R.drawable.resume_button);
+
+                }
+                else{
+                    myCount = new Mycount(current_seconds, 1000);
+                    myCount.start();
+                    button_resume = true;
+                    pause_resume.setBackgroundResource(R.drawable.pause_button);
+                }
+
             }
         });
     }
 
-    public void setResume(){
-        resume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                myCount = new Mycount(current_seconds, 1000);
-                myCount.start();
-            }
-        });
-    }
 
     private boolean isTopActivity(String activityName){
         ActivityManager manager = (ActivityManager) mContext.getSystemService(ACTIVITY_SERVICE);

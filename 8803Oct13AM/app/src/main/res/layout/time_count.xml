@@ -27,17 +27,13 @@
         android:layout_marginStart="15dp">
 
         <Button
-            android:id="@+id/pause_button"
+            android:id="@+id/pause_resume_button"
             android:background="@drawable/pause_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="160px"
+            android:layout_height="160px"
            />
 
-        <Button
-            android:id="@+id/resume_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/resume_button"/>
+
     </LinearLayout>
 
 </RelativeLayout>
