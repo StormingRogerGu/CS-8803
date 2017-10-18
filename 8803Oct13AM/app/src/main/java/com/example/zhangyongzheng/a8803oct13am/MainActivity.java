@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         return bitmap;
     }
     public void initiDatabase(){
-        myRef.setValue("initiDatabase");
+        myRef.setValue("initiDatabase33");
         Log.v("initialDatabase","success");
     }
     public void readDatabase(){

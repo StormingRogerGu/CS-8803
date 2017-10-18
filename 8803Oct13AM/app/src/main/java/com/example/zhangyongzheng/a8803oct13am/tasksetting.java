@@ -22,6 +22,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import java.util.Date;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 /**
  * Created by guxiaofeng on 10/12/17.
  */
@@ -33,6 +39,8 @@ public class tasksetting extends Activity{
     private Button pickTime = null;
     private EditText taskname = null;
     private Button confirm_btn;
+    private EditText tasknote = null;
+    private DatabaseReference myDatabase;
 
     private static final int SHOW_DATAPICK = 0;
     private static final int DATE_DIALOG_ID = 1;
@@ -51,6 +59,8 @@ public class tasksetting extends Activity{
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.task_setting);
+
+        myDatabase = FirebaseDatabase.getInstance().getReference("Task");
 
         initializeViews();
 
@@ -72,8 +82,15 @@ public class tasksetting extends Activity{
         confirm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String user_id = "admin";
                 String due_date = (String)showDate.getText();
                 String task_name = taskname.getText().toString();
+                String remind_time = showTime.getText().toString();
+                String task_note = tasknote.getText().toString();
+
+
+                write_task_data(user_id, task_name, due_date, remind_time, task_note);
+
                 Log.v("key",due_date);
                 Intent intent = new Intent(tasksetting.this,MainActivity.class);
                 Bundle bundle = new Bundle();
@@ -95,6 +112,7 @@ public class tasksetting extends Activity{
         showTime = (TextView) findViewById(R.id.show_time);
         pickTime = (Button) findViewById(R.id.pick_time);
         taskname = (EditText)findViewById(R.id.task_name);
+        tasknote = (EditText)findViewById(R.id.add_content);
 
         pickDate.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -215,6 +233,38 @@ public class tasksetting extends Activity{
 //        }
 //
 //    }
+
+    public class Task_detail{
+        //public String user_id;
+        //public String task_name;
+        public String due_date;
+        public String remind_time;
+        public String task_note;
+
+        public Task_detail(){
+
+        }
+
+        public Task_detail(String due_date, String remind_time, String task_note) {
+            //this.user_id = user_id;
+            //this.task_name = task_name;
+            this.due_date = due_date;
+            this.remind_time = remind_time;
+            this.task_note = task_note;
+        }
+    }
+
+    private void write_task_data(String user_id, String task_name, String due_date, String remind_time, String task_note){
+        //Task_detail new_task_detail = new Task_detail(due_date, remind_time, task_note);
+        Log.v("output", task_name);
+        //myDatabase.child("task_detail").child("note").setValue(task_name);
+        //myDatabase.child(user_id).child("note").setValue(task_name);
+        myDatabase.child(user_id).child(task_name).child("due_date").setValue(due_date);
+        myDatabase.child(user_id).child(task_name).child("remind_time").setValue(remind_time);
+        myDatabase.child(user_id).child(task_name).child("note").setValue(task_note);
+
+    }
+
 
 
 }
