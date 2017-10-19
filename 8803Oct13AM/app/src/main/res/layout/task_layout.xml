@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper_white">
     <LinearLayout
@@ -73,12 +74,21 @@
         android:layout_below="@+id/task_layout_layout2"
         tools:context="${relativePackage}.${activityClass}"
         android:layout_above="@+id/linearLayout"
-        android:layout_alignBottom="@+id/linearLayout">
+        android:layout_alignBottom="@+id/linearmargin">
 
         <ListView
             android:id="@+id/listview1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearmargin"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/linearLayout">
 
     </LinearLayout>
 
