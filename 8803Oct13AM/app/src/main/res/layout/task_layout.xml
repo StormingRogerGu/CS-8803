@@ -49,9 +49,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="5dp"
             android:text="@string/add"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/refresh_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:text="refresh"
+            android:textSize="20sp"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout
@@ -61,7 +71,9 @@
         android:layout_marginRight="10dp"
         android:layout_height="350dp"
         android:layout_below="@+id/task_layout_layout2"
-        tools:context="${relativePackage}.${activityClass}">
+        tools:context="${relativePackage}.${activityClass}"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignBottom="@+id/linearLayout">
 
         <ListView
             android:id="@+id/listview1"
@@ -75,7 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FAFAFA"
-        >
+        android:id="@+id/linearLayout">
 
         <include layout="@layout/navigation_bar" />
     </LinearLayout>

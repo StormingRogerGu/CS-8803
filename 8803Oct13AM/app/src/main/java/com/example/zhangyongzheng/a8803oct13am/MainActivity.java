@@ -1,12 +1,11 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
+import android.content.Entity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,11 +20,16 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,24 +39,51 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton home;
     private ImageButton puzzle;
     private ImageButton profile;
-
-
     private Button addtask;
+    private Button refreshbtn;
     private TextView due_date;
+
     final String TAG = "FireDatabase";
 
-    private static ListView lv;
-    private static ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
+    public class Task_detail{
+        //public String user_id;
+        //public String task_name;
+        public String due_date;
+        public String remind_time;
+        public String task_note;
+
+        public Task_detail(){
+
+        }
+
+        public Task_detail(String due_date, String remind_time, String task_note) {
+            //this.user_id = user_id;
+            //this.task_name = task_name;
+            this.due_date = due_date;
+            this.remind_time = remind_time;
+            this.task_note = task_note;
+        }
+    }
+
+
+    //private Object retirve_Data = retirvedata.newInstance();
+
+    private ListView lv;
+    private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
+    DatabaseReference myRef1 = database.getReference("Task");
+    DatabaseReference myRef = myRef1.child("admin");
+    //private HashMap<String, Task_detail> mylist = new HashMap<String, Task_detail>();
+    public List<String> listkey = new ArrayList<String>();
+    public List<Task_detail> listvalue = new ArrayList<Task_detail>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_layout);
         setUpView();
-
-        
+        final myadapter myownadapter = new myadapter(this, listItem);
 
 
         addtask.setOnClickListener(new View.OnClickListener() {
@@ -101,31 +132,121 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(addnewtask);
             }
         });
-        //due_date = (TextView)findViewById(R.id.date);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
+        refreshbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot post: dataSnapshot.getChildren()){
+                            //Log.v("retdata","zzzzzzz");
+                            String key = post.getKey();
+                            List<String> temp = new ArrayList<String>();
+                            for (DataSnapshot postson : post.getChildren()){
+                                String s = postson.getValue(String.class);
+                                temp.add(s);
+
+                            }
+
+                            String s1 = temp.get(0);
+                            String s2 = temp.get(1);
+                            String s3 = temp.get(2);
+                            Task_detail dt =new Task_detail(s1,s2,s3);
+                            listkey.add(key);
+                            //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
+
+                            //Log.v("retdata",key);
+                            listvalue.add(dt);
+
+                        }
+                        initdata();
+                        Log.v("afterinit","go");
+
+                        myownadapter.updateData(listItem);
+                        lv.setAdapter(myownadapter);
+                        Log.v("afterlistview","go");
+                        for(int i = 0; i<listvalue.size();i++){
+                            Log.v("lllllllll",listvalue.get(i).due_date);
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+//                myRef.addValueEventListener(new ValueEventListener() {
+//
+//
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        //Log.v("retdata","hhhhhhhhhhhhhh");
+////                String val = dataSnapshot.getValue(String.class);
+////                Log.v("tetetetetet",val);
+//                        for(DataSnapshot post: dataSnapshot.getChildren()){
+//                            //Log.v("retdata","zzzzzzz");
+//                            String key = post.getKey();
+//                            List<String> temp = new ArrayList<String>();
+//                            for (DataSnapshot postson : post.getChildren()){
+//                                String s = postson.getValue(String.class);
+//                                temp.add(s);
+//
+//                            }
+//
+//                            String s1 = temp.get(0);
+//                            String s2 = temp.get(1);
+//                            String s3 = temp.get(2);
+//
+////                    String val1 = post.child("due_date").getValue().toString();
+////                    //String val1 = "c";
+////                    //String val2 = post.child("note").getValue().toString();
+////                    String val2 = "a";
+////                    //String val3 = post.child("remind_time").getValue().toString();
+////                    String val3 = "b";
+//                            Task_detail dt =new Task_detail(s1,s2,s3);
+//                            listkey.add(key);
+//                            //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
+//
+//                            //Log.v("retdata",key);
+//                            listvalue.add(dt);
+//                            initdata();
+//                            Log.v("afterinit","go");
+//
+//                            myownadapter.updateData(listItem);
+//                            lv.setAdapter(myownadapter);
+//                            Log.v("afterlistview","go");
+//                        }
+//                        for(int i = 0; i<listvalue.size();i++){
+//                            Log.v("lllllllll",listvalue.get(i).due_date);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
 
 
 
-        myadapter myownadapter = new myadapter(this, listItem);
-
-        if(bundle != null){
-            Log.v("test",bundle.getString("due_date"));
-            Log.v("test2",bundle.getString("task_name"));
-            //due_date.setText(bundle.getString("due_date"));
-            HashMap<String, Object> map = new HashMap<String, Object>();
-            map.put("ItemText",bundle.getString("task_name"));
-            map.put("ItemTitle",bundle.getString("due_date"));
-            map.put("ItemImage",R.drawable.up_button_default);
-            listItem.add(map);
-
-        }
-        //initiData();
+            }
+        });
 
 
-        myownadapter.updateData(listItem);
-        lv.setAdapter(myownadapter);
+        //Intent intent = getIntent();
+        //Bundle bundle = intent.getExtras();
+
+        //myadapter myownadapter = new myadapter(this, listItem);
+        //Log.v("afteradpter","go");
+
+
+
+//        myownadapter.updateData(listItem);
+//        lv.setAdapter(myownadapter);
+//        Log.v("afterlistview","go");
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -134,8 +255,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        initiDatabase();
-        readDatabase();
+
 
 
     }
@@ -149,6 +269,7 @@ public class MainActivity extends AppCompatActivity {
         profile = (ImageButton)findViewById(R.id.profile);
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
+        refreshbtn = (Button)findViewById(R.id.refresh_btn);
     }
 
     public static byte[] drawable2Bytes(Drawable drawable) {
@@ -180,25 +301,32 @@ public class MainActivity extends AppCompatActivity {
         drawable.draw(canvas);
         return bitmap;
     }
-    public void initiDatabase(){
-        myRef.setValue("initiDatabase33");
-        Log.v("initialDatabase","success");
-    }
-    public void readDatabase(){
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read value.");
-            }
-        });
-    }
+    public void initdata(){
 
+//            for (Map.Entry<String, Task_detail> it : mylist.entrySet()){
+//                HashMap<String, Object> map = new HashMap<String, Object>();
+//                map.put("ItemText", it.getKey().toString());
+//                Log.v("key","dfasdfsdaf");
+//                map.put("ItemTitle", it.getValue().due_date);
+//                map.put("ItemImage", R.drawable.up_button_default);
+//                listItem.add(map);
+//            }
+        for (int i = 0; i < listkey.size(); i++){
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("ItemText", listkey.get(i));
+            map.put("ItemTitle", (String)listvalue.get(i).due_date);
+            map.put("ItemImage", R.drawable.up_button_default);
+            listItem.add(map);
+        }
+
+        for (int i = 0; i < listItem.size(); i++){
+           for (Map.Entry<String,Object> it : listItem.get(i).entrySet()){
+               Log.v("keyhash",it.getValue().toString());
+           }
+        }
+
+    }
 
 }
 

@@ -28,6 +28,7 @@ public class myadapter extends BaseAdapter{
         public Button btn;
     }
 
+
     public myadapter(Context context, ArrayList<HashMap<String, Object>> listItem){
         this.mInflater = LayoutInflater.from(context);
         this.listItem = listItem;
