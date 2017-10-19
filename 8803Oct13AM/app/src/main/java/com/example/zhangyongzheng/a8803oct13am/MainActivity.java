@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addtask;
     private Button refreshbtn;
     private TextView due_date;
+    private String usr_id;
 
     final String TAG = "FireDatabase";
 
@@ -71,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
     private ListView lv;
     private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef1 = database.getReference("Task");
-    DatabaseReference myRef = myRef1.child("admin");
+    DatabaseReference myRef1 = database.getReference("User_profile");
+    DatabaseReference myRef2 = myRef1.child("admin");
+    DatabaseReference myRef = myRef2.child("Task");
     //private HashMap<String, Task_detail> mylist = new HashMap<String, Task_detail>();
     public List<String> listkey = new ArrayList<String>();
     public List<Task_detail> listvalue = new ArrayList<Task_detail>();
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_layout);
+
         setUpView();
         final myadapter myownadapter = new myadapter(this, listItem);
 
@@ -270,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
         refreshbtn = (Button)findViewById(R.id.refresh_btn);
+        usr_id = "admin";
     }
 
     public static byte[] drawable2Bytes(Drawable drawable) {

@@ -60,7 +60,7 @@ public class tasksetting extends Activity{
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.task_setting);
 
-        myDatabase = FirebaseDatabase.getInstance().getReference("Task");
+        myDatabase = FirebaseDatabase.getInstance().getReference("User_profile");
 
         initializeViews();
 
@@ -255,16 +255,15 @@ public class tasksetting extends Activity{
     }
 
     private void write_task_data(String user_id, String task_name, String due_date, String remind_time, String task_note){
-        //Task_detail new_task_detail = new Task_detail(due_date, remind_time, task_note);
-        Log.v("output", task_name);
-        //myDatabase.child("task_detail").child("note").setValue(task_name);
-        //myDatabase.child(user_id).child("note").setValue(task_name);
-        myDatabase.child(user_id).child(task_name).child("due_date").setValue(due_date);
-        myDatabase.child(user_id).child(task_name).child("remind_time").setValue(remind_time);
-        myDatabase.child(user_id).child(task_name).child("note").setValue(task_note);
+
+        //Task_detail task_detail = new Task_detail(due_date, remind_time, task_note);
+
+        //myDatabase.child(user_id).child(task_name).setValue(task_detail);
+
+        myDatabase.child(user_id).child("Task").child(task_name).child("due_date").setValue(due_date);
+        myDatabase.child(user_id).child("Task").child(task_name).child("remind_time").setValue(remind_time);
+        myDatabase.child(user_id).child("Task").child(task_name).child("note").setValue(task_note);
 
     }
-
-
 
 }
