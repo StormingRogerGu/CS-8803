@@ -22,6 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class login extends Activity  {
     Button b1,b2;
     EditText ed1,ed2;
@@ -50,10 +52,11 @@ public class login extends Activity  {
             @Override
             public void onClick(View v) {
                 //myRef:User_Profile
+                final String usr_id = ed1.getText().toString();
                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
                     boolean finduser = false;
-                    boolean matchpwd = false;
+
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot post : dataSnapshot.getChildren()) {
@@ -91,9 +94,13 @@ public class login extends Activity  {
 
                         }
                         if (finduser == true){
-                            Intent directToMain = new Intent();
-                            directToMain.setClass(login.this, MainActivity.class);
-                            startActivity(directToMain);
+                            Intent intent = new Intent(login.this, MainActivity.class);
+
+                            Bundle bundle = new Bundle();
+                            bundle.putString("usr_id", usr_id);
+
+                            intent.putExtras(bundle);
+                            startActivity(intent);
                             finish();
                         }
                         else{
@@ -109,9 +116,6 @@ public class login extends Activity  {
                             }
                         }
 
-
-
-
                     }
 
                     @Override
@@ -120,33 +124,15 @@ public class login extends Activity  {
                     }
                 });
 
-//                if(ed1.getText().toString().equals("admin") &&
-//                        ed2.getText().toString().equals("admin")) {
 //
-//                    Intent directToMain = new Intent();
-//                    directToMain.setClass(login.this, MainActivity.class);
-//                    startActivity(directToMain);
-//                    finish();
-
-
-//                }else{
-//                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
-
-//                    tx1.setVisibility(View.VISIBLE);
-//                    tx1.setBackgroundColor(Color.RED);
-//                    counter--;
-//                    tx1.setText(Integer.toString(counter));
-
-//                    if (counter == 0) {
-//                        b1.setEnabled(false);
-//                    }
-//                }
             }
         });
 
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(login.this, signup.class);
+                startActivity(intent);
                 finish();
             }
         });

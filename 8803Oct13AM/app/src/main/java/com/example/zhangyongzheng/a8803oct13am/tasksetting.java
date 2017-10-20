@@ -41,6 +41,7 @@ public class tasksetting extends Activity{
     private Button confirm_btn;
     private EditText tasknote = null;
     private DatabaseReference myDatabase;
+    public String User_id;
 
     private static final int SHOW_DATAPICK = 0;
     private static final int DATE_DIALOG_ID = 1;
@@ -63,6 +64,8 @@ public class tasksetting extends Activity{
         myDatabase = FirebaseDatabase.getInstance().getReference("User_profile");
 
         initializeViews();
+        setUsr_id();
+
 
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
@@ -82,11 +85,13 @@ public class tasksetting extends Activity{
         confirm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user_id = "admin";
+                String user_id = User_id.toString();
                 String due_date = (String)showDate.getText();
                 String task_name = taskname.getText().toString();
                 String remind_time = showTime.getText().toString();
                 String task_note = tasknote.getText().toString();
+
+                Log.v("Userid",user_id);
 
 
                 write_task_data(user_id, task_name, due_date, remind_time, task_note);
@@ -94,9 +99,10 @@ public class tasksetting extends Activity{
                 Log.v("key",due_date);
                 Intent intent = new Intent(tasksetting.this,MainActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("due_date",due_date);
-                bundle.putString("task_name",task_name);
 
+//                bundle.putString("due_date",due_date);
+//                bundle.putString("task_name",task_name);
+                bundle.putString("usr_id", user_id);
                 intent.putExtras(bundle);
 
                 startActivity(intent);
@@ -264,6 +270,16 @@ public class tasksetting extends Activity{
         myDatabase.child(user_id).child("Task").child(task_name).child("remind_time").setValue(remind_time);
         myDatabase.child(user_id).child("Task").child(task_name).child("note").setValue(task_note);
 
+    }
+
+    public void setUsr_id(){
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+
+            User_id = bundle.getString("usr_id");
+            Log.v("id_to_addtask", User_id);
+        }
     }
 
 }

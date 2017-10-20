@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private Button refreshbtn;
     private TextView due_date;
     private String usr_id;
+    private DatabaseReference myRef;
 
     final String TAG = "FireDatabase";
 
@@ -53,11 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView lv;
     private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef1 = database.getReference("User_profile");
-    DatabaseReference myRef2 = myRef1.child("admin");
-    DatabaseReference myRef = myRef2.child("Task");
+
     //private HashMap<String, Task_detail> mylist = new HashMap<String, Task_detail>();
+
+//    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    private DatabaseReference myRef1 = database.getReference("User_profile");
+//    private DatabaseReference myRef2 = myRef1.child(usr_id);
+//    private DatabaseReference myRef = myRef2.child("Task");
     public List<String> listkey = new ArrayList<String>();
     public List<Task_detail> listvalue = new ArrayList<Task_detail>();
     public orderduedate fororder = new orderduedate();
@@ -69,13 +72,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.task_layout);
 
         setUpView();
+        setUsr_id();
         final myadapter myownadapter = new myadapter(this, listItem);
+
+
 
 
         addtask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putString("usr_id", usr_id);
+                addnewtask.putExtras(bundle);
                 addnewtask.setClass(MainActivity.this,tasksetting.class);
                 startActivity(addnewtask);
             }
@@ -173,75 +182,12 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-//                myRef.addValueEventListener(new ValueEventListener() {
-//
-//
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        //Log.v("retdata","hhhhhhhhhhhhhh");
-////                String val = dataSnapshot.getValue(String.class);
-////                Log.v("tetetetetet",val);
-//                        for(DataSnapshot post: dataSnapshot.getChildren()){
-//                            //Log.v("retdata","zzzzzzz");
-//                            String key = post.getKey();
-//                            List<String> temp = new ArrayList<String>();
-//                            for (DataSnapshot postson : post.getChildren()){
-//                                String s = postson.getValue(String.class);
-//                                temp.add(s);
-//
-//                            }
-//
-//                            String s1 = temp.get(0);
-//                            String s2 = temp.get(1);
-//                            String s3 = temp.get(2);
-//
-////                    String val1 = post.child("due_date").getValue().toString();
-////                    //String val1 = "c";
-////                    //String val2 = post.child("note").getValue().toString();
-////                    String val2 = "a";
-////                    //String val3 = post.child("remind_time").getValue().toString();
-////                    String val3 = "b";
-//                            Task_detail dt =new Task_detail(s1,s2,s3);
-//                            listkey.add(key);
-//                            //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
-//
-//                            //Log.v("retdata",key);
-//                            listvalue.add(dt);
-//                            initdata();
-//                            Log.v("afterinit","go");
-//
-//                            myownadapter.updateData(listItem);
-//                            lv.setAdapter(myownadapter);
-//                            Log.v("afterlistview","go");
-//                        }
-//                        for(int i = 0; i<listvalue.size();i++){
-//                            Log.v("lllllllll",listvalue.get(i).due_date);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//
-//                    }
-//                });
-
-
 
             }
         });
 
 
-        //Intent intent = getIntent();
-        //Bundle bundle = intent.getExtras();
 
-        //myadapter myownadapter = new myadapter(this, listItem);
-        //Log.v("afteradpter","go");
-
-
-
-//        myownadapter.updateData(listItem);
-//        lv.setAdapter(myownadapter);
-//        Log.v("afterlistview","go");
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -265,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
         refreshbtn = (Button)findViewById(R.id.refresh_btn);
-        usr_id = "admin";
+        //usr_id = "admin";
     }
 
     public static byte[] drawable2Bytes(Drawable drawable) {
@@ -317,6 +263,16 @@ public class MainActivity extends AppCompatActivity {
             listItem.add(map);
         }
 
+    }
+
+    public void setUsr_id(){
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null){
+            usr_id = bundle.getString("usr_id");
+            Log.v("id_to_main", usr_id);
+        }
+        myRef = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Task");
     }
 
 }
