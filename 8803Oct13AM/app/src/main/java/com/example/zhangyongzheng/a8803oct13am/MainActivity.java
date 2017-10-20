@@ -30,6 +30,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,27 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
     final String TAG = "FireDatabase";
 
-    public class Task_detail{
-        //public String user_id;
-        //public String task_name;
-        public String due_date;
-        public String remind_time;
-        public String task_note;
-
-        public Task_detail(){
-
-        }
-
-        public Task_detail(String due_date, String remind_time, String task_note) {
-            //this.user_id = user_id;
-            //this.task_name = task_name;
-            this.due_date = due_date;
-            this.remind_time = remind_time;
-            this.task_note = task_note;
-        }
-    }
-
-
     //private Object retirve_Data = retirvedata.newInstance();
 
     private ListView lv;
@@ -78,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     //private HashMap<String, Task_detail> mylist = new HashMap<String, Task_detail>();
     public List<String> listkey = new ArrayList<String>();
     public List<Task_detail> listvalue = new ArrayList<Task_detail>();
+    public orderduedate fororder = new orderduedate();
 
 
     @Override
@@ -140,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                listkey.clear();
+                listvalue.clear();
+                listItem.clear();
+
                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -164,8 +151,13 @@ public class MainActivity extends AppCompatActivity {
                             listvalue.add(dt);
 
                         }
+
                         initdata();
+                        listvalue.clear();
+                        listkey.clear();
+
                         Log.v("afterinit","go");
+
 
                         myownadapter.updateData(listItem);
                         lv.setAdapter(myownadapter);
@@ -308,26 +300,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void initdata(){
 
-//            for (Map.Entry<String, Task_detail> it : mylist.entrySet()){
-//                HashMap<String, Object> map = new HashMap<String, Object>();
-//                map.put("ItemText", it.getKey().toString());
-//                Log.v("key","dfasdfsdaf");
-//                map.put("ItemTitle", it.getValue().due_date);
-//                map.put("ItemImage", R.drawable.up_button_default);
-//                listItem.add(map);
-//            }
+        HashMap<String, Task_detail> original = new HashMap<String, Task_detail>();
+        for(int i = 0; i<listkey.size();i++){
+            String key = listkey.get(i);
+            Task_detail td = listvalue.get(i);
+            original.put(key,td);
+        }
+        List<Map.Entry<String, Task_detail>> orderdate = new ArrayList<Map.Entry<String, Task_detail>>(original.entrySet());
+        Collections.sort(orderdate,fororder);
+
         for (int i = 0; i < listkey.size(); i++){
             HashMap<String, Object> map = new HashMap<String, Object>();
-            map.put("ItemText", listkey.get(i));
-            map.put("ItemTitle", (String)listvalue.get(i).due_date);
+            map.put("ItemText", orderdate.get(i).getKey());
+            map.put("ItemTitle", (String)orderdate.get(i).getValue().due_date);
             map.put("ItemImage", R.drawable.up_button_default);
             listItem.add(map);
-        }
-
-        for (int i = 0; i < listItem.size(); i++){
-           for (Map.Entry<String,Object> it : listItem.get(i).entrySet()){
-               Log.v("keyhash",it.getValue().toString());
-           }
         }
 
     }
