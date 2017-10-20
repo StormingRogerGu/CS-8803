@@ -12,6 +12,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class login extends Activity  {
     Button b1,b2;
@@ -19,6 +28,9 @@ public class login extends Activity  {
 
     TextView tx1;
     int counter = 3;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("User_profile");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,30 +45,102 @@ public class login extends Activity  {
         tx1 = (TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
 
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ed1.getText().toString().equals("admin") &&
-                        ed2.getText().toString().equals("admin")) {
+                //myRef:User_Profile
+                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
-                    Intent directToMain = new Intent();
-                    directToMain.setClass(login.this, MainActivity.class);
-                    startActivity(directToMain);
-                    finish();
+                    boolean finduser = false;
+                    boolean matchpwd = false;
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot post : dataSnapshot.getChildren()) {
+
+                            String key = post.getKey();
+
+                            //Find users
+                            if (ed1.getText().toString().equals(key)) {
+                                finduser = true;
+                                //Log.v("user_id", key);
+                                DataSnapshot s = post.child("user_pwd");
+                                String passWord = s.getValue(String.class);
+                                //Log.v("password", passWord);
+                                //Password is corrent
+                                if (ed2.getText().toString().equals(passWord)) {
+                                    break;
+                                }
+
+                                //Password is wrong
+                                else {
+                                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+
+                                    tx1.setVisibility(View.VISIBLE);
+                                    tx1.setBackgroundColor(Color.RED);
+                                    counter--;
+                                    tx1.setText(Integer.toString(counter));
+
+                                    if (counter == 0) {
+                                        b1.setEnabled(false);
+                                    }
+                                }
+                            }
 
 
-                }else{
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
+
+                        }
+                        if (finduser == true){
+                            Intent directToMain = new Intent();
+                            directToMain.setClass(login.this, MainActivity.class);
+                            startActivity(directToMain);
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
 
                             tx1.setVisibility(View.VISIBLE);
-                    tx1.setBackgroundColor(Color.RED);
-                    counter--;
-                    tx1.setText(Integer.toString(counter));
+                            tx1.setBackgroundColor(Color.RED);
+                            counter--;
+                            tx1.setText(Integer.toString(counter));
 
-                    if (counter == 0) {
-                        b1.setEnabled(false);
+                            if (counter == 0) {
+                                b1.setEnabled(false);
+                            }
+                        }
+
+
+
+
                     }
-                }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+//                if(ed1.getText().toString().equals("admin") &&
+//                        ed2.getText().toString().equals("admin")) {
+//
+//                    Intent directToMain = new Intent();
+//                    directToMain.setClass(login.this, MainActivity.class);
+//                    startActivity(directToMain);
+//                    finish();
+
+
+//                }else{
+//                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
+
+//                    tx1.setVisibility(View.VISIBLE);
+//                    tx1.setBackgroundColor(Color.RED);
+//                    counter--;
+//                    tx1.setText(Integer.toString(counter));
+
+//                    if (counter == 0) {
+//                        b1.setEnabled(false);
+//                    }
+//                }
             }
         });
 
