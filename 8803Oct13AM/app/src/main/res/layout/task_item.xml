@@ -24,7 +24,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:descendantFocusability="blocksDescendants"
+        >
         <Button
             android:layout_marginLeft="30px"
             android:id="@+id/finish_task"
@@ -32,6 +34,7 @@
             android:layout_height="50dp"
             android:text="Done"
             android:layout_weight="1"
+            android:focusable="false"
             />
         <TextView
             android:id="@+id/task_name"

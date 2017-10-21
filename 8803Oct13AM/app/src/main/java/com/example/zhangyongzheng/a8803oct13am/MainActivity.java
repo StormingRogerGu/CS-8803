@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
     public List<String> listkey = new ArrayList<String>();
     public List<Task_detail> listvalue = new ArrayList<Task_detail>();
     public orderduedate fororder = new orderduedate();
+    private HashMap<String, Task_detail> original = new HashMap<String, Task_detail>();
+    private List<Map.Entry<String, Task_detail>> copytodelete;
 
 
     @Override
@@ -72,8 +74,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.task_layout);
 
         setUpView();
+
         setUsr_id();
-        final myadapter myownadapter = new myadapter(this, listItem);
+        final myadapter myownadapter = new myadapter(this, listItem, mListener);
 
 
 
@@ -246,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initdata(){
 
-        HashMap<String, Task_detail> original = new HashMap<String, Task_detail>();
+        //HashMap<String, Task_detail> original = new HashMap<String, Task_detail>();
         for(int i = 0; i<listkey.size();i++){
             String key = listkey.get(i);
             Task_detail td = listvalue.get(i);
@@ -262,8 +265,10 @@ public class MainActivity extends AppCompatActivity {
             map.put("ItemImage", R.drawable.up_button_default);
             listItem.add(map);
         }
+        copytodelete = orderdate;
 
     }
+
 
     public void setUsr_id(){
         Intent intent = getIntent();
@@ -273,6 +278,19 @@ public class MainActivity extends AppCompatActivity {
             Log.v("id_to_main", usr_id);
         }
         myRef = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Task");
+    }
+
+    private myadapter.MyClickListener mListener = new myadapter.MyClickListener() {
+        @Override
+        public void myOnClick(int position, View v) {
+            myRef.child(copytodelete.get(position).getKey()).removeValue();
+
+        }
+    };
+
+    public void refresh(){
+
+
     }
 
 }

@@ -1,8 +1,10 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,17 +23,21 @@ import java.util.HashMap;
 public class myadapter extends BaseAdapter{
     private LayoutInflater mInflater;
     ArrayList<HashMap<String, Object>> listItem;
+    private MyClickListener mListener;
     static class ViewHolder{
         public ImageView img;
         public TextView title;
         public TextView text;
         public Button btn;
+
     }
 
 
-    public myadapter(Context context, ArrayList<HashMap<String, Object>> listItem){
+    public myadapter(Context context, ArrayList<HashMap<String, Object>> listItem, MyClickListener listener){
         this.mInflater = LayoutInflater.from(context);
         this.listItem = listItem;
+        this.mListener = listener;
+
     }
 
     @Override
@@ -69,6 +75,8 @@ public class myadapter extends BaseAdapter{
         holder.img.setImageResource((Integer) listItem.get(position).get("ItemImage"));
         holder.title.setText((String) listItem.get(position).get("ItemTitle"));
         holder.text.setText((String) listItem.get(position).get("ItemText"));
+        holder.btn.setOnClickListener(mListener);
+        holder.btn.setTag(position);
 
         return convertView;
 
@@ -78,4 +86,33 @@ public class myadapter extends BaseAdapter{
         this.listItem = listItem;
         notifyDataSetChanged();
     }
+
+//    private class myListenDelete implements View.OnClickListener {
+//
+//        int position;
+//
+//        public myListenDelete(int position){
+//            this.position = position;
+//        }
+//
+//
+//        @Override
+//        public void onClick(View view) {
+//            Log.v("where","here");
+//
+//        }
+//
+//
+//    }
+    public static abstract class MyClickListener implements View.OnClickListener {
+    
+    @Override
+    public void onClick(View v){
+        myOnClick((Integer) v.getTag(), v);
+
+    }
+
+    public abstract void myOnClick(int position, View v);
+
+}
 }
