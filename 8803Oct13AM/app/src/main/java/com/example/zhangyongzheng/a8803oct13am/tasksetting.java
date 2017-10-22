@@ -42,6 +42,7 @@ public class tasksetting extends Activity{
     private EditText tasknote = null;
     private DatabaseReference myDatabase;
     public String User_id;
+    private User_id my_usr_id;
 
     private static final int SHOW_DATAPICK = 0;
     private static final int DATE_DIALOG_ID = 1;
@@ -273,13 +274,16 @@ public class tasksetting extends Activity{
     }
 
     public void setUsr_id(){
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if (bundle != null) {
+//        Intent intent = getIntent();
+//        Bundle bundle = intent.getExtras();
+//        if (bundle != null) {
+//
+//            User_id = bundle.getString("usr_id");
+//            Log.v("id_to_addtask", User_id);
+//        }
+        my_usr_id = (User_id) getApplication();
+        User_id = my_usr_id.getUserid();
 
-            User_id = bundle.getString("usr_id");
-            Log.v("id_to_addtask", User_id);
-        }
     }
 
 }

@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView due_date;
     private String usr_id;
     private DatabaseReference myRef;
+    private User_id my_usr_id;
 
     final String TAG = "FireDatabase";
 
@@ -271,12 +272,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void setUsr_id(){
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if (bundle != null){
-            usr_id = bundle.getString("usr_id");
-            Log.v("id_to_main", usr_id);
-        }
+//        Intent intent = getIntent();
+//        Bundle bundle = intent.getExtras();
+//        if (bundle != null){
+//            usr_id = bundle.getString("usr_id");
+//            Log.v("id_to_main", usr_id);
+//        }
+
+        my_usr_id = (User_id) getApplication();
+        usr_id = my_usr_id.getUserid();
         myRef = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Task");
     }
 

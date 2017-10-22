@@ -96,10 +96,13 @@ public class login extends Activity  {
                         if (finduser == true){
                             Intent intent = new Intent(login.this, MainActivity.class);
 
-                            Bundle bundle = new Bundle();
-                            bundle.putString("usr_id", usr_id);
+//                            Bundle bundle = new Bundle();
+//                            bundle.putString("usr_id", usr_id);
+//
+//                            intent.putExtras(bundle);
+                            User_id userId = ((User_id)getApplicationContext());
+                            userId.setUserid(usr_id);
 
-                            intent.putExtras(bundle);
                             startActivity(intent);
                             finish();
                         }
