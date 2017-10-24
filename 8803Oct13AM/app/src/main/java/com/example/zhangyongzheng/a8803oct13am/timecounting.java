@@ -37,6 +37,8 @@ public class timecounting extends Activity{
     private int notifyId = 100;
     private NotificationManager mNotificationManager;
     public NotificationCompat.Builder mBuilder;
+    private User_id Utils;
+    boolean finish_task = true;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,34 @@ public class timecounting extends Activity{
         myCount = new Mycount(seconds, 1000);
         myCount.start();
         setPause_Resume();
+
+//        if (button_resume == false)
+//            onStop();
+
     }
+
+
+    @Override
+    //Supervise the log out the page
+    protected void onStop() {
+        super.onStop();
+        if(!Utils.isForeground(this))
+        {
+            if (button_resume == true) {
+
+                finish_task = false;
+                showIntentActivityNotify("Lose");
+
+            }
+            else{
+                showIntentActivityNotify("Back!!!!!");
+
+            }
+        }
+    }
+
+
+
 
     private void initNotify() {
         mNotificationManager = (NotificationManager) getSystemService((NOTIFICATION_SERVICE));
@@ -105,7 +134,10 @@ public class timecounting extends Activity{
             mTvShow.setText("You have successfully finished your study time!");
 
             mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
-            showIntentActivityNotify("Congratulations! New Puzzle!");
+            if (finish_task == true)
+                showIntentActivityNotify("Congratulations! New Puzzle!");
+            else
+                showIntentActivityNotify("Sorry, You lose");
 
         //TODO: AFITER FINISH THE TIME MODE, SEND MESSAGE TO PUZZLE GALLERY AND
 //            Intent jumptogallery = new Intent();
@@ -149,17 +181,5 @@ public class timecounting extends Activity{
 
 
 
-    private boolean isTopActivity(String activityName){
-        ActivityManager manager = (ActivityManager) mContext.getSystemService(ACTIVITY_SERVICE);
-        List<ActivityManager.RunningTaskInfo> runningTaskInfos = manager.getRunningTasks(1);
-        String cmpNameTemp = null;
-        if(runningTaskInfos != null){
-            cmpNameTemp = runningTaskInfos.get(0).topActivity.toString();
-        }
-        if(cmpNameTemp == null){
-            return false;
-        }
-        return cmpNameTemp.equals(activityName);
-    }
 
 }
