@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
         profile = (ImageButton)findViewById(R.id.profile);
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
-        refreshbtn = (Button)findViewById(R.id.refresh_btn);
+        //refreshbtn = (Button)findViewById(R.id.refresh_btn);
         //usr_id = "admin";
     }
 
