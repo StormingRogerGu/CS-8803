@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,8 +25,9 @@ public class myadapter extends BaseAdapter{
     private LayoutInflater mInflater;
     ArrayList<HashMap<String, Object>> listItem;
     private MyClickListener mListener;
+    private MyFlagClickListener mFListener;
     static class ViewHolder{
-        public ImageView img;
+        public ImageButton img;
         public TextView title;
         public TextView text;
         public Button btn;
@@ -33,10 +35,11 @@ public class myadapter extends BaseAdapter{
     }
 
 
-    public myadapter(Context context, ArrayList<HashMap<String, Object>> listItem, MyClickListener listener){
+    public myadapter(Context context, ArrayList<HashMap<String, Object>> listItem, MyClickListener listener, MyFlagClickListener flaglistenter){
         this.mInflater = LayoutInflater.from(context);
         this.listItem = listItem;
         this.mListener = listener;
+        this.mFListener = flaglistenter;
 
     }
 
@@ -62,7 +65,7 @@ public class myadapter extends BaseAdapter{
         {
             holder = new ViewHolder();
             convertView = mInflater.inflate(R.layout.task_item, null);
-            holder.img = (ImageView)convertView.findViewById(R.id.task_image);
+            holder.img = (ImageButton) convertView.findViewById(R.id.task_image);
             holder.title = (TextView)convertView.findViewById(R.id.task_deadline);
             holder.text = (TextView)convertView.findViewById(R.id.task_name);
             holder.btn = (Button) convertView.findViewById(R.id.finish_task);
@@ -73,6 +76,8 @@ public class myadapter extends BaseAdapter{
 
         }
         holder.img.setImageResource((Integer) listItem.get(position).get("ItemImage"));
+        holder.img.setOnClickListener(mFListener);
+        holder.img.setTag(position);
         holder.title.setText((String) listItem.get(position).get("ItemTitle"));
         holder.text.setText((String) listItem.get(position).get("ItemText"));
         holder.btn.setOnClickListener(mListener);
@@ -113,6 +118,16 @@ public class myadapter extends BaseAdapter{
     }
 
     public abstract void myOnClick(int position, View v);
+    }
 
-}
+    public static abstract class MyFlagClickListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            myflagOnClick((Integer) view.getTag(), view);
+
+        }
+
+        public abstract void myflagOnClick(int position, View v);
+    }
 }

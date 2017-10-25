@@ -77,10 +77,7 @@ public class MainActivity extends AppCompatActivity {
         setUpView();
 
         setUsr_id();
-        final myadapter myownadapter = new myadapter(this, listItem, mListener);
-
-
-
+        final myadapter myownadapter = new myadapter(this, listItem, mListener,myFlagClickListener);
 
         addtask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,9 +151,13 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             String s1 = temp.get(0);
+                            //Log.v("first data",s1);
                             String s2 = temp.get(1);
+                            //Log.v("2nd data",s2);
                             String s3 = temp.get(2);
-                            Task_detail dt =new Task_detail(s1,s2,s3);
+                            //Log.v("3rd data",s3);
+                            String s4 = temp.get(3);
+                            Task_detail dt =new Task_detail(s1,s2,s3,s4);
                             listkey.add(key);
                             //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
 
@@ -288,6 +289,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void myOnClick(int position, View v) {
             myRef.child(copytodelete.get(position).getKey()).removeValue();
+
+        }
+    };
+
+    private myadapter.MyFlagClickListener myFlagClickListener = new myadapter.MyFlagClickListener() {
+        @Override
+        public void myflagOnClick(int position, View v) {
+            Log.v("top","can flag");
+            myRef.child(copytodelete.get(position).getKey()).child("top").setValue("true");
+
 
         }
     };

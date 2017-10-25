@@ -270,7 +270,7 @@ public class tasksetting extends Activity{
         myDatabase.child(user_id).child("Task").child(task_name).child("due_date").setValue(due_date);
         myDatabase.child(user_id).child("Task").child(task_name).child("remind_time").setValue(remind_time);
         myDatabase.child(user_id).child("Task").child(task_name).child("note").setValue(task_note);
-        myDatabase.child(user_id).child("Task").child(task_name).child("top").setValue(false);
+        myDatabase.child(user_id).child("Task").child(task_name).child("top").setValue("false");
 
     }
 

@@ -43,13 +43,14 @@
             android:textColor="#000000"
             android:textSize="18sp"
             android:layout_weight="8"/>
-        <ImageView
+        <ImageButton
             android:id="@+id/task_image"
             android:layout_gravity="end"
             android:layout_marginRight="30px"
             android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent"
+            android:layout_weight="0.90"
+            android:clickable="true"/>
 
     </LinearLayout>
     <LinearLayout
