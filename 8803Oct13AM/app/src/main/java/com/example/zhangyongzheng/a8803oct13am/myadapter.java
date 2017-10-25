@@ -126,6 +126,7 @@ public class myadapter extends BaseAdapter{
         public void onClick(View view) {
             myflagOnClick((Integer) view.getTag(), view);
 
+
         }
 
         public abstract void myflagOnClick(int position, View v);
