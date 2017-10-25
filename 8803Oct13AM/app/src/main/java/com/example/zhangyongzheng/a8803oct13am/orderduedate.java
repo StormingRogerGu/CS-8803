@@ -23,7 +23,10 @@ public class orderduedate implements Comparator {
 
         int flag = t1.getValue().due_date.compareTo(t2.getValue().due_date);
         int flag2 = t1.getValue().task_top.compareTo(t2.getValue().task_top);
+//
+        if (flag2 == 0) return flag;
+        else if (flag2 == 1) return flag;
+        else return -flag;
 
-        return -flag2;
     }
 }

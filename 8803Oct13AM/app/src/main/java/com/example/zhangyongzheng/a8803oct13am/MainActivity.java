@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView due_date;
     private String usr_id;
     private DatabaseReference myRef;
+    private DatabaseReference myRef2;
     private User_id my_usr_id;
 
     final String TAG = "FireDatabase";
@@ -129,67 +130,123 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        refreshbtn.setOnClickListener(new View.OnClickListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot post: dataSnapshot.getChildren()){
+                    //Log.v("retdata","zzzzzzz");
+                    String key = post.getKey();
+                    List<String> temp = new ArrayList<String>();
+                    for (DataSnapshot postson : post.getChildren()){
+                        String s = postson.getValue(String.class);
+                        temp.add(s);
 
-                listkey.clear();
+                    }
+
+                    String s1 = temp.get(0);
+                    //Log.v("first data",s1);
+                    String s2 = temp.get(1);
+                    //Log.v("2nd data",s2);
+                    String s3 = temp.get(2);
+                    //Log.v("3rd data",s3);
+                    String s4 = temp.get(3);
+                    Task_detail dt =new Task_detail(s1,s2,s3,s4);
+                    listkey.add(key);
+                    //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
+
+                    //Log.v("retdata",key);
+                    listvalue.add(dt);
+
+                }
+
+                initdata();
                 listvalue.clear();
-                listItem.clear();
+                listkey.clear();
 
-                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for(DataSnapshot post: dataSnapshot.getChildren()){
-                            //Log.v("retdata","zzzzzzz");
-                            String key = post.getKey();
-                            List<String> temp = new ArrayList<String>();
-                            for (DataSnapshot postson : post.getChildren()){
-                                String s = postson.getValue(String.class);
-                                temp.add(s);
-
-                            }
-
-                            String s1 = temp.get(0);
-                            //Log.v("first data",s1);
-                            String s2 = temp.get(1);
-                            //Log.v("2nd data",s2);
-                            String s3 = temp.get(2);
-                            //Log.v("3rd data",s3);
-                            String s4 = temp.get(3);
-                            Task_detail dt =new Task_detail(s1,s2,s3,s4);
-                            listkey.add(key);
-                            //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
-
-                            //Log.v("retdata",key);
-                            listvalue.add(dt);
-
-                        }
-
-                        initdata();
-                        listvalue.clear();
-                        listkey.clear();
-
-                        Log.v("afterinit","go");
+                Log.v("afterinit","go");
 
 
-                        myownadapter.updateData(listItem);
-                        lv.setAdapter(myownadapter);
-                        Log.v("afterlistview","go");
-                        for(int i = 0; i<listvalue.size();i++){
-                            Log.v("lllllllll",listvalue.get(i).due_date);
-                        }
+                myownadapter.updateData(listItem);
+                lv.setAdapter(myownadapter);
+                Log.v("afterlistview","go");
+                for(int i = 0; i<listvalue.size();i++){
+                    Log.v("lllllllll",listvalue.get(i).due_date);
+                }
 
-                    }
+            }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+
+
+
+
+//        refreshbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                listkey.clear();
+//                listvalue.clear();
+//                listItem.clear();
+//
+//                myRef2.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        for(DataSnapshot post: dataSnapshot.getChildren()){
+//                            //Log.v("retdata","zzzzzzz");
+//                            String key = post.getKey();
+//                            List<String> temp = new ArrayList<String>();
+//                            for (DataSnapshot postson : post.getChildren()){
+//                                String s = postson.getValue(String.class);
+//                                temp.add(s);
+//
+//                            }
+//
+//                            String s1 = temp.get(0);
+//                            //Log.v("first data",s1);
+//                            String s2 = temp.get(1);
+//                            //Log.v("2nd data",s2);
+//                            String s3 = temp.get(2);
+//                            //Log.v("3rd data",s3);
+//                            String s4 = temp.get(3);
+//                            Task_detail dt =new Task_detail(s1,s2,s3,s4);
+//                            listkey.add(key);
+//                            //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
+//
+//                            //Log.v("retdata",key);
+//                            listvalue.add(dt);
+//
+//                        }
+//
+//                        initdata();
+//                        listvalue.clear();
+//                        listkey.clear();
+//
+//                        Log.v("afterinit","go");
+//
+//
+//                        myownadapter.updateData(listItem);
+//                        lv.setAdapter(myownadapter);
+//                        Log.v("afterlistview","go");
+//                        for(int i = 0; i<listvalue.size();i++){
+//                            Log.v("lllllllll",listvalue.get(i).due_date);
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
+//                Intent jump = new Intent(MainActivity.this, MainActivity.class);
+//                startActivity(jump);
+//
+//            }
+//        });
 
 
 
@@ -283,21 +340,49 @@ public class MainActivity extends AppCompatActivity {
         my_usr_id = (User_id) getApplication();
         usr_id = my_usr_id.getUserid();
         myRef = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Task");
+        myRef2 = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Task");
     }
 
     private myadapter.MyClickListener mListener = new myadapter.MyClickListener() {
         @Override
         public void myOnClick(int position, View v) {
             myRef.child(copytodelete.get(position).getKey()).removeValue();
+            Intent jump = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(jump);
 
         }
     };
 
+    final String[] state_top = new String[1];
+
     private myadapter.MyFlagClickListener myFlagClickListener = new myadapter.MyFlagClickListener() {
         @Override
         public void myflagOnClick(int position, View v) {
-            Log.v("top","can flag");
-            myRef.child(copytodelete.get(position).getKey()).child("top").setValue("true");
+            final DatabaseReference temp = myRef.child(copytodelete.get(position).getKey()).child("top");
+            temp.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    state_top[0] = dataSnapshot.getValue(String.class);
+                    //state = state_top[0]
+                    Log.v("Top_state",state_top[0]);
+                    if (state_top[0].equals("false")){
+                        temp.setValue("true");
+                        Intent jump = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(jump);
+                    }
+                    else if (state_top[0].equals("true")){
+                        temp.setValue("false");
+                        Intent jump = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(jump);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
 
         }

@@ -92,22 +92,28 @@ public class tasksetting extends Activity{
                 String remind_time = showTime.getText().toString();
                 String task_note = tasknote.getText().toString();
 
+
                 Log.v("Userid",user_id);
 
-
-                write_task_data(user_id, task_name, due_date, remind_time, task_note);
-
-                Log.v("key",due_date);
-                Intent intent = new Intent(tasksetting.this,MainActivity.class);
-                Bundle bundle = new Bundle();
+                if (!task_name.isEmpty()) {
+                    write_task_data(user_id, task_name, due_date, remind_time, task_note);
+                    Intent intent = new Intent(tasksetting.this,MainActivity.class);
+                    //Bundle bundle = new Bundle();
 
 //                bundle.putString("due_date",due_date);
 //                bundle.putString("task_name",task_name);
-                bundle.putString("usr_id", user_id);
-                intent.putExtras(bundle);
+//                    bundle.putString("usr_id", user_id);
+//                    intent.putExtras(bundle);
 
-                startActivity(intent);
-                finish();
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+
+                }
+
+                Log.v("key",due_date);
+
 
             }
         });
