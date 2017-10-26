@@ -39,7 +39,7 @@ public class puzzle extends Activity {
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
     private Button bt1;
     private TextView tx1;
-    private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1/puzzle_pic0_1.png");
+    private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1").child("puzzle_pic0_1.png");
     int counter=9;
 
 
