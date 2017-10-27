@@ -99,18 +99,21 @@
             android:id="@+id/puzzle_7"
             android:layout_width="130dp"
             android:layout_height="100dp"
+
             android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/puzzle_8"
             android:layout_width="130dp"
             android:layout_height="100dp"
+
             android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/puzzle_9"
             android:layout_width="130dp"
             android:layout_height="100dp"
+
             android:layout_weight="1"/>
 
     </LinearLayout>
@@ -118,112 +121,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout3">
+        android:layout_alignParentBottom="true">
 
         <include layout="@layout/navigation_bar"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@+id/maze_layout3"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:id="@+id/linearLayout4">
-
-    <TextView
-        android:id="@+id/rect1"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/maze_layout3"
-        android:layout_alignStart="@+id/maze_layout3"
-        android:layout_marginTop="36dp"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect2"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect1"
-        android:layout_alignBottom="@+id/rect1"
-        android:layout_toEndOf="@+id/rect1"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect3"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect2"
-        android:layout_alignBottom="@+id/rect2"
-        android:layout_toEndOf="@+id/rect2"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect4"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect3"
-        android:layout_alignBottom="@+id/rect3"
-        android:layout_toEndOf="@+id/rect3"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect5"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect4"
-        android:layout_alignBottom="@+id/rect4"
-        android:layout_toEndOf="@+id/rect4"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect6"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect5"
-        android:layout_alignBottom="@+id/rect5"
-        android:layout_toEndOf="@+id/rect5"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect7"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect6"
-        android:layout_alignBottom="@+id/rect6"
-        android:layout_toEndOf="@+id/rect6"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect8"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect7"
-        android:layout_alignBottom="@+id/rect7"
-        android:layout_alignEnd="@+id/rect7"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/rect9"
-        android:layout_width="43dp"
-        android:layout_height="20dp"
-        android:layout_alignBaseline="@+id/rect8"
-        android:layout_alignBottom="@+id/rect8"
-        android:layout_alignEnd="@+id/rect8"
-        android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/rect10"
-            android:layout_width="43dp"
-            android:layout_height="20dp"
-            android:layout_alignBaseline="@+id/rect9"
-            android:layout_alignBottom="@+id/rect9"
-            android:layout_alignEnd="@+id/maze_layout3"
-            android:layout_weight="1"/>
-
     </LinearLayout>
 
 </RelativeLayout>
