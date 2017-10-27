@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
         profile = (ImageButton)findViewById(R.id.profile);
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
-        //refreshbtn = (Button)findViewById(R.id.refresh_btn);
+        refreshbtn = (Button)findViewById(R.id.refresh_btn);
         //usr_id = "admin";
     }
 
@@ -321,13 +321,7 @@ public class MainActivity extends AppCompatActivity {
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("ItemText", orderdate.get(i).getKey());
             map.put("ItemTitle", (String)orderdate.get(i).getValue().due_date);
-            if(orderdate.get(i).getValue().task_top.equals("false")){
-                map.put("ItemImage", R.drawable.up_button_default);
-            }
-            else{
-                map.put("ItemImage", R.drawable.up_button_highlight);
-            }
-
+            map.put("ItemImage", R.drawable.up_button_default);
             listItem.add(map);
         }
         copytodelete = orderdate;
@@ -362,8 +356,6 @@ public class MainActivity extends AppCompatActivity {
     final String[] state_top = new String[1];
 
     private myadapter.MyFlagClickListener myFlagClickListener = new myadapter.MyFlagClickListener() {
-
-
         @Override
         public void myflagOnClick(int position, View v) {
             final DatabaseReference temp = myRef.child(copytodelete.get(position).getKey()).child("top");

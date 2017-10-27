@@ -11,7 +11,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,12 +20,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
-import java.util.*;
-
-import com.bumptech.glide.Glide;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 /**
  * Created by zhangyongzheng on 10/13/17.
@@ -44,14 +37,8 @@ public class puzzle extends Activity {
     private TextView rect1, rect2, rect3, rect4, rect5, rect6, rect7, rect8, rect9, rect10;
     private Button bt1;
     private TextView tx1;
-    private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1").child("puzzle_pic0_1.png");
     int counter=9;
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7e329d673257b8897af0791266068cd13ad35ce3
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle_gallery);
@@ -59,7 +46,6 @@ public class puzzle extends Activity {
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
             public void onClick(View v) {
                 if(counter==9) {
                     img1.setImageResource(R.drawable.pic1);
@@ -116,64 +102,15 @@ public class puzzle extends Activity {
                     rect9.setBackgroundColor(Color.GREEN);
                     rect10.setText("100%");
                 }
-=======
-            public void onClick(View view) {
-
-                Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(storageref).into(img1);
->>>>>>> 7e329d673257b8897af0791266068cd13ad35ce3
             }
         });
 
 
-//        bt1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(counter==9) {
-//                    img1.setImageResource(R.drawable.pic1);
-//                    counter--;
-//                }
-//                else if(counter==8) {
-//                    img2.setImageResource(R.drawable.pic2);
-//                    counter--;
-//                }
-//                else if(counter==7) {
-//                    img3.setImageResource(R.drawable.pic3);
-//                    counter--;
-//                }
-//                else if(counter==6) {
-//                    img4.setImageResource(R.drawable.pic4);
-//                    counter--;
-//                }
-//                else if(counter==5) {
-//                    img5.setImageResource(R.drawable.pic5);
-//                    counter--;
-//                }
-//                else if(counter==4) {
-//                    img6.setImageResource(R.drawable.pic6);
-//                    counter--;
-//                }
-//                else if(counter==3) {
-//                    img7.setImageResource(R.drawable.pic7);
-//                    counter--;
-//                }
-//                else if(counter==2) {
-//                    img8.setImageResource(R.drawable.pic8);
-//                    counter--;
-//                }
-//                else if(counter==1) {
-//                    img9.setImageResource(R.drawable.pic9);
-//                    tx1.setVisibility(View.VISIBLE);
-//                    tx1.setBackgroundColor(Color.RED);
-//                }
-//            }
-//        });
-
-
         //change icon
-//        Intent intent = getIntent();
-//        byte[] new_icon = intent.getByteArrayExtra("new_image");
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(new_icon,0,new_icon.length);
-//        puzzle.setImageBitmap(bitmap);
+        Intent intent = getIntent();
+        byte[] new_icon = intent.getByteArrayExtra("new_image");
+        Bitmap bitmap = BitmapFactory.decodeByteArray(new_icon,0,new_icon.length);
+        puzzle.setImageBitmap(bitmap);
 
 
 

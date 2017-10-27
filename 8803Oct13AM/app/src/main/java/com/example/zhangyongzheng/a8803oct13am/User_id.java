@@ -33,7 +33,6 @@ public class User_id extends Application {
         instance = this;
     }
 
-    //Test the app is on foreground or not
     public static boolean isForeground(Context context)
     {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
