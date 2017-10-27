@@ -20,6 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -40,14 +46,20 @@ public class timecounting extends Activity{
     private NotificationManager mNotificationManager;
     public NotificationCompat.Builder mBuilder;
     private User_id Utils;
+    private String user_id;
     boolean finish_task = true;
+    private int current_puzzle_id;
+
+    private DatabaseReference myref;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.time_count);
         mTvShow = (TextView) findViewById(R.id.counting_time);
         pause_resume = (Button) findViewById(R.id.pause_resume_button);
-
+        Utils = (User_id) getApplication();
+        user_id = Utils.getUserid();
+        myref = FirebaseDatabase.getInstance().getReference("User_profile").child(user_id).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_ongoing");
         initNotify();
 
         Intent intent = getIntent();
@@ -135,15 +147,33 @@ public class timecounting extends Activity{
         public void onFinish() {
             mTvShow.setText("You have successfully finished your study time!");
 
-            mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
+            myref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    int ongoing_id = dataSnapshot.getValue(int.class);
 
+                    current_puzzle_id = ongoing_id+1;
+
+                    Log.v("Piece_id","piece"+current_puzzle_id);
+                    myref.setValue(current_puzzle_id);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+            //current_puzzle_id = current_puzzle_id + 1;
+
+
+            mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
             showIntentActivityNotify("Congratulations! New Puzzle!");
             AlertDialog dialog = new AlertDialog.Builder(timecounting.this).setTitle("Mission Complete")
                                                     .setPositiveButton("Share",new DialogInterface.OnClickListener(){
                                                         @Override
                                                         public void onClick(DialogInterface dialog, int which){
-                                                            int new_puzzle_id;
-                                                            
+
                                                             Intent intent = new Intent(timecounting.this, puzzle.class);
                                                             startActivity(intent);
                                                             //TODO share to facebook
