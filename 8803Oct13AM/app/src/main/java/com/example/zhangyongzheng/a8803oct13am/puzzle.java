@@ -52,10 +52,12 @@ public class puzzle extends Activity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.v("image","dafdsfasdfa");
+
                 Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(storageref).into(img1);
             }
         });
+
+
 //        bt1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
