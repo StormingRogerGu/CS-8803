@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TableLayout
+        android:id="@+id/headertimer"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0.02"
+        android:background="#DC143C">
+
+        <TableRow android:layout_marginLeft="15dp">
+
+            <Button
+                android:id="@+id/friend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:text="@string/clear"
+                android:textColor="#000000"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/txtOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="57dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/timer2"
+                android:textColor="#000000"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="57dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:text="@string/done"
+                android:textColor="#000000"
+                android:textSize="15sp"/>
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/time_setting_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_weight="0.29"
+        android:gravity="center"
+        android:background="#F5FFFA"
+        android:layout_below="@id/headertimer">
+
+        <NumberPicker
+            android:id="@+id/numberPicker_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+        </NumberPicker>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Hour"
+            android:textColor="#000000"/>
+
+        <NumberPicker
+            android:id="@+id/numberPicker_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+        </NumberPicker>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Minute"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/headertimer2"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/time_setting_layout1">
+
+        <TableRow android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/btn_maximumpausetime"
+                android:layout_width="187dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:text="Maximum Pause Time" />
+
+            <NumberPicker
+                android:id="@+id/numberPicker1"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:text="min"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:id="@+id/time_setting_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="150dp"
+        android:layout_below="@+id/headertimer2"
+        >
+    <ImageButton
+        android:background="@drawable/start_button"
+        android:id="@+id/btn_start"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="0dp"
+
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/time_setting_include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FAFAFA">
+
+    <include
+        layout="@layout/navigation_bar" />
+    </LinearLayout>
+
+</RelativeLayout>

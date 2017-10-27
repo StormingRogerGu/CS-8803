@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button_id"
+            android:text="task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Successful!"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/maze_layout1"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <ImageView
+            android:id="@+id/puzzle_1"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_2"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_3"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/maze_layout2"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/maze_layout1">
+
+        <ImageView
+            android:id="@+id/puzzle_4"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_5"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_6"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/maze_layout3"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/maze_layout2">
+
+        <ImageView
+            android:id="@+id/puzzle_7"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_8"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/puzzle_9"
+            android:layout_width="130dp"
+            android:layout_height="100dp"
+
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/navigation_bar"/>
+    </LinearLayout>
+
+</RelativeLayout>

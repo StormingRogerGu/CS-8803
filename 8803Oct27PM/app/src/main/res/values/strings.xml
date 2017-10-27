@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Android_Project</string>
+    <string name="friend">frd</string>
+    <string name="maze">maze</string>
+    <string name="home">home</string>
+    <string name="timer">timer</string>
+    <string name="prof">prof</string>
+    <string name="image_display">Image Display</string>
+    <string name="image_display2">Image Display</string>
+    <string name="image_display3">Image Display</string>
+    <string name="complete">complete</string>
+    <string name="row_3_column_1">Row 3 column 1</string>
+    <string name="ongoing">ongoing</string>
+    <string name="row_3_column_2">Row 3 column 2</string>
+    <string name="finish">finish</string>
+    <string name="week">week</string>
+    <string name="today">today</string>
+    <string name="all">all</string>
+    <string name="add">add</string>
+    <string name="due_date">Due Date</string>
+    <string name="b">B</string>
+    <string name="note">Note</string>
+    <string name="remind_time">Reminder</string>
+    <string name="task_name">Task Name</string>
+    <string name="clear">Clear</string>
+    <string name="timer2">Timer</string>
+    <string name="done">done</string>
+    <string name="Confirm">Confirm</string>>
+</resources>
+

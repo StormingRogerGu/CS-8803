@@ -1,0 +1,91 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height = "match_parent"
+    tools:context = ".MainActivity">
+
+    <TextView android:text = "Sign Up"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/sign_up"
+        android:textSize = "35dp"
+        android:layout_alignParentTop = "true"
+        android:layout_centerHorizontal = "true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_up_img"
+        android:src="@drawable/logo"
+        android:layout_below="@id/sign_up"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/sign_up_id"
+        android:hint = "Enter Name"
+
+        android:textColorHighlight = "#ff7eff15"
+        android:textColorHint = "#ffff25e6"
+
+        android:layout_marginTop = "46dp"
+        android:layout_below = "@+id/sign_up_img"
+
+        android:layout_alignParentLeft= "true"
+
+        android:layout_alignParentRight = "true"
+
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+
+        android:id="@+id/sign_up_pwd"
+        android:hint="Password"
+
+        android:textColorHint="#ffff299f"
+
+        android:layout_below="@+id/sign_up_id"
+        android:layout_alignParentLeft="true"
+
+        android:layout_alignParentRight= "true"
+
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+
+        android:id="@+id/sign_up_confirm_pwd"
+        android:hint="Confirm Password"
+
+        android:textColorHint="#ffff299f"
+
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:id="@+id/sign_up_comfirm_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/sign_up_cancel_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

@@ -21,6 +21,11 @@ import java.util.*;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -36,10 +41,23 @@ public class puzzle extends Activity {
     private ImageButton home;
     private ImageButton puzzle;
     private ImageButton profile;
+
+    private String usr_id;
+    private User_id my_usr_id;
+
+    private DatabaseReference myRef;
+    private DatabaseReference myRef2;
+    private DatabaseReference myRef3;
+
+    private int ongoing_id_now;
+
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
     private Button bt1;
     private TextView tx1;
+
     private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1").child("puzzle_pic0_1.png");
+    private String puzzle_file = "pic";
+    private String puzzle_pic = "puzzle_pic0_";
     int counter=9;
 
 
@@ -48,15 +66,77 @@ public class puzzle extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle_gallery);
         setUpView();
+        setUsr_id();
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
                 Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(storageref).into(img1);
             }
         });
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+
+                Log.v("what id","this" + ongoing_id_now + "hh");
+                for(int i = 0; i < ongoing_id_now; i++) {
+                    Log.v("wrong?","shit!");
+                    int k = i + 1;
+                    String puzzle_file_id = puzzle_file + 1;
+                    String puzzle_piece_id = puzzle_pic + k +".png";
+                    Log.v("piece_id",puzzle_piece_id);
+                    StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child("pic1").child(puzzle_piece_id);
+
+                    if (ongoing_id_now > 0) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img1);
+                        continue;
+                    }
+                    if (ongoing_id_now > 1) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img2);
+                        continue;
+                    }
+                    if (ongoing_id_now > 2) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img3);
+                        continue;
+                    }
+                    if (ongoing_id_now > 3) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img4);
+                        continue;
+                    }
+                    if (ongoing_id_now > 4) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img5);
+                        continue;
+                    }
+                    if (ongoing_id_now > 5) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img6);
+                        continue;
+                    }
+                    if (ongoing_id_now > 6) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img7);
+                        continue;
+                    }
+                    if (ongoing_id_now > 7) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img8);
+                        continue;
+                    }
+                    if (ongoing_id_now > 8) {
+                        Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img9);
+                        continue;
+                    }
+                }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        
 
 //        bt1.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -206,6 +286,15 @@ public class puzzle extends Activity {
                 drawable.getIntrinsicHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    public void setUsr_id(){
+
+        my_usr_id = (User_id) getApplication();
+        usr_id = my_usr_id.getUserid();
+        myRef = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Time_mode");
+        myRef2 = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Time_mode").child("puzzle_ongonig_id");
+        myRef3 = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Time_mode").child("puzzle_comp_id");
     }
 
 }
