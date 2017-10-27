@@ -226,8 +226,10 @@ public class timecounting extends Activity{
         @Override
         public void onFinish() {
             showIntentActivityNotify("Lose!!!");
+            int a = 2;
             Intent intent = new Intent(timecounting.this, timesetting.class);
             startActivity(intent);
+
         }
     }
 
