@@ -91,39 +91,39 @@ public class puzzle extends Activity {
                     Log.v("piece_id",puzzle_piece_id);
                     StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child("pic1").child(puzzle_piece_id);
 
-                    if (ongoing_id_now > 0) {
+                    if (i == 0) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img1);
                         continue;
                     }
-                    if (ongoing_id_now > 1) {
+                    if (i == 1) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img2);
                         continue;
                     }
-                    if (ongoing_id_now > 2) {
+                    if (i == 2) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img3);
                         continue;
                     }
-                    if (ongoing_id_now > 3) {
+                    if (i == 3) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img4);
                         continue;
                     }
-                    if (ongoing_id_now > 4) {
+                    if (i == 4) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img5);
                         continue;
                     }
-                    if (ongoing_id_now > 5) {
+                    if (i == 5) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img6);
                         continue;
                     }
-                    if (ongoing_id_now > 6) {
+                    if (i == 6) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img7);
                         continue;
                     }
-                    if (ongoing_id_now > 7) {
+                    if (i == 7) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img8);
                         continue;
                     }
-                    if (ongoing_id_now > 8) {
+                    if (i == 8) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img9);
                         continue;
                     }

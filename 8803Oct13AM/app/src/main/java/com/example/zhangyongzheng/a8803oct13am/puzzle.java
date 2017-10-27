@@ -128,6 +128,13 @@ public class puzzle extends Activity {
                         continue;
                     }
                 }
+<<<<<<< Updated upstream
+=======
+
+            public void onClick(View view) {
+
+                Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(storageref).into(img1);
+>>>>>>> Stashed changes
             }
 
 

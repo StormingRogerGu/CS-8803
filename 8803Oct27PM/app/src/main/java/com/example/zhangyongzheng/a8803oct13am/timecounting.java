@@ -35,6 +35,7 @@ import java.util.List;
 
 public class timecounting extends Activity{
     private Mycount myCount;
+    private Resume_time resume_time;
     private TextView mTvShow;
     private int seconds;
     private int resume_seconds;
@@ -68,10 +69,12 @@ public class timecounting extends Activity{
         if (bundle != null){
             //Log.v("Key", bundle.getString("Key"));
              seconds = bundle.getInt("Key") * 1000;
+             resume_seconds = bundle.getInt("Pause") * 1000;
         }
 
 
         myCount = new Mycount(seconds, 1000);
+        resume_time = new Resume_time(resume_seconds, 1000);
         myCount.start();
         setPause_Resume();
 
@@ -209,18 +212,22 @@ public class timecounting extends Activity{
 
     //Resume Timer
     class Resume_time extends CountDownTimer{
+        long rest_resume_time;
         public Resume_time(long millisinFuture, long countDownInterval){
             super(millisinFuture, countDownInterval);
         }
 
         @Override
         public void onTick(long millistoEnd) {
+            rest_resume_time = millistoEnd;
 
         }
 
         @Override
         public void onFinish() {
-
+            showIntentActivityNotify("Lose!!!");
+            Intent intent = new Intent(timecounting.this, timesetting.class);
+            startActivity(intent);
         }
     }
 
@@ -231,6 +238,7 @@ public class timecounting extends Activity{
                 if (button_resume == true){
                     current_seconds = myCount.timetofinfish;
                     myCount.cancel();
+                    resume_time.start();
                     button_resume = false;
                     pause_resume.setBackgroundResource(R.drawable.resume_button);
 

@@ -62,10 +62,10 @@ public class timesetting extends Activity {
         setUpView();
 
         //change icon
-        Intent intent = getIntent();
-        byte[] new_icon = intent.getByteArrayExtra("new_image");
-        Bitmap bitmap = BitmapFactory.decodeByteArray(new_icon,0,new_icon.length);
-        timer.setImageBitmap(bitmap);
+//        Intent intent = getIntent();
+//        byte[] new_icon = intent.getByteArrayExtra("new_image");
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(new_icon,0,new_icon.length);
+//        timer.setImageBitmap(bitmap);
 
         friend.setOnClickListener(new View.OnClickListener() {
             @Override
