@@ -2,7 +2,7 @@ package com.example.zhangyongzheng.a8803oct13am;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.widget.RecyclerView;
+
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -125,6 +125,7 @@ public class myadapter extends BaseAdapter{
         @Override
         public void onClick(View view) {
             myflagOnClick((Integer) view.getTag(), view);
+
 
         }
 
