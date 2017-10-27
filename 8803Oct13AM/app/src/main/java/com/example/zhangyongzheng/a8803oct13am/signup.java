@@ -59,6 +59,8 @@ public class signup extends Activity{
                         if (sameID[0] == false && samepwd == true){
                             Log.v("SUCCESS", "11");
                             mydatabase.child(user_id.getText().toString()).child("user_pwd").setValue(password.getText().toString());
+                            mydatabase.child(user_id.getText().toString()).child("Time_mode").setValue("1");
+                            mydatabase.child(user_id.getText().toString()).child("Time_mode").child("1").child("puzzle_piece_id").setValue(0);
                             Intent intent = new Intent(signup.this, login.class);
                             startActivity(intent);
                             finish();

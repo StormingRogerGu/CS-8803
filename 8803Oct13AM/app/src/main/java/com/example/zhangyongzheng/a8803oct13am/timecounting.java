@@ -2,10 +2,12 @@ package com.example.zhangyongzheng.a8803oct13am;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -28,8 +30,8 @@ import java.util.List;
 public class timecounting extends Activity{
     private Mycount myCount;
     private TextView mTvShow;
-    Context mContext;
     private int seconds;
+    private int resume_seconds;
     private Button pause_resume;
     long current_seconds;
     private boolean button_resume = true;
@@ -121,7 +123,7 @@ public class timecounting extends Activity{
         mNotificationManager.notify(notifyId, mBuilder.build());
     }
 
-
+    //Regular Timer
     class Mycount extends CountDownTimer{
         long timetofinfish;
 
@@ -134,10 +136,28 @@ public class timecounting extends Activity{
             mTvShow.setText("You have successfully finished your study time!");
 
             mBuilder.setDefaults(Notification.DEFAULT_VIBRATE);
-            if (finish_task == true)
-                showIntentActivityNotify("Congratulations! New Puzzle!");
-            else
-                showIntentActivityNotify("Sorry, You lose");
+
+            showIntentActivityNotify("Congratulations! New Puzzle!");
+            AlertDialog dialog = new AlertDialog.Builder(timecounting.this).setTitle("Mission Complete")
+                                                    .setPositiveButton("Share",new DialogInterface.OnClickListener(){
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which){
+                                                            int new_puzzle_id;
+                                                            
+                                                            Intent intent = new Intent(timecounting.this, puzzle.class);
+                                                            startActivity(intent);
+                                                            //TODO share to facebook
+                                                        }
+                                                    })
+                                                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                                            Intent intent = new Intent(timecounting.this, puzzle.class);
+                                                            startActivity(intent);
+                                                        }
+                                                    }).setMessage("Share or not").create();
+
+            dialog.show();
 
         //TODO: AFITER FINISH THE TIME MODE, SEND MESSAGE TO PUZZLE GALLERY AND
 //            Intent jumptogallery = new Intent();
@@ -154,6 +174,23 @@ public class timecounting extends Activity{
                         millisUntilFinished / 1000 % 60);
 
             timetofinfish = millisUntilFinished;
+        }
+    }
+
+    //Resume Timer
+    class Resume_time extends CountDownTimer{
+        public Resume_time(long millisinFuture, long countDownInterval){
+            super(millisinFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long millistoEnd) {
+
+        }
+
+        @Override
+        public void onFinish() {
+
         }
     }
 

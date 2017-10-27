@@ -101,10 +101,10 @@ public class puzzle extends Activity {
 
 
         //change icon
-        Intent intent = getIntent();
-        byte[] new_icon = intent.getByteArrayExtra("new_image");
-        Bitmap bitmap = BitmapFactory.decodeByteArray(new_icon,0,new_icon.length);
-        puzzle.setImageBitmap(bitmap);
+//        Intent intent = getIntent();
+//        byte[] new_icon = intent.getByteArrayExtra("new_image");
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(new_icon,0,new_icon.length);
+//        puzzle.setImageBitmap(bitmap);
 
 
 
