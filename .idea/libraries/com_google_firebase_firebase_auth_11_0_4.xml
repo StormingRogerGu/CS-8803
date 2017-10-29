@@ -4,7 +4,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-auth-11.0.4.aar/42166bf071ddbb5fb44cfce37cf9b5b2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-auth-11.0.4.aar/42166bf071ddbb5fb44cfce37cf9b5b2/res" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES />
   </library>
 </component>

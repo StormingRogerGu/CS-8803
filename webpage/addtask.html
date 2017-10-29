@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Task Setting</title>
+</head>
+
+<body>
+
+<div class="w3-container">
+    <div class="w3-display-container w3-blue" style="height: 80px">
+        <h1 class="w3-display-topmiddle">Task Setting</h1>
+    </div>
+
+    <label class="w3-text-blue"><b>Task Name</b></label>
+    <input class="w3-input" style="width: 500px" id="Task_name" type="text">
+
+    <label class="w3-text-blue"><b>Due Date</b></label>
+    <input class="w3-input" style="width: 500px" id="taskDate" type="text">
+
+    <label class="w3-text-blue"><b>Remind Time</b></label>
+    <input class="w3-input" style="width: 500px" type="text" id="remindTime">
+
+    <label class="w3-text-blue"><b>Note</b></label>
+    <input class="w3-input" style="width: 500px" id="tasknote" type="text">
+
+    <button class="w3-button w3-blue w3-margin-top" id="confirm_task_btn" type="button">Confirm</button>
+
+</div>
+
+
+<script src="./laydate/laydate.js"></script>
+<script>
+    laydate.render({
+        elem: '#taskDate'
+        ,lang: 'en'
+    });
+    laydate.render({
+        elem: '#remindTime'
+        ,lang: 'en'
+        ,type: 'time'
+    })
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyACsDAUeirU-gel9iB2tXzYMBUoskBkDog",
+        authDomain: "oct13am-7683b.firebaseapp.com",
+        databaseURL: "https://oct13am-7683b.firebaseio.com",
+        projectId: "oct13am-7683b",
+        storageBucket: "oct13am-7683b.appspot.com",
+        messagingSenderId: "329352361598"
+    };
+    firebase.initializeApp(config);
+    var taskname = document.getElementById("Task_name");
+    var duedate = document.getElementById("taskDate");
+    var remindTime = document.getElementById("remindTime");
+    var tasknote = document.getElementById("tasknote");
+
+    confirm_task_btn.addEventListener("click",function(){
+        var name = taskname.value;
+        var date = duedate.value;
+        var time = remindTime.value;
+        var note = tasknote.value;
+        var usr_id = "ddd"
+        if (name != null) {
+            console.log(name);
+            var addTask = firebase.database().ref('User_profile/' + usr_id + '/Task/' + name).set({
+                due_date: date,
+                remind_time: time,
+                note: note,
+                top: "false"
+            });
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

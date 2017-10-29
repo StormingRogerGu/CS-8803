@@ -4,7 +4,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-11.0.4.aar/2b8741b6b8c4bfdab9e8840713a1fdbf/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-11.0.4.aar/2b8741b6b8c4bfdab9e8840713a1fdbf/res" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES />
   </library>
 </component>
