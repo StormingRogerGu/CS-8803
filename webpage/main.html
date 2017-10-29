@@ -133,7 +133,7 @@
             cell1.innerHTML = '<button id="finish_btn" class="btn btn-primary" type="button" onclick="deleteRow(this)">Finished</button>'; 
             cell2.innerHTML = task;
             cell3.innerHTML = date;
-            cell4.innerHTML = '<button id="top_btn" class="btn btn-primary" type="button">Top</button>'; 
+            cell4.innerHTML = '<button id="top_btn" class="btn btn-primary" type="button" onclick="moveToTop(this)">Top</button>'; 
         }       
                 
         function deleteRow(elem) {
@@ -156,6 +156,11 @@
             row.parentNode.removeChild(row); // remove the row         
         }
       
+        function moveToTop(elem){
+            var row=elem.parentNode.parentNode;
+            
+            row.parentNode.insertBefore(row, row.parentNode.childNodes[0]);            
+        }
        
      
 
