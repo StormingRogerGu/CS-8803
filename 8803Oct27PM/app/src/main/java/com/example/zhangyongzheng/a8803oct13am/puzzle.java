@@ -52,12 +52,13 @@ public class puzzle extends Activity {
     private int ongoing_id_now;
 
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
-    private Button bt1;
+    private Button go_to_complete_puzzle_btn;
     private TextView tx1;
 
     private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1").child("puzzle_pic0_1.png");
     private String puzzle_file = "pic";
     private String puzzle_pic = "puzzle_pic0_";
+    private int ongoing_id_now_cur;
     int counter=9;
 
 
@@ -68,12 +69,12 @@ public class puzzle extends Activity {
         setUpView();
         setUsr_id();
 
-        bt1.setOnClickListener(new View.OnClickListener() {
+        go_to_complete_puzzle_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(storageref).into(img1);
+                Intent intent = new Intent();
+                intent.setClass(puzzle.this, Complete_puzzle_show.class);
+                startActivity(intent);
             }
         });
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -82,14 +83,36 @@ public class puzzle extends Activity {
 
                 ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
 
+                ongoing_id_now_cur = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                ongoing_id_now_cur = ongoing_id_now_cur % 9;
+
+//                int file_num = ongoing_id_now / 9 + 1;
+//                int comp_id = ongoing_id_now / 9;
+//                if(comp_id > 0) {
+//                    Log.v("completed puzzle","fdaf"+file_num);
+//                    myRef3.child("Completed_id").setValue(file_num);
+//                }
+                ongoing_id_now = ongoing_id_now % 9;
+
+                Log.v("ongoing num", "total"+ongoing_id_now);
+                int file_num = ongoing_id_now / 9 + 1;
+                Log.v("ongoingfile", "total"+file_num);
+                int comp_id = ongoing_id_now / 9;
+                Log.v("ongoingcompid", "total"+comp_id);
+                if(file_num > 0) {
+                    Log.v("completed puzzle","fdaf"+file_num);
+                    myRef3.child("Completed_id").setValue(file_num);
+                }
+
                 Log.v("what id","this" + ongoing_id_now + "hh");
-                for(int i = 0; i < ongoing_id_now; i++) {
+                for(int i = 0; i < ongoing_id_now_cur; i++) {
                     Log.v("wrong?","shit!");
                     int k = i + 1;
-                    String puzzle_file_id = puzzle_file + 1;
+                    String puzzle_file_id = puzzle_file + file_num;
                     String puzzle_piece_id = puzzle_pic + k +".png";
                     Log.v("piece_id",puzzle_piece_id);
-                    StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child("pic1").child(puzzle_piece_id);
+                    StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child(puzzle_file_id).child(puzzle_piece_id);
+
 
                     if (i == 0) {
                         Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img1);
@@ -232,6 +255,8 @@ public class puzzle extends Activity {
                 startActivity(addnewtask);
             }
         });
+
+
     }
 
     private void setUpView(){
@@ -252,7 +277,7 @@ public class puzzle extends Activity {
         img9=(ImageView)findViewById(R.id.puzzle_9);
         tx1=(TextView)findViewById(R.id.textView);
         tx1.setVisibility(View.GONE);
-        bt1=(Button)findViewById(R.id.button_id);
+        go_to_complete_puzzle_btn=(Button)findViewById(R.id.puzzle_galery_goto_completed);
 
 
 

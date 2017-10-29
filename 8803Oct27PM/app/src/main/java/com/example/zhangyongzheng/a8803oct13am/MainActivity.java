@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 //    private DatabaseReference myRef = myRef2.child("Task");
     public List<String> listkey = new ArrayList<String>();
     public List<Task_detail> listvalue = new ArrayList<Task_detail>();
+
     public orderduedate fororder = new orderduedate();
     private HashMap<String, Task_detail> original = new HashMap<String, Task_detail>();
     private List<Map.Entry<String, Task_detail>> copytodelete;

@@ -3,6 +3,7 @@ package com.example.zhangyongzheng.a8803oct13am;
 import android.content.Context;
 import android.content.DialogInterface;
 
+import android.graphics.Bitmap;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,7 +61,7 @@ public class myadapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder ;
+        ViewHolder holder;
         if(convertView == null)
         {
             holder = new ViewHolder();
