@@ -67,16 +67,23 @@
         var time = remindTime.value;
         var note = tasknote.value;
         var usr_id = "ddd"
-        if (name != null) {
-            console.log(name);
+        var success = Boolean(false);
+        if (name != "" && date != "" && time != "") {
+
             var addTask = firebase.database().ref('User_profile/' + usr_id + '/Task/' + name).set({
                 due_date: date,
                 remind_time: time,
                 note: note,
                 top: "false"
             });
-            window.location.href = 'main.html';
+            success = true;
+            console.log(success);
+//            window.location.href = 'main.html';
+
         }
+//        if (success == true){
+//            window.location.href = 'main.html';
+//        }
 
     });
 
