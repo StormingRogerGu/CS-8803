@@ -39,7 +39,7 @@
       <div class="jumbotron">
         <h1 class="display-3">Your Task</h1>
         <p class="lead">Time and tide wait for no man. I should value my time.</p>
-        <p><a class="btn btn-lg btn-success text-white" role="button" id="add_task">Add new Task</a></p>
+        <p><a class="btn btn-lg btn-primary text-white" role="button" id="add_task">Add new Task</a></p>
       </div>
 
       <div class="row marketing">
@@ -87,7 +87,7 @@
             window.location.href = 'addtask.html';
         });
 
-        var usr_id = "ddd"
+        var usr_id = "ddd";
         var taskdata = {};
         //console.log(table_row);
         var myref = firebase.database().ref('/User_profile/' + usr_id + '/Task/').on('value',function (snapchat) {
@@ -113,12 +113,32 @@
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
-            cell1.innerHTML = '<button class="align-content-between">Finished</button>'
+            cell1.innerHTML = '<button id="finish_btn" class="btn btn-primary" type="button" onclick="deleteRow(this)">Finished</button>'; 
             cell2.innerHTML = task;
             cell3.innerHTML = date;
-            cell4.innerHTML = '<button class="align-content-between">Top</button>'
+            cell4.innerHTML = '<button id="top_btn" class="btn btn-primary" type="button">Top</button>'; 
+        }       
+                
+        function deleteRow(elem) {
+            var table = elem.parentNode.parentNode.parentNode;
+            //var rowCount = table.rows.length;            
 
+            // get the "<tr>" that is the parent of the clicked button
+            var row = elem.parentNode.parentNode;
+             //alert("row" + elem.parentNode.parentNode.rowIndex + 
+    //" - column" + elem.parentNode.cellIndex);
+            var i=elem.parentNode.parentNode.rowIndex;
+            var j=elem.parentNode.cellIndex;            
+            
+            console.log(table.rows[i-1].cells[j+1].innerText);
+            
+            var taskName=table.rows[i-1].cells[j+1].innerText;          
+                        
+            var myref = firebase.database().ref('/User_profile/' + usr_id + '/Task/' + taskName).remove();                    
+            
+            row.parentNode.removeChild(row); // remove the row         
         }
+
 
 
 
