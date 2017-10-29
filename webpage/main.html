@@ -26,25 +26,25 @@
               <a class="nav-link active" href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/#">About</a>
+              <a class="nav-link" >About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://v4-alpha.getbootstrap.com/examples/narrow-jumbotron/#">Contact</a>
+              <a class="nav-link">Contact</a>
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project name</h3>
+        <h3 class="text-muted">Ants</h3>
       </div>
 
       <div class="jumbotron">
         <h1 class="display-3">Your Task</h1>
         <p class="lead">Time and tide wait for no man. I should value my time.</p>
-        <p><a class="btn btn-lg btn-success text-white" role="button">Add new Task</a></p>
+        <p><a class="btn btn-lg btn-success text-white" role="button" id="add_task">Add new Task</a></p>
       </div>
 
       <div class="row marketing">
         <div class="col-lg-6">
-          <table id="taskTable" class="table forum table-striped" style="width: 700px">
+          <table id="taskTable_name" class="table forum table-striped" style="width: 700px">
               <thead>
               <tr>
                   <th>   Finish</th>
@@ -83,26 +83,44 @@
         };
         firebase.initializeApp(config);
 
+        add_task.addEventListener("click",function(){
+            window.location.href = 'addtask.html';
+        });
+
         var usr_id = "ddd"
         var taskdata = {};
         //console.log(table_row);
         var myref = firebase.database().ref('/User_profile/' + usr_id + '/Task/').on('value',function (snapchat) {
             var task_data = snapchat.val();
-            console.log(task_data);
-            for ()
-            //addRow();
+
+            for (var it in task_data){
+                var task = it;
+                var date = task_data[it]["due_date"];
+                var top = task_data[it]["top"];
+                var note = task_data[it]["remind_time"];
+//                console.log(task);
+//                console.log(date);
+                addRow(task, date);
+            }
+
 
         });
 
         function addRow( task,  date) {
-            var table = document.getElementById("taskTable");
+            var table = document.getElementById("taskDetail");
             var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            cell1.innerHTML = '<button class="align-content-between">Finished</button>'
             cell2.innerHTML = task;
             cell3.innerHTML = date;
+            cell4.innerHTML = '<button class="align-content-between">Top</button>'
 
         }
+
+
 
 
     </script>

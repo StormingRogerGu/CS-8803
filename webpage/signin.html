@@ -19,14 +19,57 @@
     <input class="w3-input" style="width: 500px" id="password" type="password">
 
 
-    <button class="w3-button w3-blue w3-margin-top" type="button">Login</button>
+    <button class="w3-button w3-blue w3-margin-top" type="button" id="signin_btn">Login</button>
 </div>
 
 
 
 
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyACsDAUeirU-gel9iB2tXzYMBUoskBkDog",
+        authDomain: "oct13am-7683b.firebaseapp.com",
+        databaseURL: "https://oct13am-7683b.firebaseio.com",
+        projectId: "oct13am-7683b",
+        storageBucket: "oct13am-7683b.appspot.com",
+        messagingSenderId: "329352361598"
+    };
+    firebase.initializeApp(config);
+
+    var mydatabase = firebase.database();
+    var sign_in_id = document.getElementById("userId");
+    var pwd = document.getElementById("password");
+
+
+    signin_btn.addEventListener("click",function(){
+
+
+        var databaseRef = firebase.database().ref('/User_profile/').on('value' ,function (snapchat) {
+
+            //find key
+            var map=snapchat.val();
+            var users = Object.keys(snapchat.val());
+
+            users.forEach(function(key){
+
+                var data=map[key];
+
+                if(key==sign_in_id.value && data.user_pwd==pwd.value){
+                    console.log("TRUE");
+                    window.location.href='main.html';
+                }
+
+
+            });
+
+        });
+
+
+    })
 
 </script>
+
 </body>
 </html>
