@@ -1,6 +1,7 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,9 +12,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -36,6 +43,10 @@ import com.google.firebase.storage.StorageReference;
 
 public class puzzle extends Activity {
 
+    private RelativeLayout puzzle_piece;
+    private RelativeLayout puzzle_total_piece_show;
+    private ImageView turn_image;
+
     private ImageButton friend;
     private ImageButton timer;
     private ImageButton home;
@@ -55,11 +66,15 @@ public class puzzle extends Activity {
     private Button go_to_complete_puzzle_btn;
     private TextView tx1;
 
-    private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1").child("puzzle_pic0_1.png");
+    //private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1").child("puzzle_pic0_1.png");
     private String puzzle_file = "pic";
     private String puzzle_pic = "puzzle_pic0_";
     private int ongoing_id_now_cur;
     int counter=9;
+
+    private int index = 1;
+    private FrameLayout containerView;
+    private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("all_complete_puzzle");
 
 
 
@@ -72,9 +87,99 @@ public class puzzle extends Activity {
         go_to_complete_puzzle_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(puzzle.this, Complete_puzzle_show.class);
-                startActivity(intent);
+//                Intent intent = new Intent();
+//                intent.setClass(puzzle.this, Complete_puzzle_show.class);
+//                startActivity(intent);
+                if(index == 0){
+                    applyRotation(0,0,90);
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+
+                            ongoing_id_now_cur = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                            ongoing_id_now_cur = ongoing_id_now_cur % 9;
+
+                            ongoing_id_now = ongoing_id_now % 9;
+
+                            Log.v("ongoing num", "total"+ongoing_id_now);
+                            int file_num = ongoing_id_now / 9 + 1;
+                            Log.v("ongoingfile", "total"+file_num);
+                            int comp_id = ongoing_id_now / 9;
+                            Log.v("ongoingcompid", "total"+comp_id);
+                            if(file_num > 0) {
+                                Log.v("completed puzzle","fdaf"+file_num);
+                                myRef3.child("Completed_id").setValue(file_num);
+                            }
+
+                            Log.v("what id","this" + ongoing_id_now + "hh");
+                            for(int i = 0; i < ongoing_id_now_cur; i++) {
+                                Log.v("wrong?","shit!");
+                                int k = i + 1;
+                                String puzzle_file_id = puzzle_file + file_num;
+                                String puzzle_piece_id = puzzle_pic + k +".png";
+                                Log.v("piece_id",puzzle_piece_id);
+                                StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child(puzzle_file_id).child(puzzle_piece_id);
+
+
+                                if (i == 0) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img1);
+                                    continue;
+                                }
+                                if (i == 1) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img2);
+                                    continue;
+                                }
+                                if (i == 2) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img3);
+                                    continue;
+                                }
+                                if (i == 3) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img4);
+                                    continue;
+                                }
+                                if (i == 4) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img5);
+                                    continue;
+                                }
+                                if (i == 5) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img6);
+                                    continue;
+                                }
+                                if (i == 6) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img7);
+                                    continue;
+                                }
+                                if (i == 7) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img8);
+                                    continue;
+                                }
+                                if (i == 8) {
+                                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp_storageref).into(img9);
+                                    continue;
+                                }
+                            }
+                        }
+
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                    index = 1;
+
+                }
+                else{
+                    applyRotation(1,0,-90);
+                    String picture = 0 + ".jpg";
+                    StorageReference temp = storageref.child(picture);
+                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp).into(turn_image);
+
+                    index = 0;
+                }
+
             }
         });
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -86,12 +191,6 @@ public class puzzle extends Activity {
                 ongoing_id_now_cur = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
                 ongoing_id_now_cur = ongoing_id_now_cur % 9;
 
-//                int file_num = ongoing_id_now / 9 + 1;
-//                int comp_id = ongoing_id_now / 9;
-//                if(comp_id > 0) {
-//                    Log.v("completed puzzle","fdaf"+file_num);
-//                    myRef3.child("Completed_id").setValue(file_num);
-//                }
                 ongoing_id_now = ongoing_id_now % 9;
 
                 Log.v("ongoing num", "total"+ongoing_id_now);
@@ -159,50 +258,6 @@ public class puzzle extends Activity {
 
             }
         });
-        
-
-//        bt1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(counter==9) {
-//                    img1.setImageResource(R.drawable.pic1);
-//                    counter--;
-//                }
-//                else if(counter==8) {
-//                    img2.setImageResource(R.drawable.pic2);
-//                    counter--;
-//                }
-//                else if(counter==7) {
-//                    img3.setImageResource(R.drawable.pic3);
-//                    counter--;
-//                }
-//                else if(counter==6) {
-//                    img4.setImageResource(R.drawable.pic4);
-//                    counter--;
-//                }
-//                else if(counter==5) {
-//                    img5.setImageResource(R.drawable.pic5);
-//                    counter--;
-//                }
-//                else if(counter==4) {
-//                    img6.setImageResource(R.drawable.pic6);
-//                    counter--;
-//                }
-//                else if(counter==3) {
-//                    img7.setImageResource(R.drawable.pic7);
-//                    counter--;
-//                }
-//                else if(counter==2) {
-//                    img8.setImageResource(R.drawable.pic8);
-//                    counter--;
-//                }
-//                else if(counter==1) {
-//                    img9.setImageResource(R.drawable.pic9);
-//                    tx1.setVisibility(View.VISIBLE);
-//                    tx1.setBackgroundColor(Color.RED);
-//                }
-//            }
-//        });
 
 
         //change icon
@@ -266,6 +321,7 @@ public class puzzle extends Activity {
         home = (ImageButton)findViewById(R.id.home);
         puzzle = (ImageButton)findViewById(R.id.puzzle);
         profile = (ImageButton)findViewById(R.id.profile);
+
         img1=(ImageView)findViewById(R.id.puzzle_1);
         img2=(ImageView)findViewById(R.id.puzzle_2);
         img3=(ImageView)findViewById(R.id.puzzle_3);
@@ -276,8 +332,11 @@ public class puzzle extends Activity {
         img8=(ImageView)findViewById(R.id.puzzle_8);
         img9=(ImageView)findViewById(R.id.puzzle_9);
         tx1=(TextView)findViewById(R.id.textView);
-        tx1.setVisibility(View.GONE);
+        containerView = (FrameLayout)findViewById(R.id.puzzle_continer);
+        puzzle_piece = (RelativeLayout)findViewById(R.id.puzzle_pieces_relative_layout);
+        puzzle_total_piece_show = (RelativeLayout)findViewById(R.id.puzzle_total_pieces);
         go_to_complete_puzzle_btn=(Button)findViewById(R.id.puzzle_galery_goto_completed);
+        turn_image = (ImageView)findViewById(R.id.puzzle_total_show);
 
 
 
@@ -320,6 +379,78 @@ public class puzzle extends Activity {
         myRef = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Time_mode");
         myRef2 = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Time_mode").child("puzzle_ongonig_id");
         myRef3 = FirebaseDatabase.getInstance().getReference("User_profile").child(usr_id).child("Time_mode").child("puzzle_comp_id");
+    }
+
+    public void applyRotation(int tag, float start, float end){
+        final float centerX = containerView.getWidth() / 2.0f;
+        final float centerY = containerView.getHeight() / 2.0f;
+
+        final Rotate3D rotation = new Rotate3D(start,end, centerX, centerY,310.0f,true);
+        rotation.setDuration(300);
+        rotation.setInterpolator(new AccelerateInterpolator());
+        rotation.setAnimationListener(new DisplyNextView(tag));
+        containerView.startAnimation(rotation);
+    }
+
+    private final class DisplyNextView implements Animation.AnimationListener{
+        private final int tag;
+        private DisplyNextView(int tag){
+            this.tag = tag;
+        }
+
+        @Override
+        public void onAnimationStart(Animation animation) {
+
+        }
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            containerView.post(new SwapViews(tag));
+
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+
+        }
+    }
+
+    private final class SwapViews implements Runnable {
+        private final int tag;
+
+        public SwapViews(int position) {
+            tag = position;
+        }
+
+        public void run() {
+            if (tag == 0) {
+                tx1.setText("首页");
+
+                showView(tag,puzzle_piece, puzzle_total_piece_show, 90, 0);
+            } else if (tag == 1) {
+                tx1.setText("音乐");
+
+                showView(tag,puzzle_total_piece_show, puzzle_piece, -90, 0);
+            }
+        }
+    }
+
+    private void showView(int tag, RelativeLayout showView, RelativeLayout hiddenView, int start_jd, int end_jd) {
+
+        float centerX = showView.getWidth() / 2.0f;
+        float centerY = showView.getHeight() / 2.0f;
+        if (centerX == 0 || centerY == 0) {
+            showView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+
+            centerX = showView.getMeasuredWidth() / 2.0f;
+            centerY = showView.getMeasuredHeight() / 2.0f;
+        }
+        hiddenView.setVisibility(View.GONE);
+        showView.setVisibility(View.VISIBLE);
+        Rotate3D rotation = new Rotate3D(start_jd, end_jd, centerX, centerY, 310.0f, false);
+        rotation.setDuration(300);
+        rotation.setInterpolator(new DecelerateInterpolator());
+        containerView.startAnimation(rotation);
     }
 
 }

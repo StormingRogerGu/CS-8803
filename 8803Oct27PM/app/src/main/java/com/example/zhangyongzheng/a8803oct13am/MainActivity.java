@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
                 myownadapter.updateData(listItem);
                 lv.setAdapter(myownadapter);
+
                 Log.v("afterlistview","go");
                 for(int i = 0; i<listvalue.size();i++){
                     Log.v("lllllllll",listvalue.get(i).due_date);

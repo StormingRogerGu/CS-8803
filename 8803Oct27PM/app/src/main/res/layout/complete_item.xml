@@ -21,7 +21,8 @@
     <ImageView
         android:id="@+id/complete_item_puzzle"
         android:layout_width="60dp"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+        />
         <TextView
             android:id="@+id/complete_item_text"
             android:layout_width="match_parent"

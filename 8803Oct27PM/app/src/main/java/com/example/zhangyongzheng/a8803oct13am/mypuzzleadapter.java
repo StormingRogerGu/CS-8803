@@ -2,6 +2,7 @@ package com.example.zhangyongzheng.a8803oct13am;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,11 @@ public class mypuzzleadapter extends BaseAdapter {
         this.mInflater = LayoutInflater.from(context);
         this.listItem = listItem;
     }
+    public void add(HashMap<String, Object> map){
+        if(listItem != null){
+            listItem.add(map);
+        }
+    }
     @Override
     public int getCount() {
         return listItem.size();
@@ -49,20 +55,19 @@ public class mypuzzleadapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         ViewHolder holder;
-        if(view == null){
+        if (view == null) {
             holder = new ViewHolder();
             view = mInflater.inflate(R.layout.task_item, null);
             holder.Image = (ImageView) view.findViewById(R.id.complete_item_puzzle);
             holder.title_text = (TextView) view.findViewById(R.id.complete_item_text);
             view.setTag(holder);
-        }
-        else {
-            holder = (ViewHolder)view.getTag();
+        } else {
+            holder = (ViewHolder) view.getTag();
         }
 
         holder.Image.setImageBitmap((Bitmap) listItem.get(position).get("ItemImage"));
         holder.title_text.setText((String) listItem.get(position).get("ItemTitle"));
-
+        holder.Image.setTag(position);
 
         return view;
     }

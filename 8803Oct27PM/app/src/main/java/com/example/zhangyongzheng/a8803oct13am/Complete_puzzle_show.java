@@ -66,7 +66,7 @@ public class Complete_puzzle_show extends Activity {
     private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("all_complete_puzzle");
     private int complete_puzzle_id;
 
-    private HashMap<String, Bitmap> original = new HashMap<String, Bitmap>();
+    private HashMap<String, Drawable> original = new HashMap<String, Drawable>();
     private long ONE_MEGABYTE = 1024 * 1024;
 
 
@@ -76,8 +76,12 @@ public class Complete_puzzle_show extends Activity {
         setContentView(R.layout.complete_puzzle);
         setUpView();
         setUsr_id();
+        //img.setDrawingCacheEnabled(true);
 
         final mypuzzleadapter myownpuzzleadapter = new mypuzzleadapter(this, listItem);
+
+//        setcontent();
+//        Log.v("how many complete,","it is "+complete_puzzle_id);
 
         myRef2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -90,7 +94,19 @@ public class Complete_puzzle_show extends Activity {
                     //ImageView temp_image = (ImageView)findViewById(R.id.complete_item_puzzle);
                     StorageReference temp = storageref.child(picture);
                     Log.v("pic name", picture);
-                    Glide.with(Complete_puzzle_show.this).using(new FirebaseImageLoader()).load(temp).into(img);
+                    //Glide.with(Complete_puzzle_show.this).using(new FirebaseImageLoader()).load(temp).into(img);
+                    final long MAX_BYTE = 1024*1024;
+                    temp.getBytes(MAX_BYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                            puzzle_storage_list.add(bitmap);
+                            initialdata();
+                            myownpuzzleadapter.updateData(listItem);
+                            lv.setAdapter(myownpuzzleadapter);
+
+                        }
+                    });
 
                     //byte[] temp_byte = drawable2Bytes(img.getDrawable());
                     //Bitmap btm = ((BitmapDrawable)img.getDrawable()).getBitmap();
@@ -98,25 +114,24 @@ public class Complete_puzzle_show extends Activity {
                     //Bitmap bitmap = img.getDrawingCache();
                     //puzzle_storage_list.add(btm);
 
-//                    try {
-//                        //Task<byte[]> bytes = storageref.child(picture).getBytes(ONE_MEGABYTE);
-//                        Bitmap temp_bitmap = Glide.with(Complete_puzzle_show.this).load(temp.getDownloadUrl()).asBitmap().into(100,100).get();
-//                        puzzle_storage_list.add(temp_bitmap);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    } catch (ExecutionException e) {
-//                        e.printStackTrace();
+//                    Drawable temp_drawable = img.getDrawable();
+//                    if(temp_drawable == null){
+//                        Log.v("null draw","real null");
 //                    }
+//                    puzzle_storage_list.add(temp_drawable);
 
 
                 }
 
+                Log.v("storage_size","the size is " + puzzle_storage_list.size());
+
 //                initialdata();
 //                puzzle_name_list.clear();
 //                puzzle_storage_list.clear();
-//
-//                myownpuzzleadapter.updateData(listItem);
-//                lv.setAdapter(myownpuzzleadapter);
+
+                myownpuzzleadapter.updateData(listItem);
+                lv.setAdapter(myownpuzzleadapter);
+                Log.v("how many complete,","it is "+complete_puzzle_id +"in datasnap shot");
 
 
             }
@@ -126,6 +141,10 @@ public class Complete_puzzle_show extends Activity {
 
             }
         });
+
+        //shuchu();
+
+
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,8 +176,8 @@ public class Complete_puzzle_show extends Activity {
     public void initialdata(){
         for(int i = 0; i<puzzle_name_list.size();i++){
             String key = puzzle_name_list.get(i);
-            Bitmap bit = puzzle_storage_list.get(i);
-            raw_hashmap.put(key, bit);
+            Bitmap btm = puzzle_storage_list.get(i);
+            raw_hashmap.put(key, btm);
 
         }
         List<Map.Entry<String, Bitmap>> transfer = new ArrayList<Map.Entry<String, Bitmap>>(raw_hashmap.entrySet());
@@ -166,7 +185,8 @@ public class Complete_puzzle_show extends Activity {
         for(int i = 0; i<puzzle_name_list.size(); i++){
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("ItemTitle",transfer.get(i).getKey());
-            map.put("ItemImage", transfer.get(i).getValue());
+            //Log.v("mapkey",transfer.get(i).getKey());
+            map.put("ItemImage",transfer.get(i).getValue());
 
             listItem.add(map);
         }
@@ -202,5 +222,63 @@ public class Complete_puzzle_show extends Activity {
         drawable.draw(canvas);
         return bitmap;
     }
+
+    public void setcontent(){
+        myRef2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                complete_puzzle_id = dataSnapshot.getValue(int.class);
+
+
+//                for(int i = 0; i< complete_puzzle_id; i++){
+//                    String picture = i + ".jpg";
+//                    String name = "The" + i + "th puzzle";
+//                    puzzle_name_list.add(name);
+//                    //ImageView temp_image = (ImageView)findViewById(R.id.complete_item_puzzle);
+//                    StorageReference temp = storageref.child(picture);
+//                    Log.v("pic name", picture);
+//                    Glide.with(Complete_puzzle_show.this).using(new FirebaseImageLoader()).load(temp).into(img);
+//
+//                    //byte[] temp_byte = drawable2Bytes(img.getDrawable());
+//                    //Bitmap btm = ((BitmapDrawable)img.getDrawable()).getBitmap();
+//                    //Bitmap btm = BitmapFactory.decodeByteArray(temp_byte,0,temp_byte.length);
+//                    //Bitmap bitmap = img.getDrawingCache();
+//                    //puzzle_storage_list.add(btm);
+//
+//                    Drawable temp_drawable = img.getDrawable();
+//                    if(temp_drawable == null){
+//                        Log.v("null draw","real null");
+//                    }
+//                    puzzle_storage_list.add(temp_drawable);
+//
+//
+//                }
+//
+//                Log.v("storage_size","the size is " + puzzle_storage_list.size());
+//
+//                initialdata();
+//                puzzle_name_list.clear();
+//                puzzle_storage_list.clear();
+//
+//                myownpuzzleadapter.updateData(listItem);
+//                lv.setAdapter(myownpuzzleadapter);
+                Log.v("how many complete,","it is "+complete_puzzle_id +"in datasnap shot");
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Log.v("how many complete,","it is "+complete_puzzle_id + "in function");
+
+    }
+
+    public void shuchu(){
+        Log.v("how many complete","shuchu" + complete_puzzle_id);
+    }
+
 
 }
