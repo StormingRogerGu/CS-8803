@@ -424,11 +424,11 @@ public class puzzle extends Activity {
 
         public void run() {
             if (tag == 0) {
-                tx1.setText("首页");
+                tx1.setText("view1");
 
                 showView(tag,puzzle_piece, puzzle_total_piece_show, 90, 0);
             } else if (tag == 1) {
-                tx1.setText("音乐");
+                tx1.setText("view2");
 
                 showView(tag,puzzle_total_piece_show, puzzle_piece, -90, 0);
             }
