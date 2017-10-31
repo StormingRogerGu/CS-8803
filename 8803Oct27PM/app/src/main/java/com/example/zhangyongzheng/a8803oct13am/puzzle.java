@@ -68,7 +68,7 @@ public class puzzle extends Activity {
 
     //private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("pic1").child("puzzle_pic0_1.png");
     private String puzzle_file = "pic";
-    private String puzzle_pic = "puzzle_pic0_";
+    private String puzzle_pic = "puzzle_pic";
     private int ongoing_id_now_cur;
     int counter=9;
 
@@ -97,33 +97,28 @@ public class puzzle extends Activity {
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
                             ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                            int file_num = ongoing_id_now / 9 + 1;
 
                             ongoing_id_now_cur = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
                             myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(ongoing_id_now_cur/9 + 1);
+                            int file = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                            file = file /9;
 
                             ongoing_id_now_cur = ongoing_id_now_cur % 9;
 
                             ongoing_id_now = ongoing_id_now % 9;
 
 
-                            Log.v("ongoing num", "total"+ongoing_id_now);
-                            int file_num = ongoing_id_now / 9 + 1;
-                            //myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(file_num);
 
-                            Log.v("ongoingfile", "total"+file_num);
                             int comp_id = ongoing_id_now / 9;
-                            Log.v("ongoingcompid", "total"+comp_id);
-                            if(file_num > 0) {
-                                Log.v("completed puzzle","fdaf"+file_num);
-                                myRef3.child("Completed_id").setValue(file_num);
-                            }
+
 
                             Log.v("what id","this" + ongoing_id_now + "hh");
                             for(int i = 0; i < ongoing_id_now_cur; i++) {
                                 Log.v("wrong?","shit!");
                                 int k = i + 1;
                                 String puzzle_file_id = puzzle_file + file_num;
-                                String puzzle_piece_id = puzzle_pic+ k +".png";
+                                String puzzle_piece_id = puzzle_pic+file +"_"+ k +".png";
                                 Log.v("piece_id",puzzle_piece_id);
                                 StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child(puzzle_file_id).child(puzzle_piece_id);
 
@@ -178,9 +173,24 @@ public class puzzle extends Activity {
                 }
                 else{
                     applyRotation(1,0,-90);
-                    String picture = 0 + ".jpg";
-                    StorageReference temp = storageref.child(picture);
-                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp).into(turn_image);
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener(){
+                                                             @Override
+                                                             public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                 int file = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_id").getValue(int.class);
+                                                                 file = file - 1;
+                                                                 String picture = file + ".png";
+                                                                 StorageReference temp = storageref.child(picture);
+                                                                 Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp).into(turn_image);
+                                                             }
+
+                                                             @Override
+                                                             public void onCancelled(DatabaseError databaseError) {
+
+                                                             }
+                                                         });
+//                    String picture = 0 + ".png";
+//                    StorageReference temp = storageref.child(picture);
+//                    Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp).into(turn_image);
 
                     index = 0;
                 }
@@ -192,35 +202,31 @@ public class puzzle extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                int file_num = ongoing_id_now / 9 + 1;
 
                 ongoing_id_now_cur = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
-                myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(ongoing_id_now_cur/9 + 1);
 
+                int file = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                file = file /9;
+
+                myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(ongoing_id_now_cur/9 + 1);
 
                 ongoing_id_now_cur = ongoing_id_now_cur % 9;
 
                 ongoing_id_now = ongoing_id_now % 9;
 
-                Log.v("ongoing num", "total"+ongoing_id_now);
 
-                int file_num = ongoing_id_now / 9 + 1;
-               // myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(file_num);
 
-                Log.v("ongoingfile", "total"+file_num);
                 int comp_id = ongoing_id_now / 9;
-                Log.v("ongoingcompid", "total"+comp_id);
-                if(file_num > 0) {
-                    Log.v("completed puzzle","fdaf"+file_num);
-                    myRef3.child("Completed_id").setValue(file_num);
-                }
 
-                Log.v("what id","this" + ongoing_id_now + "hh");
                 for(int i = 0; i < ongoing_id_now_cur; i++) {
-                    Log.v("wrong?","shit!");
+
                     int k = i + 1;
                     String puzzle_file_id = puzzle_file + file_num;
-                    String puzzle_piece_id = puzzle_pic + k +".png";
-                    Log.v("piece_id",puzzle_piece_id);
+                    Log.v("whatfile",puzzle_file_id);
+                    String puzzle_piece_id = puzzle_pic +file +"_"+ k +".png";
+                    Log.v("what",puzzle_piece_id);
+
                     StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child(puzzle_file_id).child(puzzle_piece_id);
 
 
