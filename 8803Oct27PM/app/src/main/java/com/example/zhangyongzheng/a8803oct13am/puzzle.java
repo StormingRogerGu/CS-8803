@@ -99,12 +99,17 @@ public class puzzle extends Activity {
                             ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
 
                             ongoing_id_now_cur = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                            myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(ongoing_id_now_cur/9 + 1);
+
                             ongoing_id_now_cur = ongoing_id_now_cur % 9;
 
                             ongoing_id_now = ongoing_id_now % 9;
 
+
                             Log.v("ongoing num", "total"+ongoing_id_now);
                             int file_num = ongoing_id_now / 9 + 1;
+                            //myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(file_num);
+
                             Log.v("ongoingfile", "total"+file_num);
                             int comp_id = ongoing_id_now / 9;
                             Log.v("ongoingcompid", "total"+comp_id);
@@ -118,7 +123,7 @@ public class puzzle extends Activity {
                                 Log.v("wrong?","shit!");
                                 int k = i + 1;
                                 String puzzle_file_id = puzzle_file + file_num;
-                                String puzzle_piece_id = puzzle_pic + k +".png";
+                                String puzzle_piece_id = puzzle_pic+ k +".png";
                                 Log.v("piece_id",puzzle_piece_id);
                                 StorageReference temp_storageref = FirebaseStorage.getInstance().getReference().child(puzzle_file_id).child(puzzle_piece_id);
 
@@ -189,12 +194,18 @@ public class puzzle extends Activity {
                 ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
 
                 ongoing_id_now_cur = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
+                myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(ongoing_id_now_cur/9 + 1);
+
+
                 ongoing_id_now_cur = ongoing_id_now_cur % 9;
 
                 ongoing_id_now = ongoing_id_now % 9;
 
                 Log.v("ongoing num", "total"+ongoing_id_now);
+
                 int file_num = ongoing_id_now / 9 + 1;
+               // myRef.child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(file_num);
+
                 Log.v("ongoingfile", "total"+file_num);
                 int comp_id = ongoing_id_now / 9;
                 Log.v("ongoingcompid", "total"+comp_id);
