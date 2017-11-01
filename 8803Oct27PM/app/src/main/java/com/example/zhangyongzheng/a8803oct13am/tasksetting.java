@@ -43,6 +43,7 @@ public class tasksetting extends Activity{
     private DatabaseReference myDatabase;
     public String User_id;
     private User_id my_usr_id;
+    private Button back_btn;
 
     private static final int SHOW_DATAPICK = 0;
     private static final int DATE_DIALOG_ID = 1;
@@ -77,8 +78,19 @@ public class tasksetting extends Activity{
         mMinute = c.get(Calendar.MINUTE);
 
         setDateTime();
+        back_to_Main();
         setTimeOfDay();
         confirm_task();
+    }
+    public void back_to_Main(){
+        back_btn = (Button)findViewById(R.id.back_button_task);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tasksetting.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void confirm_task(){
