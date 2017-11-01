@@ -56,6 +56,7 @@ public class login extends Activity  {
                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
                     boolean finduser = false;
+                    boolean matchpwd = false;
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -72,6 +73,7 @@ public class login extends Activity  {
                                 //Log.v("password", passWord);
                                 //Password is corrent
                                 if (ed2.getText().toString().equals(passWord)) {
+                                    matchpwd = true;
                                     break;
                                 }
 
@@ -93,7 +95,7 @@ public class login extends Activity  {
 
 
                         }
-                        if (finduser == true){
+                        if (finduser == true && matchpwd == true){
                             Intent intent = new Intent(login.this, MainActivity.class);
 
 //                            Bundle bundle = new Bundle();
