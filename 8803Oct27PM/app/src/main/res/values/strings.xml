@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android_Project</string>
+    <string name="app_name">controlTime</string>
     <string name="friend">frd</string>
     <string name="maze">maze</string>
     <string name="home">home</string>
@@ -25,6 +25,11 @@
     <string name="clear">Clear</string>
     <string name="timer2">Timer</string>
     <string name="done">done</string>
-    <string name="Confirm">Confirm</string>>
+    <string name="Confirm">Confirm</string>
+
+    <string name="facebook_app_id">1951018315159053</string>
+    <string name="fb_login_protocol_scheme">fb1951018315159053</string>
+
+
 </resources>
 
