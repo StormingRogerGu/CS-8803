@@ -20,6 +20,9 @@ public class signup extends Activity{
     private EditText password;
     private EditText confirm_password;
     private DatabaseReference mydatabase;
+    private EditText email;
+    private EditText age;
+    private EditText Institution;
 
 
     @Override
@@ -61,6 +64,9 @@ public class signup extends Activity{
                             mydatabase.child(user_id.getText().toString()).child("user_pwd").setValue(password.getText().toString());
                             mydatabase.child(user_id.getText().toString()).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(1);
                             mydatabase.child(user_id.getText().toString()).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_ongoing").setValue(0);
+                            mydatabase.child(user_id.getText().toString()).child("email").setValue(email.getText().toString());
+                            mydatabase.child(user_id.getText().toString()).child("age").setValue(age.getText().toString());
+                            mydatabase.child(user_id.getText().toString()).child("Institution").setValue(Institution.getText().toString());
                             Intent intent = new Intent(signup.this, login.class);
                             startActivity(intent);
                             finish();
@@ -99,6 +105,9 @@ public class signup extends Activity{
         password = (EditText)findViewById(R.id.sign_up_pwd);
         confirm_password = (EditText)findViewById(R.id.sign_up_confirm_pwd);
         mydatabase = FirebaseDatabase.getInstance().getReference("User_profile");
+        email = (EditText)findViewById(R.id.sign_up_email);
+        age = (EditText)findViewById(R.id.sign_up_age);
+        Institution = (EditText)findViewById(R.id.sign_up_companyschool);
 
     }
 

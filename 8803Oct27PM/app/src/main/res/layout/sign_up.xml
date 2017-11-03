@@ -65,12 +65,51 @@
         android:hint="Confirm Password"
 
         android:textColorHint="#ffff299f"
+        android:layout_below="@+id/sign_up_pwd"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+
+        android:id="@+id/sign_up_email"
+        android:hint="Email"
+
+        android:textColorHint="#ffff299f"
+        android:layout_below="@+id/sign_up_confirm_pwd"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/sign_up_age"
+        android:hint="Age"
+        android:textColorHint="#ffff299f"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/sign_up_email"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoComplete"
+
+        android:id="@+id/sign_up_companyschool"
+        android:hint="Company / School"
+
+        android:textColorHint="#ffff299f"
+        android:layout_below="@+id/sign_up_age"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
