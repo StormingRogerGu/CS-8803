@@ -29,6 +29,7 @@
 
     <string name="facebook_app_id">1951018315159053</string>
     <string name="fb_login_protocol_scheme">fb1951018315159053</string>
+    <string name="title_activity_main2">profile</string>
 
 
 </resources>
