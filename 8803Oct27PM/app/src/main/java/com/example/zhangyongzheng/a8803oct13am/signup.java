@@ -64,9 +64,9 @@ public class signup extends Activity{
                             mydatabase.child(user_id.getText().toString()).child("user_pwd").setValue(password.getText().toString());
                             mydatabase.child(user_id.getText().toString()).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(1);
                             mydatabase.child(user_id.getText().toString()).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_ongoing").setValue(0);
-                            mydatabase.child(user_id.getText().toString()).child("email").setValue(email.getText().toString());
-                            mydatabase.child(user_id.getText().toString()).child("age").setValue(age.getText().toString());
-                            mydatabase.child(user_id.getText().toString()).child("Institution").setValue(Institution.getText().toString());
+                            mydatabase.child(user_id.getText().toString()).child("usr_email").setValue(email.getText().toString());
+                            mydatabase.child(user_id.getText().toString()).child("usr_age").setValue(age.getText().toString());
+                            mydatabase.child(user_id.getText().toString()).child("usr_Institution").setValue(Institution.getText().toString());
                             Intent intent = new Intent(signup.this, login.class);
                             startActivity(intent);
                             finish();

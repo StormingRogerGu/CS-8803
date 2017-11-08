@@ -4,9 +4,216 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
+        android:id="@+id/profile_l1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="User Profile"
+            android:textSize="40dp" />
     </LinearLayout>
-    
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/profile_l1"
+        android:id="@+id/profile_l2"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_name"
+            android:text="User Name: "
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_usr_name"
+            android:hint="User Name"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:inputType="textCapWords"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/profile_l2"
+        android:id="@+id/profile_l3"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_age"
+            android:text="Age: "
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_usr_age"
+            android:hint="User Age"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:inputType="textCapWords"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/profile_l3"
+        android:id="@+id/profile_l4"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_email"
+            android:text="Email: "
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_usr_email"
+            android:hint="User Email"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:inputType="textCapWords"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/profile_l4"
+        android:id="@+id/profile_l5"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Institution"
+            android:text="Institution: "
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_usr_institution"
+            android:hint="School / Company"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:inputType="textCapWords"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/profile_l5"
+        android:id="@+id/profile_l6"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/New_password"
+            android:text="New Password: "
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_usr_new_password"
+            android:hint="New Password"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:inputType="textCapWords"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/profile_l6"
+        android:id="@+id/profile_l7"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/CFM_password"
+            android:text="Confirm Password: "
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_usr_cfm_password"
+            android:hint="Confirm Password"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:inputType="textCapWords"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_l8"
+        android:layout_below="@+id/profile_l7"
+        android:layout_marginTop="40dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/profile_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Confirm Change"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FAFAFA"
+        android:id="@+id/linearLayout">
+
+        <include layout="@layout/navigation_bar" />
+    </LinearLayout>
+
 </RelativeLayout>
