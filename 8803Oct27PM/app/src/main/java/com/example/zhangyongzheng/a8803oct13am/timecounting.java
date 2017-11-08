@@ -93,11 +93,12 @@ public class timecounting extends Activity{
             if (button_resume == true) {
 
                 finish_task = false;
-                showIntentActivityNotify("Lose");
-
+                showIntentActivityNotify("Lose due to no focus !!!");
+                Intent intent = new Intent(timecounting.this, timesetting.class);
+                startActivity(intent);
             }
             else{
-                showIntentActivityNotify("Back!!!!!");
+                showIntentActivityNotify(" You are using pause time! Back!!!!!");
 
             }
         }
@@ -225,8 +226,7 @@ public class timecounting extends Activity{
 
         @Override
         public void onFinish() {
-            showIntentActivityNotify("Lose!!!");
-            int a = 2;
+            showIntentActivityNotify("Lose due to running out of resume time!!");
             Intent intent = new Intent(timecounting.this, timesetting.class);
             startActivity(intent);
 

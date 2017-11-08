@@ -258,10 +258,10 @@ public class login extends AppCompatActivity  {
     private void nextActivity(Profile pro){
         if(pro != null){
 
-//            String first_name = pro.getFirstName().toString();
-//            String last_name = pro.getLastName().toString();
+            String first_name = pro.getFirstName().toString();
+            String last_name = pro.getLastName().toString();
 
-            final String usr_name = pro.getId();
+            final String usr_name = first_name + last_name;
 //            mydatabase.child(usr_name).child("usr_pwd").setValue("");
             final boolean[] sameID = {false};
             myRef.addListenerForSingleValueEvent(new ValueEventListener() {
