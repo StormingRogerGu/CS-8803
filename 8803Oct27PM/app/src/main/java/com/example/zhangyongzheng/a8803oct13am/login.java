@@ -70,8 +70,8 @@ public class login extends AppCompatActivity  {
         ed2 = (EditText)findViewById(R.id.editText2);
 
         b2 = (Button)findViewById(R.id.button2);
-        tx1 = (TextView)findViewById(R.id.textView3);
-        tx1.setVisibility(View.GONE);
+    //    tx1 = (TextView)findViewById(R.id.textView3);
+    //    tx1.setVisibility(View.GONE);
 
         //final boolean[] sameID = {false};
 
@@ -162,18 +162,18 @@ public class login extends AppCompatActivity  {
                                 }
 
                                 //Password is wrong
-                                else {
-                                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+        //                        else {
+        //                            Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
 
-                                    tx1.setVisibility(View.VISIBLE);
-                                    tx1.setBackgroundColor(Color.RED);
-                                    counter--;
-                                    tx1.setText(Integer.toString(counter));
+        //                            tx1.setVisibility(View.VISIBLE);
+        //                            tx1.setBackgroundColor(Color.RED);
+        //                            counter--;
+        //                            tx1.setText(Integer.toString(counter));
 
-                                    if (counter == 0) {
-                                        b1.setEnabled(false);
-                                    }
-                                }
+        //                        if (counter == 0) {
+        //                                b1.setEnabled(false);
+        //                            }
+        //                        }
                             }
 
 
