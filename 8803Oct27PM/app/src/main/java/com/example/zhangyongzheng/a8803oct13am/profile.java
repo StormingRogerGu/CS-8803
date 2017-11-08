@@ -51,6 +51,7 @@ public class profile extends Activity {
     private Button Confirm_change;
     private EditText chage_pwd;
     private EditText cfm_pwd;
+    private Button sign_out;
 
 
     @Override
@@ -61,6 +62,7 @@ public class profile extends Activity {
         setUpView();
         setMy_usr_id();
         setConfirm_change();
+        setSign_out();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -145,7 +147,7 @@ public class profile extends Activity {
         Confirm_change = (Button)findViewById(R.id.profile_confirm);
         chage_pwd = (EditText)findViewById(R.id.profile_usr_new_password);
         cfm_pwd = (EditText)findViewById(R.id.profile_usr_cfm_password);
-
+        sign_out = (Button)findViewById(R.id.sign_out);
     }
 
     private void setConfirm_change(){
@@ -188,6 +190,16 @@ public class profile extends Activity {
                     Intent intent = new Intent(profile.this, profile.class);
                     startActivity(intent);
                 }
+            }
+        });
+    }
+
+    private void setSign_out(){
+        sign_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(profile.this, login.class);
+                startActivity(intent);
             }
         });
     }
