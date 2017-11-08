@@ -257,22 +257,57 @@ public class login extends AppCompatActivity  {
 
     private void nextActivity(Profile pro){
         if(pro != null){
-            Intent main = new Intent(login.this, MainActivity.class);
-            String first_name = pro.getFirstName().toString();
-            String last_name = pro.getLastName().toString();
-            String usr_name = first_name + last_name;
-//            mydatabase.child(usr_name).child("usr_pwd").setValue("");
 
-            myRef.child(usr_name).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(1);
-            myRef.child(usr_name).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_ongoing").setValue(0);
-            User_id userId = ((User_id)getApplicationContext());
-            userId.setUserid(usr_name);
+//            String first_name = pro.getFirstName().toString();
+//            String last_name = pro.getLastName().toString();
+
+            final String usr_name = pro.getId();
+//            mydatabase.child(usr_name).child("usr_pwd").setValue("");
+            final boolean[] sameID = {false};
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot post : dataSnapshot.getChildren()){
+                        String key = post.getKey();
+                        Log.v("11111",usr_name);
+                        if (usr_name.equals(key)){
+                            Log.v("Same Id", "Error with same ID");
+                            sameID[0] = true;
+                            break;
+                        }
+                    }
+                    if (sameID[0] == false){
+                        myRef.child(usr_name).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_id").setValue(1);
+                        myRef.child(usr_name).child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_ongoing").setValue(0);
+                        User_id userId = ((User_id)getApplicationContext());
+                        userId.setUserid(usr_name);
+                        Intent main = new Intent(login.this, MainActivity.class);
+                        startActivity(main);
+                    }
+                    else if (sameID[0] == true){
+                        User_id userId = ((User_id)getApplicationContext());
+                        userId.setUserid(usr_name);
+                        Intent main = new Intent(login.this, MainActivity.class);
+                        startActivity(main);
+                    }
+
+                }
+
+
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
 
 //            main.putExtra("name", pro.getFirstName());
 //            main.putExtra("surname", pro.getLastName());
 //            main.putExtra("imageUrl", pro.getProfilePictureUri(200,200).toString());
             Log.v("facebook", "ffffffffff");
-            startActivity(main);
+
         }
     }
 }

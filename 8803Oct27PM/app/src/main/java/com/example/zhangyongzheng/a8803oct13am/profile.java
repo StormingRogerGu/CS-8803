@@ -24,6 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
+
+
 import java.util.*;
 
 /**
@@ -198,8 +205,10 @@ public class profile extends Activity {
         sign_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                LoginManager.getInstance().logOut();
                 Intent intent = new Intent(profile.this, login.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
