@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/friend_rank"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/friend_rank_item_username"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:text="username"
+        android:layout_weight="1"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/friend_rank_item_finish"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:text="num_of_finish_puzzle"
+        android:layout_weight="1"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/friend_rank_item_ongoing"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:text="num_of_on_going_puzzle"
+        android:layout_weight="1"
+        android:gravity="center"/>
+
+</LinearLayout>

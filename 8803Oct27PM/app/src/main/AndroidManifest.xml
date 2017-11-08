@@ -24,7 +24,6 @@
 
         </activity>
         <activity android:name=".friend"/>
-
         <activity android:name=".puzzle"/>
         <activity android:name=".timesetting"/>
         <activity android:name=".timecounting"/>

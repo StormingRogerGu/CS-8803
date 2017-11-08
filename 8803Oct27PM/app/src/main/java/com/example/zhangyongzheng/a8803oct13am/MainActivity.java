@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton home;
     private ImageButton puzzle;
     private ImageButton profile;
+
     private Button addtask;
     private Button refreshbtn;
     private TextView due_date;
