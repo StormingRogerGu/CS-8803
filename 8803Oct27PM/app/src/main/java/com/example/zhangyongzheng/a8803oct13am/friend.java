@@ -212,6 +212,15 @@ public class friend extends Activity {
             map.put("all_username",listvalue.get(i).all_username);
             map.put("num_of_finish_puzzle",listvalue.get(i).num_of_finish_puzzle);
             map.put("num_of_on_going_puzzle",listvalue.get(i).num_of_on_going_puzzle);
+            if(listvalue.get(i).num_of_on_going_puzzle >= 0 && listvalue.get(i).num_of_on_going_puzzle <= 20){
+                map.put("ItemImage",R.drawable.calender_icon_line);
+            }
+            else if(listvalue.get(i).num_of_on_going_puzzle >= 21 && listvalue.get(i).num_of_on_going_puzzle <= 40){
+                map.put("ItemImage",R.drawable.clock_icon_highlight);
+            }
+            else if(listvalue.get(i).num_of_on_going_puzzle >= 41 && listvalue.get(i).num_of_on_going_puzzle <= 60){
+                map.put("ItemImage",R.drawable.clock_icon_line);
+            }
             if(listvalue.get(i).all_username.equals(usr_id)){
                 int k = i+1;
                 current_user_rank.setText("" + k);

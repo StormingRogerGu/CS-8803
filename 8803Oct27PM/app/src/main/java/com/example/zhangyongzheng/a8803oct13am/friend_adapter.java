@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class friend_adapter extends BaseAdapter{
         public TextView all_username;
         public TextView num_of_finish_puzzle;
         public TextView num_of_on_going_puzzle;
+        public ImageView image;
 
     }
 
@@ -54,6 +56,7 @@ public class friend_adapter extends BaseAdapter{
             holder.all_username = convertview.findViewById(R.id.friend_rank_item_username);
             holder.num_of_finish_puzzle = convertview.findViewById(R.id.friend_rank_item_finish);
             holder.num_of_on_going_puzzle = convertview.findViewById(R.id.friend_rank_item_ongoing);
+            holder.image = convertview.findViewById(R.id.friend_rank_item_img);
             convertview.setTag(holder);
         }
         else{
@@ -62,6 +65,7 @@ public class friend_adapter extends BaseAdapter{
         holder.all_username.setText((String) listItem.get(position).get("all_username"));
         holder.num_of_finish_puzzle.setText((String) ""+ listItem.get(position).get("num_of_finish_puzzle"));
         holder.num_of_on_going_puzzle.setText((String) ""+listItem.get(position).get("num_of_on_going_puzzle"));
+        holder.image.setImageResource((Integer) listItem.get(position).get("ItemImage"));
 
         return convertview;
     }

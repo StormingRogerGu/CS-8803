@@ -15,11 +15,44 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/friend_index"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/friend_title_layout">
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number of finished piece"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number of finished puzzle"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/friend_listview_layout"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="360dp"
         android:orientation="vertical"
-        android:layout_below="@+id/friend_title_layout"
+        android:layout_below="@+id/friend_index"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
         <ListView
