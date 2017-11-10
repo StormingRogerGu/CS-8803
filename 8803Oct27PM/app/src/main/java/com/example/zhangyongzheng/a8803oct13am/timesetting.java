@@ -132,7 +132,7 @@ public class timesetting extends Activity {
         //numberpicker hour
         nopicker_hour = (NumberPicker)findViewById(R.id.numberPicker_hour);
         nopicker_hour.setMaxValue(8);
-        nopicker_hour.setMinValue(0);
+        nopicker_hour.setMinValue(1);
         nopicker_hour.setWrapSelectorWheel(true);
 
         //numberpicker min
@@ -144,7 +144,7 @@ public class timesetting extends Activity {
         //numberpicker1
         nopicker = (NumberPicker)findViewById(R.id.numberPicker1);
         nopicker.setMaxValue(10);
-        nopicker.setMinValue(1);
+        nopicker.setMinValue(0);
         nopicker.setWrapSelectorWheel(true);
 
         startTiming();

@@ -38,9 +38,10 @@ public class timecounting extends Activity{
     private Resume_time resume_time;
     private TextView mTvShow;
     private int seconds;
-    private int resume_seconds;
+    private long resume_seconds;
     private Button pause_resume;
     long current_seconds;
+    long current_resume_seconds;
     private boolean button_resume = true;
 
     private int notifyId = 100;
@@ -74,7 +75,7 @@ public class timecounting extends Activity{
 
 
         myCount = new Mycount(seconds, 1000);
-        resume_time = new Resume_time(resume_seconds, 1000);
+        //resume_time = new Resume_time(resume_seconds, 1000);
         myCount.start();
         setPause_Resume();
 
@@ -238,6 +239,7 @@ public class timecounting extends Activity{
             @Override
             public void onClick(View view) {
                 if (button_resume == true){
+                    resume_time = new Resume_time(resume_seconds,1000);
                     current_seconds = myCount.timetofinfish;
                     myCount.cancel();
                     resume_time.start();
@@ -247,6 +249,8 @@ public class timecounting extends Activity{
                 }
                 else{
                     myCount = new Mycount(current_seconds, 1000);
+                    resume_seconds = resume_time.rest_resume_time;
+                    resume_time.cancel();
                     myCount.start();
                     button_resume = true;
                     pause_resume.setBackgroundResource(R.drawable.pause_button);

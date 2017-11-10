@@ -227,13 +227,13 @@ public class login extends AppCompatActivity  {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //Facebook login
-        Profile profile = Profile.getCurrentProfile();
-        nextActivity(profile);
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        //Facebook login
+//        Profile profile = Profile.getCurrentProfile();
+//        nextActivity(profile);
+//    }
 
     @Override
     protected void onPause() {
