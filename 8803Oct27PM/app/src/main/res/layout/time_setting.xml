@@ -156,7 +156,7 @@
         android:background="#FAFAFA">
 
     <include
-        layout="@layout/navigation_bar" />
+        layout="@layout/navigation_bar_time" />
     </LinearLayout>
 
 </RelativeLayout>

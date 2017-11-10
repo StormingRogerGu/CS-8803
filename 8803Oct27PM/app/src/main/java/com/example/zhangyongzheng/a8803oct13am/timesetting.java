@@ -175,11 +175,11 @@ public class timesetting extends Activity {
 
     private void setUpView(){
 
-        friend = (ImageButton)findViewById(R.id.friend_bar);
-        timer = (ImageButton)findViewById(R.id.timer);
-        home = (ImageButton)findViewById(R.id.home);
-        puzzle = (ImageButton)findViewById(R.id.puzzle);
-        profile = (ImageButton)findViewById(R.id.profile);
+        friend = (ImageButton)findViewById(R.id.friend_bar_time);
+        timer = (ImageButton)findViewById(R.id.timer_time);
+        home = (ImageButton)findViewById(R.id.home_time);
+        puzzle = (ImageButton)findViewById(R.id.puzzle_time);
+        profile = (ImageButton)findViewById(R.id.profile_time);
 
     }
 
