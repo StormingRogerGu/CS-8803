@@ -212,9 +212,15 @@ public class friend extends Activity {
             map.put("all_username",listvalue.get(i).all_username);
             map.put("num_of_finish_puzzle",listvalue.get(i).num_of_finish_puzzle);
             map.put("num_of_on_going_puzzle",listvalue.get(i).num_of_on_going_puzzle);
+            if(listvalue.get(i).all_username.equals(usr_id)){
+                int k = i+1;
+                current_user_rank.setText("" + k);
+            }
 
             listItem.add(map);
         }
+
+
 
     }
 
