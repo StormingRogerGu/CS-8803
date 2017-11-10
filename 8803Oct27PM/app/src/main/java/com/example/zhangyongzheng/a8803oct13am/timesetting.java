@@ -1,5 +1,6 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -36,6 +37,8 @@ import org.w3c.dom.Text;
 import java.io.ByteArrayOutputStream;
 import java.util.Calendar;
 
+import com.example.zhangyongzheng.a8803oct13am.numberpickerstyle;
+
 /**
  * Created by zhangyongzheng on 10/13/17.
  */
@@ -43,10 +46,10 @@ import java.util.Calendar;
 public class timesetting extends Activity {
     TextView time;
     //TimePicker simpleTimePicker;
-    NumberPicker nopicker = null;
+    //NumberPicker nopicker = null;
     private ImageButton start;
-    NumberPicker nopicker_hour = null;
-    NumberPicker nopicker_min = null;
+    //private numberpickerstyle nopicker_hour = null;
+    //NumberPicker nopicker_min = null;
 
     private ImageButton friend;
     private ImageButton timer;
@@ -54,6 +57,7 @@ public class timesetting extends Activity {
     private ImageButton puzzle;
     private ImageButton profile;
 
+    @SuppressLint("WrongViewCast")
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,28 +134,30 @@ public class timesetting extends Activity {
 //        }
 
         //numberpicker hour
-        nopicker_hour = (NumberPicker)findViewById(R.id.numberPicker_hour);
+        final numberpickerstyle nopicker_hour = (numberpickerstyle) findViewById(R.id.numberPicker_hour);
         nopicker_hour.setMaxValue(8);
         nopicker_hour.setMinValue(1);
         nopicker_hour.setWrapSelectorWheel(true);
+        nopicker_hour.setBackgroundColor(Color.BLACK);
+        nopicker_hour.setNumberPickerDividerColor(nopicker_hour);
 
         //numberpicker min
-        nopicker_min = (NumberPicker)findViewById(R.id.numberPicker_min);
+        final numberpickerstyle nopicker_min = (numberpickerstyle) findViewById(R.id.numberPicker_min);
         nopicker_min.setMaxValue(59);
         nopicker_min.setMinValue(0);
+        nopicker_min.setBackgroundColor(Color.BLACK);
+        nopicker_min.setNumberPickerDividerColor(nopicker_min);
         nopicker_min.setWrapSelectorWheel(true);
 
         //numberpicker1
-        nopicker = (NumberPicker)findViewById(R.id.numberPicker1);
+        final numberpickerstyle nopicker = (numberpickerstyle) findViewById(R.id.numberPicker1);
         nopicker.setMaxValue(10);
         nopicker.setMinValue(0);
-        nopicker.setWrapSelectorWheel(true);
+        nopicker.setSelected(true);
+        nopicker.setBackgroundColor(Color.BLACK);
+        nopicker.setNumberPickerDividerColor(nopicker);
 
-        startTiming();
-
-    }
-
-    public void startTiming(){
+        //startTiming();
         start = (ImageButton)findViewById(R.id.btn_start);
         start.setOnClickListener(new View.OnClickListener(){
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -171,7 +177,10 @@ public class timesetting extends Activity {
             }
         });
 
+
     }
+
+
 
     private void setUpView(){
 
