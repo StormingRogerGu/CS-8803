@@ -50,10 +50,8 @@ public class numberpickerstyle extends NumberPicker{
         }
     }
 
-    /**
-     * 设置分割线的颜色值
-     * @param numberPicker
-     */
+
+
     @SuppressWarnings("unused")
     public void setNumberPickerDividerColor(NumberPicker numberPicker) {
         NumberPicker picker = numberPicker;
