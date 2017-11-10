@@ -333,11 +333,11 @@ public class puzzle extends Activity {
 
     private void setUpView(){
 
-        friend = (ImageButton)findViewById(R.id.friend_bar);
-        timer = (ImageButton)findViewById(R.id.timer);
-        home = (ImageButton)findViewById(R.id.home);
-        puzzle = (ImageButton)findViewById(R.id.puzzle);
-        profile = (ImageButton)findViewById(R.id.profile);
+        friend = (ImageButton)findViewById(R.id.friend_bar_puzzle_highlight);
+        timer = (ImageButton)findViewById(R.id.timer_puzzle_highlight);
+        home = (ImageButton)findViewById(R.id.home_puzzle_highlight);
+        puzzle = (ImageButton)findViewById(R.id.puzzle_highlight);
+        profile = (ImageButton)findViewById(R.id.profile_puzzle_highlight);
 
         img1=(ImageView)findViewById(R.id.puzzle_1);
         img2=(ImageView)findViewById(R.id.puzzle_2);

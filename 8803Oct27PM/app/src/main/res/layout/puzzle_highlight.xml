@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="40dp">
-    <LinearLayout
-        android:id="@+id/TableLayout2"
-        android:layout_width="fill_parent"
-        android:layout_height="25dp"
-        android:background="#FAFAFA"
-        >
+        <LinearLayout
+            android:id="@+id/TableLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="25dp"
+            android:background="#FAFAFA"
+            >
             <ImageButton
-                android:id="@+id/friend_bar"
+                android:id="@+id/friend_bar_puzzle_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/friend"
@@ -26,7 +26,7 @@
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
             <ImageButton
-                android:id="@+id/timer"
+                android:id="@+id/timer_puzzle_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/timer"
@@ -37,7 +37,7 @@
                 android:background="@android:color/transparent"/>
 
             <ImageButton
-                android:id="@+id/home"
+                android:id="@+id/home_puzzle_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/home"
@@ -48,19 +48,19 @@
                 android:background="@android:color/transparent"/>
 
             <ImageButton
-                android:id="@+id/puzzle"
+                android:id="@+id/puzzle_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/maze"
 
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle"
-                android:src="@drawable/puzzle_icon_line"
+                android:src="@drawable/puzzle_icon_highlight"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
 
             <ImageButton
-                android:id="@+id/profile"
+                android:id="@+id/profile_puzzle_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/prof"
@@ -70,7 +70,7 @@
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
 
-    </LinearLayout>
+        </LinearLayout>
     </LinearLayout>>
 
 </LinearLayout>
