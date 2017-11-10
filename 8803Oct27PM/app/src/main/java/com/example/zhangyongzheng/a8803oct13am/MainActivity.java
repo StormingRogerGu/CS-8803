@@ -185,75 +185,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-//        refreshbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                listkey.clear();
-//                listvalue.clear();
-//                listItem.clear();
-//
-//                myRef2.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        for(DataSnapshot post: dataSnapshot.getChildren()){
-//                            //Log.v("retdata","zzzzzzz");
-//                            String key = post.getKey();
-//                            List<String> temp = new ArrayList<String>();
-//                            for (DataSnapshot postson : post.getChildren()){
-//                                String s = postson.getValue(String.class);
-//                                temp.add(s);
-//
-//                            }
-//
-//                            String s1 = temp.get(0);
-//                            //Log.v("first data",s1);
-//                            String s2 = temp.get(1);
-//                            //Log.v("2nd data",s2);
-//                            String s3 = temp.get(2);
-//                            //Log.v("3rd data",s3);
-//                            String s4 = temp.get(3);
-//                            Task_detail dt =new Task_detail(s1,s2,s3,s4);
-//                            listkey.add(key);
-//                            //Task_detail dt = new Task_detail(post.child("due_date").getValue().toString(),post.child("note").getValue().toString(),post.child("remind_time").getValue().toString());
-//
-//                            //Log.v("retdata",key);
-//                            listvalue.add(dt);
-//
-//                        }
-//
-//                        initdata();
-//                        listvalue.clear();
-//                        listkey.clear();
-//
-//                        Log.v("afterinit","go");
-//
-//
-//                        myownadapter.updateData(listItem);
-//                        lv.setAdapter(myownadapter);
-//                        Log.v("afterlistview","go");
-//                        for(int i = 0; i<listvalue.size();i++){
-//                            Log.v("lllllllll",listvalue.get(i).due_date);
-//                        }
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//
-//                    }
-//                });
-//                Intent jump = new Intent(MainActivity.this, MainActivity.class);
-//                startActivity(jump);
-//
-//            }
-//        });
-
-
-
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -268,11 +199,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpView(){
 
-        friend = (ImageButton)findViewById(R.id.friend_bar);
-        timer = (ImageButton)findViewById(R.id.timer);
-        home = (ImageButton)findViewById(R.id.home);
-        puzzle = (ImageButton)findViewById(R.id.puzzle);
-        profile = (ImageButton)findViewById(R.id.profile);
+        friend = (ImageButton)findViewById(R.id.friend_bar_tasklayout_highlight);
+        timer = (ImageButton)findViewById(R.id.timer_tasklayout_highlight);
+        home = (ImageButton)findViewById(R.id.home_tasklayout_highlight);
+        puzzle = (ImageButton)findViewById(R.id.puzzle_tasklayout_highlight);
+        profile = (ImageButton)findViewById(R.id.profile_tasklayout_highlight);
         addtask = (Button)findViewById(R.id.addnewtask);
         lv = (ListView)findViewById(R.id.listview1);
     }
