@@ -301,11 +301,6 @@ public class login extends AppCompatActivity  {
                 }
             });
 
-
-
-//            main.putExtra("name", pro.getFirstName());
-//            main.putExtra("surname", pro.getLastName());
-//            main.putExtra("imageUrl", pro.getProfilePictureUri(200,200).toString());
             Log.v("facebook", "ffffffffff");
 
         }

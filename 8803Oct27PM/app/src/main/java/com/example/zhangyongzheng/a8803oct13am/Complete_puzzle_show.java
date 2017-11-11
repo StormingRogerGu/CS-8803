@@ -108,26 +108,12 @@ public class Complete_puzzle_show extends Activity {
                         }
                     });
 
-                    //byte[] temp_byte = drawable2Bytes(img.getDrawable());
-                    //Bitmap btm = ((BitmapDrawable)img.getDrawable()).getBitmap();
-                    //Bitmap btm = BitmapFactory.decodeByteArray(temp_byte,0,temp_byte.length);
-                    //Bitmap bitmap = img.getDrawingCache();
-                    //puzzle_storage_list.add(btm);
-
-//                    Drawable temp_drawable = img.getDrawable();
-//                    if(temp_drawable == null){
-//                        Log.v("null draw","real null");
-//                    }
-//                    puzzle_storage_list.add(temp_drawable);
 
 
                 }
 
                 Log.v("storage_size","the size is " + puzzle_storage_list.size());
 
-//                initialdata();
-//                puzzle_name_list.clear();
-//                puzzle_storage_list.clear();
 
                 myownpuzzleadapter.updateData(listItem);
                 lv.setAdapter(myownpuzzleadapter);
@@ -141,9 +127,6 @@ public class Complete_puzzle_show extends Activity {
 
             }
         });
-
-        //shuchu();
-
 
 
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -229,39 +212,6 @@ public class Complete_puzzle_show extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 complete_puzzle_id = dataSnapshot.getValue(int.class);
 
-
-//                for(int i = 0; i< complete_puzzle_id; i++){
-//                    String picture = i + ".jpg";
-//                    String name = "The" + i + "th puzzle";
-//                    puzzle_name_list.add(name);
-//                    //ImageView temp_image = (ImageView)findViewById(R.id.complete_item_puzzle);
-//                    StorageReference temp = storageref.child(picture);
-//                    Log.v("pic name", picture);
-//                    Glide.with(Complete_puzzle_show.this).using(new FirebaseImageLoader()).load(temp).into(img);
-//
-//                    //byte[] temp_byte = drawable2Bytes(img.getDrawable());
-//                    //Bitmap btm = ((BitmapDrawable)img.getDrawable()).getBitmap();
-//                    //Bitmap btm = BitmapFactory.decodeByteArray(temp_byte,0,temp_byte.length);
-//                    //Bitmap bitmap = img.getDrawingCache();
-//                    //puzzle_storage_list.add(btm);
-//
-//                    Drawable temp_drawable = img.getDrawable();
-//                    if(temp_drawable == null){
-//                        Log.v("null draw","real null");
-//                    }
-//                    puzzle_storage_list.add(temp_drawable);
-//
-//
-//                }
-//
-//                Log.v("storage_size","the size is " + puzzle_storage_list.size());
-//
-//                initialdata();
-//                puzzle_name_list.clear();
-//                puzzle_storage_list.clear();
-//
-//                myownpuzzleadapter.updateData(listItem);
-//                lv.setAdapter(myownpuzzleadapter);
                 Log.v("how many complete,","it is "+complete_puzzle_id +"in datasnap shot");
 
 
