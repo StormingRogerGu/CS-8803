@@ -72,10 +72,6 @@ public class login extends AppCompatActivity  {
         ed2 = (EditText)findViewById(R.id.editText2);
 
         b2 = (Button)findViewById(R.id.button2);
-    //    tx1 = (TextView)findViewById(R.id.textView3);
-    //    tx1.setVisibility(View.GONE);
-
-        //final boolean[] sameID = {false};
 
         //about facebook login
         callbackManager = CallbackManager.Factory.create();
