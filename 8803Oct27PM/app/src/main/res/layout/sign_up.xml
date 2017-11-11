@@ -14,8 +14,9 @@
         android:layout_alignParentTop = "true"
         android:layout_centerHorizontal = "true" /> -->
     <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/signup_l1"
@@ -55,8 +56,8 @@
         <EditText
             android:inputType="textEmailAddress"
             android:id="@+id/sign_up_email"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="46dp"
             android:background="@android:drawable/edit_text"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
@@ -70,13 +71,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/signup_l3"
         android:layout_below="@+id/signup_l2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="21dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp">
 
         <EditText
-            android:layout_width = "fill_parent"
-            android:layout_height = "wrap_content"
+            android:layout_width = "305dp"
+            android:layout_height = "46dp"
             android:id = "@+id/sign_up_id"
             android:background="@android:drawable/edit_text"
             android:layout_marginLeft="30px"
@@ -91,13 +92,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/signup_l3"
         android:id="@+id/signup_l4"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="21dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp">
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="46dp"
             android:inputType="textPassword"
             android:id="@+id/sign_up_pwd"
             android:background="@android:drawable/edit_text"
@@ -114,14 +115,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/signup_l4"
         android:id="@+id/signup_l5"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="21dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp">
 
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="46dp"
             android:inputType="textPassword"
             android:id="@+id/sign_up_confirm_pwd"
             android:background="@android:drawable/edit_text"
@@ -135,15 +136,16 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="48dp"
         android:layout_below="@+id/signup_l5"
         android:id="@+id/signup_l6"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp">
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="46dp"
+            android:textAllCaps="false"
             android:text="Create Account"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -159,12 +161,14 @@
         android:layout_below="@+id/signup_l6"
         android:id="@+id/signup_l7"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="15dp">
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp">
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Have an account? Log in"
+            android:textAllCaps="false"
             android:id="@+id/sign_up_cancel_btn"
             android:background="@null"
             android:textColor="#FFFFFF"

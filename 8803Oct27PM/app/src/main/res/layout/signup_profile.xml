@@ -8,7 +8,7 @@
 
 
     <LinearLayout
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="15dp"
         android:layout_width="match_parent"
@@ -56,11 +56,12 @@
             android:text="Company or School"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="13dp"
+
             />
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="46dp"
             android:inputType="textAutoComplete"
 
             android:id="@+id/sign_up_companyschool"
@@ -92,8 +93,8 @@
             />
 
         <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="46dp"
             android:inputType="textPassword"
             android:id="@+id/sign_up_age"
             android:background="@android:drawable/edit_text"
@@ -111,23 +112,36 @@
         android:id="@+id/signup_profile_l4"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="30dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
             android:text="Level"
-            android:textSize="64px"
-            android:layout_marginLeft="30dp"/>
+            android:textSize="48px"
+            android:layout_marginLeft="15dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#DC143C"
-            android:text="Little Black Ant"
+            android:text="1"
+            android:textAlignment="center"
+            android:background="@drawable/signup_profile_circle"
             android:textColor="#FFFFFF"
-            android:textSize="64px"
+            android:textSize="48px"
+            android:layout_marginLeft="30dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Little Black Ant"
+            android:textAlignment="center"
+            android:background="@drawable/signup_profile_bar"
+            android:textColor="#FFFFFF"
+            android:textSize="48px"
             android:layout_marginLeft="30dp"/>
 
     </LinearLayout>
@@ -137,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/signup_profile_l4"
         android:id="@+id/signup_profile_l5"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp">
 
@@ -173,13 +187,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/signup_profile_l5"
         android:id="@+id/signup_profile_l6"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp">
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="46dp"
             android:text="Complete"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
