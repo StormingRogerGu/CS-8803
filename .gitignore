@@ -40,3 +40,5 @@ Android_Project/.idea/modules.xml
 8803Oct13AM/build.gradle
 
 8803Oct13AM/gradle/wrapper/gradle-wrapper.properties
+
+*.xml
