@@ -6,54 +6,107 @@
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper_white">
     <LinearLayout
-        android:id="@+id/task_layout_layout1"
-        android:layout_gravity="center"
+        android:id="@id/redHead"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#D32A2A"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Deadlines"
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/task_layout_layout1"
+        android:layout_below="@+id/redHead"
+
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#000000"
         android:orientation="horizontal">
+
         <Button
+            android:textAllCaps="false"
             android:id="@+id/task_layout_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="#ffffff"
+            android:background="@drawable/my_button_bg"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Week"
+
             android:textSize="20sp"
-            tools:ignore="ButtonStyle" />
+
+             />
         <Button
             android:id="@+id/task_layout_week"
+            android:textAllCaps="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textColor="#ffffff"
+            android:background="@drawable/my_button_bg"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:text="All"
+
             android:textSize="20sp"
-            android:layout_weight="1"
-            tools:ignore="ButtonStyle" />
+
+            />
         <Button
+
+            android:layout_marginRight="10dp"
             android:id="@+id/task_layout_all"
+            android:textAllCaps="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="Overdue"
-            android:textStyle="normal"
-            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#ffffff"
+            android:background="@drawable/my_button_bg"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            tools:ignore="ButtonStyle" />
+            android:text="Overdue"
+            android:textSize="20sp"
+             />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/task_layout_layout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+
         android:layout_below="@+id/task_layout_layout1">
+
         <Button
             android:id="@+id/addnewtask"
-            android:layout_width="match_parent"
+
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
-            android:text="@string/add"
-            android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:layout_marginRight="10dp"
+
+            android:layout_gravity="center_vertical"
+
+            android:background="@drawable/my_button_bg2"
+
+
+            android:gravity="left|center_vertical"
+            android:text="+Add a deadline..."
+            android:textAllCaps="false"
+
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
