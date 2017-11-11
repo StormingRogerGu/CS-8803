@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -73,11 +74,12 @@ public class timecounting extends Activity{
              resume_seconds = bundle.getInt("Pause") * 1000;
         }
 
-
         myCount = new Mycount(seconds, 1000);
         //resume_time = new Resume_time(resume_seconds, 1000);
         myCount.start();
         setPause_Resume();
+
+
 
 //        if (button_resume == false)
 //            onStop();
@@ -241,6 +243,8 @@ public class timecounting extends Activity{
                 if (button_resume == true){
                     resume_time = new Resume_time(resume_seconds,1000);
                     current_seconds = myCount.timetofinfish;
+                    Toast.makeText(timecounting.this, "Remember to come back~",
+                            Toast.LENGTH_LONG).show();
                     myCount.cancel();
                     resume_time.start();
                     button_resume = false;
