@@ -1,6 +1,8 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -193,16 +195,28 @@ public class login extends AppCompatActivity  {
                             finish();
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                            AlertDialog dialog = new AlertDialog.Builder(login.this).setTitle("Username or Password Not match")
+                                    .setPositiveButton("OK",new DialogInterface.OnClickListener(){
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which){
 
-                            tx1.setVisibility(View.VISIBLE);
-                            tx1.setBackgroundColor(Color.RED);
-                            counter--;
-                            tx1.setText(Integer.toString(counter));
+//                                            Intent intent = new Intent(login.this, profile.class);
+//                                            startActivity(intent);
+//                                            //TODO share to facebook
+                                        }
+                                    }).setMessage("Please check your username and password!").create();
 
-                            if (counter == 0) {
-                                b1.setEnabled(false);
-                            }
+                            dialog.show();
+//                            Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+//
+//                            tx1.setVisibility(View.VISIBLE);
+//                            tx1.setBackgroundColor(Color.RED);
+//                            counter--;
+//                            tx1.setText(Integer.toString(counter));
+//
+//                            if (counter == 0) {
+//                                b1.setEnabled(false);
+//                            }
                         }
 
                     }

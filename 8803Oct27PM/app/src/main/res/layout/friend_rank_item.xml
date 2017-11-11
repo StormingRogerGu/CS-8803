@@ -4,13 +4,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="#ffffff">
     <TextView
         android:id="@+id/friand_rank_item_index"
         android:layout_width="20dp"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="1"/>
+        android:text="1"
+        android:textColor="#000000"/>
     <ImageView
         android:id="@+id/friend_rank_item_img"
         android:layout_gravity="center"
@@ -32,7 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="username" />
+                android:text="username"
+                android:textColor="#000000"/>
 
         </LinearLayout>
         <LinearLayout
@@ -46,26 +49,30 @@
                 android:layout_height="match_parent"
                 android:text="num_of_finish_puzzle"
                 android:layout_weight="1"
-                android:gravity="right"/>
+                android:gravity="right"
+                android:textColor="#BD10E0"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:gravity="left"
-                android:text="Pictures"/>
+                android:text="Pictures"
+                android:textColor="#000000"/>
             <TextView
                 android:id="@+id/friend_rank_item_ongoing"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="num_of_on_going_puzzle"
                 android:layout_weight="1"
-                android:gravity="right"/>
+                android:gravity="right"
+                android:textColor="#BD10E0"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:gravity="left"
-                android:text="Pieces"/>
+                android:text="Pieces"
+                android:textColor="#000000"/>
 
         </LinearLayout>
 
