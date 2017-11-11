@@ -142,11 +142,12 @@ public class profile extends Activity {
 
     private void setUpView(){
 
-        friend = (ImageButton)findViewById(R.id.friend_bar);
-        timer = (ImageButton)findViewById(R.id.timer);
-        home = (ImageButton)findViewById(R.id.home);
-        puzzle = (ImageButton)findViewById(R.id.puzzle);
-        profile = (ImageButton)findViewById(R.id.profile);
+        friend = (ImageButton)findViewById(R.id.friend_bar_profile_highlight);
+        timer = (ImageButton)findViewById(R.id.timer_profile_highlight);
+        home = (ImageButton)findViewById(R.id.home_profile_highlight);
+        puzzle = (ImageButton)findViewById(R.id.puzzle_profile_highlight);
+        profile = (ImageButton)findViewById(R.id.profile_profile_highlight);
+
         usrName = (TextView)findViewById(R.id.profile_usr_name);
         usrAge = (EditText)findViewById(R.id.profile_usr_age);
         usrEmail = (EditText)findViewById(R.id.profile_usr_email);

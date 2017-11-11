@@ -230,7 +230,7 @@
         android:background="#FAFAFA"
         android:id="@+id/linearLayout">
 
-        <include layout="@layout/navigation_bar" />
+        <include layout="@layout/navigation_bar_profile" />
     </LinearLayout>
 
 </RelativeLayout>
