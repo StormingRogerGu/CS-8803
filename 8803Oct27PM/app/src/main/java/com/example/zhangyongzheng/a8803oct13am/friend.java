@@ -7,10 +7,12 @@ import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,6 +47,9 @@ public class friend extends Activity {
     private TextView friend_title;
     private TextView current_username;
     private TextView current_user_rank;
+    private ImageView current_img;
+    private TextView current_user_finish_puzzle;
+    private TextView current_user_ongoing_pieces;
 
     private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
     private List<String> listkey = new ArrayList<String>();
@@ -68,6 +73,8 @@ public class friend extends Activity {
         setUpView();
 
         setUsr_id();
+        current_username.setText(usr_id);
+
 
         final friend_adapter my_friend_adapter = new friend_adapter(this,listItem);
 
@@ -151,17 +158,21 @@ public class friend extends Activity {
 
     private void setUpView(){
 
-        friend = (ImageButton)findViewById(R.id.friend_bar);
-        timer = (ImageButton)findViewById(R.id.timer);
-        home = (ImageButton)findViewById(R.id.home);
-        puzzle = (ImageButton)findViewById(R.id.puzzle);
-        profile = (ImageButton)findViewById(R.id.profile);
+        friend = (ImageButton)findViewById(R.id.friend_bar_rank_highlight);
+        timer = (ImageButton)findViewById(R.id.timer_rank_highlight);
+        home = (ImageButton)findViewById(R.id.home_rank_highlight);
+        puzzle = (ImageButton)findViewById(R.id.puzzle_rank_highlight);
+        profile = (ImageButton)findViewById(R.id.profile_rank_highlight);
 
         lv = (ListView)findViewById(R.id.friend_listview_layout_contant);
         friend_title = (TextView)findViewById(R.id.friend_title_layout_textview);
         current_username = (TextView)findViewById(R.id.friend_current_user_name);
-        current_user_rank = (TextView)findViewById(R.id.friend_current_user_rank);
+        current_user_rank = (TextView)findViewById(R.id.current_rank_index);
 
+        current_img = (ImageView)findViewById(R.id.current_rank_img);
+
+        current_user_finish_puzzle = (TextView)findViewById(R.id.current_rank_item_finish);
+        current_user_ongoing_pieces = (TextView)findViewById(R.id.current_rank_item_ongoing);
 
     }
 
@@ -224,7 +235,20 @@ public class friend extends Activity {
             if(listvalue.get(i).all_username.equals(usr_id)){
                 int k = i+1;
                 current_user_rank.setText("" + k);
+                current_user_finish_puzzle.setText(""+listvalue.get(i).num_of_finish_puzzle);
+                current_user_ongoing_pieces.setText(""+listvalue.get(i).num_of_on_going_puzzle);
+                if(listvalue.get(i).num_of_on_going_puzzle >= 0 && listvalue.get(i).num_of_on_going_puzzle <= 20){
+                    current_img.setImageResource(R.drawable.calender_icon_line);
+                }
+                else if(listvalue.get(i).num_of_on_going_puzzle >= 21 && listvalue.get(i).num_of_on_going_puzzle <= 40){
+                    current_img.setImageResource(R.drawable.clock_icon_highlight);
+                }
+                else if(listvalue.get(i).num_of_on_going_puzzle >= 41 && listvalue.get(i).num_of_on_going_puzzle <= 60){
+                    current_img.setImageResource(R.drawable.clock_icon_line);
+                }
+
             }
+            map.put("index","" + (i+1));
 
             listItem.add(map);
         }

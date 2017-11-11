@@ -3,7 +3,99 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/friend_current_user_rank_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <TextView
+            android:id="@+id/current_rank_index"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="1"/>
+        <ImageView
+            android:id="@+id/current_rank_img"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/friend_current_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="username" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/current_rank_item_finish"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="num_of_finish_puzzle"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:gravity="left"
+                    android:text="Pictures"/>
+                <TextView
+                    android:id="@+id/current_rank_item_ongoing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="num_of_on_going_puzzle"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:gravity="left"
+                    android:text="Pieces"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <!--<TextView-->
+            <!--android:id="@+id/friend_current_user_name"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="Your current rank is :"-->
+
+            <!--android:gravity="center"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/friend_current_user_rank"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="1"-->
+
+            <!--android:gravity="center"/>-->
+
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/friend_title_layout"
+        android:layout_below="@+id/friend_current_user_rank_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -21,28 +113,26 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/friend_title_layout">
         <LinearLayout
-            android:layout_width="60dp"
-            android:layout_height="match_parent">
-
-        </LinearLayout>
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User Name"
+                android:gravity="center"
+                android:text="Week"
                 android:layout_weight="1"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Number of finished piece"
+                android:text="Month"
+                android:gravity="center"
                 android:layout_weight="1"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Number of finished puzzle"
+                android:text="All"
+                android:gravity="center"
                 android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
@@ -64,28 +154,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/friend_current_user_rank_layout"
-        android:layout_below="@+id/friend_listview_layout"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:id="@+id/friend_current_user_name"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:text="Your current rank is :"
-            android:layout_weight="1"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/friend_current_user_rank"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:text="1"
-            android:layout_weight="1"
-            android:gravity="center"/>
 
-    </LinearLayout>
 
 
     <LinearLayout
@@ -94,7 +163,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-        <include layout="@layout/navigation_bar"/>
+        <include layout="@layout/navigation_bar_rank_highlight"/>
     </LinearLayout>
 
 </RelativeLayout>

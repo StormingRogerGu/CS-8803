@@ -33,6 +33,7 @@ public class myadapter extends BaseAdapter{
         public TextView text;
         public Button btn;
 
+
     }
 
 
@@ -70,6 +71,7 @@ public class myadapter extends BaseAdapter{
             holder.title = (TextView)convertView.findViewById(R.id.task_deadline);
             holder.text = (TextView)convertView.findViewById(R.id.task_name);
             holder.btn = (Button) convertView.findViewById(R.id.finish_task);
+
             convertView.setTag(holder);
         }
         else {

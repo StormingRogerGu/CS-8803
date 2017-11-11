@@ -24,6 +24,7 @@ public class friend_adapter extends BaseAdapter{
         public TextView num_of_finish_puzzle;
         public TextView num_of_on_going_puzzle;
         public ImageView image;
+        public TextView index;
 
     }
 
@@ -57,6 +58,7 @@ public class friend_adapter extends BaseAdapter{
             holder.num_of_finish_puzzle = convertview.findViewById(R.id.friend_rank_item_finish);
             holder.num_of_on_going_puzzle = convertview.findViewById(R.id.friend_rank_item_ongoing);
             holder.image = convertview.findViewById(R.id.friend_rank_item_img);
+            holder.index = (TextView)convertview.findViewById(R.id.friand_rank_item_index);
             convertview.setTag(holder);
         }
         else{
@@ -66,6 +68,7 @@ public class friend_adapter extends BaseAdapter{
         holder.num_of_finish_puzzle.setText((String) ""+ listItem.get(position).get("num_of_finish_puzzle"));
         holder.num_of_on_going_puzzle.setText((String) ""+listItem.get(position).get("num_of_on_going_puzzle"));
         holder.image.setImageResource((Integer) listItem.get(position).get("ItemImage"));
+        holder.index.setText((String)listItem.get(position).get("index"));
 
         return convertview;
     }

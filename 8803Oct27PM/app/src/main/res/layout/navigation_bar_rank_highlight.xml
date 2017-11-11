@@ -16,7 +16,7 @@
             android:background="#FAFAFA"
             >
             <ImageButton
-                android:id="@+id/friend_bar"
+                android:id="@+id/friend_bar_rank_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/friend"
@@ -26,7 +26,7 @@
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
             <ImageButton
-                android:id="@+id/timer"
+                android:id="@+id/timer_rank_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/timer"
@@ -37,7 +37,7 @@
                 android:background="@android:color/transparent"/>
 
             <ImageButton
-                android:id="@+id/home"
+                android:id="@+id/home_rank_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/home"
@@ -48,7 +48,7 @@
                 android:background="@android:color/transparent"/>
 
             <ImageButton
-                android:id="@+id/puzzle"
+                android:id="@+id/puzzle_rank_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/maze"
@@ -59,7 +59,7 @@
                 android:background="@android:color/transparent"/>
 
             <ImageButton
-                android:id="@+id/profile"
+                android:id="@+id/profile_rank_highlight"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/prof"

@@ -22,7 +22,7 @@
                 android:text="@string/friend"
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle"
-                android:src="@drawable/friends_icon_line"
+                android:src="@drawable/ranking_icon_grey"
                 android:scaleType="fitCenter"
                 android:background="@android:color/transparent"/>
             <ImageButton
