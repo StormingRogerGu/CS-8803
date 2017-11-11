@@ -224,13 +224,19 @@ public class friend extends Activity {
             map.put("num_of_finish_puzzle",listvalue.get(i).num_of_finish_puzzle);
             map.put("num_of_on_going_puzzle",listvalue.get(i).num_of_on_going_puzzle);
             if(listvalue.get(i).num_of_on_going_puzzle >= 0 && listvalue.get(i).num_of_on_going_puzzle <= 20){
-                map.put("ItemImage",R.drawable.calender_icon_line);
+                map.put("ItemImage",R.drawable.ant_level_1);
             }
             else if(listvalue.get(i).num_of_on_going_puzzle >= 21 && listvalue.get(i).num_of_on_going_puzzle <= 40){
-                map.put("ItemImage",R.drawable.clock_icon_highlight);
+                map.put("ItemImage",R.drawable.ant_level_2);
             }
             else if(listvalue.get(i).num_of_on_going_puzzle >= 41 && listvalue.get(i).num_of_on_going_puzzle <= 60){
-                map.put("ItemImage",R.drawable.clock_icon_line);
+                map.put("ItemImage",R.drawable.ant_level_3);
+            }
+            else if(listvalue.get(i).num_of_on_going_puzzle >= 61 && listvalue.get(i).num_of_on_going_puzzle <= 80){
+                map.put("ItemImage",R.drawable.ant_level_4);
+            }
+            else if(listvalue.get(i).num_of_on_going_puzzle >= 81){
+                map.put("ItemImage",R.drawable.ant_level_5);
             }
             if(listvalue.get(i).all_username.equals(usr_id)){
                 int k = i+1;
@@ -238,13 +244,19 @@ public class friend extends Activity {
                 current_user_finish_puzzle.setText(""+listvalue.get(i).num_of_finish_puzzle);
                 current_user_ongoing_pieces.setText(""+listvalue.get(i).num_of_on_going_puzzle);
                 if(listvalue.get(i).num_of_on_going_puzzle >= 0 && listvalue.get(i).num_of_on_going_puzzle <= 20){
-                    current_img.setImageResource(R.drawable.calender_icon_line);
+                    current_img.setImageResource(R.drawable.ant_level_1);
                 }
                 else if(listvalue.get(i).num_of_on_going_puzzle >= 21 && listvalue.get(i).num_of_on_going_puzzle <= 40){
-                    current_img.setImageResource(R.drawable.clock_icon_highlight);
+                    current_img.setImageResource(R.drawable.ant_level_2);
                 }
                 else if(listvalue.get(i).num_of_on_going_puzzle >= 41 && listvalue.get(i).num_of_on_going_puzzle <= 60){
-                    current_img.setImageResource(R.drawable.clock_icon_line);
+                    current_img.setImageResource(R.drawable.ant_level_3);
+                }
+                else if(listvalue.get(i).num_of_on_going_puzzle >= 61 && listvalue.get(i).num_of_on_going_puzzle <= 80){
+                    current_img.setImageResource(R.drawable.ant_level_4);
+                }
+                else if(listvalue.get(i).num_of_on_going_puzzle >= 81){
+                    current_img.setImageResource(R.drawable.ant_level_5);
                 }
 
             }
