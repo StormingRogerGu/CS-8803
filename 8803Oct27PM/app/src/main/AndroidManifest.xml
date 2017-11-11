@@ -29,7 +29,8 @@
         <activity android:name=".timecounting"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".signup"/>
-        <activity android:name=".Complete_puzzle_show"/>
+        <activity android:name=".Complete_puzzle_show" />
+        <activity android:name=".signup_profile"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
