@@ -200,9 +200,6 @@ public class login extends AppCompatActivity  {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which){
 
-//                                            Intent intent = new Intent(login.this, profile.class);
-//                                            startActivity(intent);
-//                                            //TODO share to facebook
                                         }
                                     }).setMessage("Please check your username and password!").create();
 
