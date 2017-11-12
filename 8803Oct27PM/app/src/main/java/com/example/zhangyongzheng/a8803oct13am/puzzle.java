@@ -441,11 +441,11 @@ public class puzzle extends Activity {
 
         public void run() {
             if (tag == 0) {
-                tx1.setText("view1");
+                tx1.setText("In Progress");
 
                 showView(tag,puzzle_piece, puzzle_total_piece_show, 90, 0);
             } else if (tag == 1) {
-                tx1.setText("view2");
+                tx1.setText("In Progress");
 
                 showView(tag,puzzle_total_piece_show, puzzle_piece, -90, 0);
             }
