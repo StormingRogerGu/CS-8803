@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/wallpaper_white"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -8,33 +9,35 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:background="#D32A2A"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="User Profile"
+            android:text="Profile"
+            android:textColor="#FFFFFF"
             android:textSize="40dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_below="@+id/profile_l1"
         android:id="@+id/profile_l2"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/user_name"
-            android:text="User Name: "
+        <ImageView
+            android:id="@+id/friend_rank_item_img"
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
             android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            android:layout_weight="1"
+            android:layout_alignParentLeft="true"
             />
 
         <TextView
@@ -43,7 +46,22 @@
             android:id="@+id/profile_usr_name"
             android:hint="User Name"
             android:layout_marginLeft="30dp"
+
             android:background="@null"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_usr_lvl"
+            android:hint="Level"
+
+            android:layout_marginLeft="20dp"
+
+
+            android:background="@drawable/rounded_corner"
             android:singleLine="true"
             android:inputType="textCapWords"
             android:textSize="20dp"/>
@@ -51,7 +69,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/profile_l2"
@@ -70,19 +88,20 @@
             />
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/profile_usr_age"
-            android:hint="User Age"
-            android:layout_marginLeft="30dp"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dp"
             android:background="@null"
-            android:singleLine="true"
-            android:inputType="textCapWords"/>
+            android:hint="User Age"
+            android:inputType="textCapWords"
+            android:singleLine="true" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/profile_l3"
@@ -97,22 +116,23 @@
             android:text="Email: "
             android:layout_marginLeft="20dp"
             android:textSize="20dp"
+            android:layout_weight="1"
             />
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/profile_usr_email"
-            android:hint="User Email"
-            android:layout_marginLeft="30dp"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
             android:background="@null"
-            android:singleLine="true"
-            android:inputType="textCapWords"/>
+            android:hint="User Email"
+            android:inputType="textCapWords"
+            android:singleLine="true" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/profile_l4"
@@ -126,21 +146,22 @@
             android:id="@+id/Institution"
             android:text="Institution: "
             android:layout_marginLeft="20dp"
+            android:layout_weight="1"
             android:textSize="20dp" />
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/profile_usr_institution"
-            android:hint="School / Company"
-            android:layout_marginLeft="30dp"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
             android:background="@null"
-            android:singleLine="true"
-            android:inputType="textCapWords"/>
+            android:hint="School / Company"
+            android:inputType="textCapWords"
+            android:singleLine="true" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/profile_l5"
@@ -154,6 +175,7 @@
             android:id="@+id/New_password"
             android:text="New Password: "
             android:layout_marginLeft="20dp"
+            android:layout_weight="1"
             android:textSize="20dp" />
 
         <EditText
@@ -161,14 +183,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/profile_usr_new_password"
             android:hint="New Password"
-            android:layout_marginLeft="30dp"
+            android:layout_marginRight="40dp"
             android:background="@null"
             android:singleLine="true"
             android:inputType="textCapWords"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@+id/profile_l6"
@@ -182,43 +204,73 @@
             android:id="@+id/CFM_password"
             android:text="Confirm Password: "
             android:layout_marginLeft="20dp"
+            android:layout_weight="1"
             android:textSize="20dp" />
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/profile_usr_cfm_password"
-            android:hint="@string/Confirm"
-            android:layout_marginLeft="30dp"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
             android:background="@null"
-            android:singleLine="true"
-            android:inputType="textCapWords"/>
+            android:hint="@string/Confirm"
+            android:inputType="textCapWords"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_l9"
+        android:layout_above="@+id/linearLayout"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <Button
+            android:id="@+id/profile_confirm"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/rounded_corner"
+
+            android:gravity="center"
+            android:text="Save" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/profile_l8"
-        android:layout_above="@+id/linearLayout"
-        android:layout_marginBottom="20dp"
+
+        android:layout_below="@+id/profile_l7"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
-        <Button
-            android:id="@+id/profile_confirm"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Confirm"
-            android:layout_weight="1"
-        />
+            android:text="Log out"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sign_out"
-            android:text="Sign out"
+            android:text=">"
+            android:textSize="20dp"
+            android:textAlignment="textEnd"
+            android:layout_marginRight="20dp"
+            android:background="@null"
             android:layout_weight="1"/>
 
     </LinearLayout>
