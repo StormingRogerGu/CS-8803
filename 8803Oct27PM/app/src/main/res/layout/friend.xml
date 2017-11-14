@@ -38,8 +38,8 @@
         <ImageView
             android:id="@+id/current_rank_img"
             android:layout_gravity="center"
-            android:layout_width="73dp"
-            android:layout_height="73dp" />
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
         <LinearLayout
             android:id="@+id/friend_current_user_contentview"
             android:layout_width="match_parent"
