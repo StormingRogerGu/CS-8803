@@ -95,6 +95,7 @@ public class puzzle extends Activity {
                     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
+                            Log.v("what id","thishh");
 
                             ongoing_id_now = dataSnapshot.child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(int.class);
                             int file_num = ongoing_id_now / 9 + 1;

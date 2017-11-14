@@ -48,6 +48,7 @@ public class friend extends Activity {
     private TextView current_username;
     private TextView current_user_rank;
     private ImageView current_img;
+    private TextView current_rank_level;
     private TextView current_user_finish_puzzle;
     private TextView current_user_ongoing_pieces;
 
@@ -170,6 +171,7 @@ public class friend extends Activity {
         current_user_rank = (TextView)findViewById(R.id.current_rank_index);
 
         current_img = (ImageView)findViewById(R.id.current_rank_img);
+        current_rank_level = (TextView)findViewById(R.id.friend_current_user_level);
 
         current_user_finish_puzzle = (TextView)findViewById(R.id.current_rank_item_finish);
         current_user_ongoing_pieces = (TextView)findViewById(R.id.current_rank_item_ongoing);
@@ -225,18 +227,23 @@ public class friend extends Activity {
             map.put("num_of_on_going_puzzle",listvalue.get(i).num_of_on_going_puzzle);
             if(listvalue.get(i).num_of_on_going_puzzle >= 0 && listvalue.get(i).num_of_on_going_puzzle <= 20){
                 map.put("ItemImage",R.drawable.ant_level_1);
+                map.put("level","level 1");
             }
             else if(listvalue.get(i).num_of_on_going_puzzle >= 21 && listvalue.get(i).num_of_on_going_puzzle <= 40){
                 map.put("ItemImage",R.drawable.ant_level_2);
+                map.put("level","level 2");
             }
             else if(listvalue.get(i).num_of_on_going_puzzle >= 41 && listvalue.get(i).num_of_on_going_puzzle <= 60){
                 map.put("ItemImage",R.drawable.ant_level_3);
+                map.put("level","level 3");
             }
             else if(listvalue.get(i).num_of_on_going_puzzle >= 61 && listvalue.get(i).num_of_on_going_puzzle <= 80){
                 map.put("ItemImage",R.drawable.ant_level_4);
+                map.put("level","level 4");
             }
             else if(listvalue.get(i).num_of_on_going_puzzle >= 81){
                 map.put("ItemImage",R.drawable.ant_level_5);
+                map.put("level","level 5");
             }
             if(listvalue.get(i).all_username.equals(usr_id)){
                 int k = i+1;
@@ -245,18 +252,27 @@ public class friend extends Activity {
                 current_user_ongoing_pieces.setText(""+listvalue.get(i).num_of_on_going_puzzle);
                 if(listvalue.get(i).num_of_on_going_puzzle >= 0 && listvalue.get(i).num_of_on_going_puzzle <= 20){
                     current_img.setImageResource(R.drawable.ant_level_1);
+                    current_rank_level.setText("Level 1");
                 }
                 else if(listvalue.get(i).num_of_on_going_puzzle >= 21 && listvalue.get(i).num_of_on_going_puzzle <= 40){
                     current_img.setImageResource(R.drawable.ant_level_2);
+                    current_rank_level.setText("Level 2");
+
                 }
                 else if(listvalue.get(i).num_of_on_going_puzzle >= 41 && listvalue.get(i).num_of_on_going_puzzle <= 60){
                     current_img.setImageResource(R.drawable.ant_level_3);
+                    current_rank_level.setText("Level 3");
+
                 }
                 else if(listvalue.get(i).num_of_on_going_puzzle >= 61 && listvalue.get(i).num_of_on_going_puzzle <= 80){
                     current_img.setImageResource(R.drawable.ant_level_4);
+                    current_rank_level.setText("Level 4");
+
                 }
                 else if(listvalue.get(i).num_of_on_going_puzzle >= 81){
                     current_img.setImageResource(R.drawable.ant_level_5);
+                    current_rank_level.setText("Level 5");
+
                 }
 
             }
