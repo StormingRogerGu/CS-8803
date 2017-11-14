@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_weight="0.02"
-        android:background="#DC143C">
+        android:background="#D32A2A">
 
         <TableRow android:layout_marginLeft="15dp">
 
@@ -62,7 +62,7 @@
             android:layout_marginRight="10dp"
             android:text="Hour"
             android:textColor="#FFFFFF"
-            android:textSize="42px"/>
+            android:textSize="60px"/>
 
         <com.example.zhangyongzheng.a8803oct13am.numberpickerstyle
             android:id="@+id/numberPicker_min"
@@ -76,7 +76,7 @@
             android:layout_marginLeft="10dp"
             android:text="Minute"
             android:textColor="#FFFFFF"
-            android:textSize="42px"/>
+            android:textSize="60px"/>
 
     </LinearLayout>
 

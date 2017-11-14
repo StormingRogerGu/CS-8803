@@ -22,7 +22,7 @@ public class numberpickerstyle extends NumberPicker{
 
     public numberpickerstyle(Context context) {
         super(context);
-        // TODO Auto-generated constructor stub
+
     }
 
     @Override
@@ -45,6 +45,7 @@ public class numberpickerstyle extends NumberPicker{
 
     public void setNumberPicker(View view) {
         if (view instanceof EditText) {
+
             ((EditText) view).setTextColor(Color.WHITE);
             ((EditText) view).setTextSize(18);
         }
