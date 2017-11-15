@@ -259,10 +259,10 @@ public class MainActivity extends AppCompatActivity {
             map.put("ItemText", orderdate.get(i).getKey());
             map.put("ItemTitle", (String)orderdate.get(i).getValue().due_date);
             if(orderdate.get(i).getValue().task_top.equals("false")){
-                map.put("ItemImage", R.drawable.up_button_default);
+                map.put("ItemImage", R.drawable.task_top_gray);
             }
             else{
-                map.put("ItemImage", R.drawable.up_button_highlight);
+                map.put("ItemImage", R.drawable.task_top_red);
             }
 
             listItem.add(map);

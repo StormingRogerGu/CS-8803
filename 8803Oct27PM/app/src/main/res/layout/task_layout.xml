@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Deadlines"
-        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textSize="24sp"
         android:textColor="#ffffff"
         />
 
@@ -30,6 +31,7 @@
         android:layout_below="@+id/redHead"
 
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="60dp"
         android:background="#000000"
         android:orientation="horizontal">
@@ -37,13 +39,13 @@
         <Button
             android:textAllCaps="false"
             android:id="@+id/task_layout_today"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="85dp"
+            android:layout_height="32dp"
             android:layout_gravity="center_vertical"
             android:textColor="#ffffff"
             android:background="@drawable/my_button_bg"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+
             android:text="Week"
 
             android:textSize="20sp"
@@ -52,13 +54,13 @@
         <Button
             android:id="@+id/task_layout_week"
             android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="85dp"
+            android:layout_height="32dp"
             android:layout_gravity="center_vertical"
             android:textColor="#ffffff"
             android:background="@drawable/my_button_bg"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+
             android:text="All"
 
             android:textSize="20sp"
@@ -66,16 +68,16 @@
             />
         <Button
 
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="20dp"
             android:id="@+id/task_layout_all"
             android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="85dp"
+            android:layout_height="32dp"
             android:layout_gravity="center_vertical"
             android:textColor="#ffffff"
             android:background="@drawable/my_button_bg"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+
             android:text="Overdue"
             android:textSize="20sp"
              />
