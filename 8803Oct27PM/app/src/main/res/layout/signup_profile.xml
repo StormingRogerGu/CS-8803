@@ -56,7 +56,6 @@
             android:text="Company or School"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="13dp"
-
             />
 
         <EditText
@@ -66,10 +65,10 @@
 
             android:id="@+id/sign_up_companyschool"
             android:layout_marginTop="10dp"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/login_inputbox"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
-            android:gravity="top"/>
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
@@ -98,10 +97,10 @@
             android:layout_marginTop="10dp"
             android:inputType="textPassword"
             android:id="@+id/sign_up_age"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/login_inputbox"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
-            android:gravity="top" />
+            android:layout_gravity="center" />
 
 
     </LinearLayout>
@@ -202,7 +201,7 @@
             android:layout_marginRight="10dp"
             android:textColor="#FFFFFF"
             android:id="@+id/sign_up_complete_btn"
-            android:background="#FF5252"/>
+            android:background="@drawable/login_redbutton"/>
     </LinearLayout>
 
 
