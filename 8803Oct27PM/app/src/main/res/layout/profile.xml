@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@drawable/wallpaper_white"
+    android:background="#F4F3F1"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:text="Profile"
             android:textColor="#FFFFFF"
-            android:textSize="40dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -28,7 +28,8 @@
         android:layout_below="@+id/profile_l1"
         android:id="@+id/profile_l2"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:background="#FFFFFF"
+        >
 
         <ImageView
             android:id="@+id/friend_rank_item_img"
@@ -69,20 +70,21 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:layout_below="@+id/profile_l2"
         android:id="@+id/profile_l3"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/profile_age"
             android:text="Age: "
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:textSize="20dp"
             android:layout_weight="1"
             />
@@ -92,7 +94,7 @@
             android:layout_width="122dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="20dp"
             android:background="@null"
             android:hint="User Age"
             android:inputType="textCapWords"
@@ -102,19 +104,20 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:layout_below="@+id/profile_l3"
         android:id="@+id/profile_l4"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginTop="5dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/profile_email"
             android:text="Email: "
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:textSize="20dp"
             android:layout_weight="1"
             />
@@ -123,7 +126,7 @@
             android:id="@+id/profile_usr_email"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="20dp"
             android:background="@null"
             android:hint="User Email"
             android:inputType="textCapWords"
@@ -133,27 +136,28 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:gravity="center"
         android:layout_below="@+id/profile_l4"
         android:id="@+id/profile_l5"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Institution"
             android:text="Institution: "
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:layout_weight="1"
             android:textSize="20dp" />
 
         <EditText
             android:id="@+id/profile_usr_institution"
-            android:layout_width="121dp"
+            android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="20dp"
             android:background="@null"
             android:hint="School / Company"
             android:inputType="textCapWords"
@@ -162,19 +166,20 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:gravity="center"
         android:layout_below="@+id/profile_l5"
         android:id="@+id/profile_l6"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginTop="15dp"
+        android:background="#FFFFFF"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/New_password"
             android:text="New Password: "
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:layout_weight="1"
             android:textSize="20dp" />
 
@@ -183,7 +188,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/profile_usr_new_password"
             android:hint="New Password"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="20dp"
             android:background="@null"
             android:singleLine="true"
             android:inputType="textCapWords"/>
@@ -191,27 +196,29 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:gravity="center"
         android:layout_below="@+id/profile_l6"
         android:id="@+id/profile_l7"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/CFM_password"
             android:text="Confirm Password: "
-            android:layout_marginLeft="20dp"
+            android:maxLines="1"
+            android:layout_marginLeft="40dp"
             android:layout_weight="1"
             android:textSize="20dp" />
 
         <EditText
             android:id="@+id/profile_usr_cfm_password"
-            android:layout_width="121dp"
+            android:layout_width="122dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="20dp"
             android:background="@null"
             android:hint="@string/Confirm"
             android:inputType="textCapWords"
@@ -245,33 +252,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:id="@+id/profile_l8"
 
         android:layout_below="@+id/profile_l7"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginTop="15dp"
+
+        android:background="#FFFFFF"
+
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
             android:text="Log out"
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:textSize="20dp" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/sign_out"
-            android:text=">"
-            android:textSize="20dp"
-            android:textAlignment="textEnd"
+            android:layout_width="122dp"
+            android:layout_height="20dp"
+
             android:layout_marginRight="20dp"
+
             android:background="@null"
-            android:layout_weight="1"/>
+            android:text=">"
+
+            android:textAlignment="textEnd"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
