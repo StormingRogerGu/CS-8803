@@ -13,21 +13,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/header_logo"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width = "wrap_content"
-        android:layout_height = "30dp"
+        android:layout_height = "40dp"
         android:id = "@+id/editText"
         android:hint = "Enter Name"
 
-        android:textColorHighlight = "#ff7eff15"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
         android:layout_marginTop = "30dp"
         android:layout_below = "@+id/imageView"
-        android:background="@color/white"
+        android:background="@drawable/login_inputbox"
         android:layout_alignParentLeft= "true"
 
         android:layout_alignParentRight = "true"
@@ -40,12 +39,13 @@
         android:id="@+id/editText3"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
         android:layout_height="1dip"
         android:background="@android:color/darker_gray" />
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:inputType="textPassword"
 
         android:id="@+id/editText2"
@@ -54,7 +54,7 @@
         android:layout_alignLeft="@id/editText"
 
         android:layout_below="@+id/editText3"
-        android:background="@color/white"
+        android:background="@drawable/login_inputbox"
 
 
         android:layout_alignRight="@+id/editText"
@@ -93,7 +93,7 @@
         android:id="@+id/button"
         android:layout_alignStart="@+id/editText2"
         android:layout_alignEnd="@+id/editText2"
-        android:background="#FF5252"
+        android:background="@drawable/login_redbutton"
         android:layout_below="@id/editText2"
          />
 
