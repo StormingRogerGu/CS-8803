@@ -173,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("afterinit","go");
 
 
+
                 myownadapter.updateData(listItem);
                 lv.setAdapter(myownadapter);
 

@@ -16,7 +16,8 @@
             android:text="Ranks"
             android:textColor="#ffffff"
             android:gravity="center"
-            android:textSize="30sp"/>
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
     <LinearLayout
@@ -142,6 +143,7 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:text="All users rank"
+            android:textSize="20sp"
             android:textColor="#000000"/>
     </LinearLayout>
 

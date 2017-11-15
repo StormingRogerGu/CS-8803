@@ -97,8 +97,12 @@ public class friend extends Activity {
                 initialdata();
                 listvalue.clear();
                 listkey.clear();
+                ArrayList<HashMap<String, Object>> temp_list_item = new ArrayList<HashMap<String, Object>>();
+                for (int i = 0; i <10;i++){
+                    temp_list_item.add(listItem.get(i));
+                }
 
-                my_friend_adapter.updateData(listItem);
+                my_friend_adapter.updateData(temp_list_item);
                 lv.setAdapter(my_friend_adapter);
 
             }
