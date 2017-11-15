@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/wallpaper_white">
+
     <LinearLayout
         android:id="@id/redHead"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:background="#D32A2A"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:gravity="center_vertical">
 
     <TextView
         android:layout_width="match_parent"
