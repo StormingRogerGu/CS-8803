@@ -6,20 +6,19 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TableLayout
+    <LinearLayout
         android:id="@+id/headertimer"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_weight="0.02"
-        android:background="#D32A2A">
+        android:background="#D32A2A"
+        android:orientation="horizontal">
 
-        <TableRow android:layout_marginLeft="15dp">
 
             <Button
                 android:id="@+id/friend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
                 android:text="@string/clear"
                 android:textColor="#FFFFFF"
@@ -38,8 +37,8 @@
                 />
 
 
-        </TableRow>
-    </TableLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/time_setting_layout1"
