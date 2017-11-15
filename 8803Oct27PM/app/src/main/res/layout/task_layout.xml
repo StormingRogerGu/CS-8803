@@ -98,11 +98,11 @@
 
             android:layout_gravity="center_vertical"
 
-            android:background="@drawable/my_button_bg2"
+            android:background="@drawable/addddl_button"
 
 
             android:gravity="left|center_vertical"
-            android:text="+Add a deadline..."
+            android:text="            Add a deadline..."
             android:textAllCaps="false"
 
             android:textColor="#ffffff"
