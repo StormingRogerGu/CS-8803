@@ -58,10 +58,11 @@
             android:id="@+id/sign_up_email"
             android:layout_width="305dp"
             android:layout_height="46dp"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/login_inputbox"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
-            android:gravity="top"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
             android:hint="Email" />
 
     </LinearLayout>
@@ -79,10 +80,12 @@
             android:layout_width = "305dp"
             android:layout_height = "46dp"
             android:id = "@+id/sign_up_id"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/login_inputbox"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
-            android:gravity="top"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
             android:hint="Username" />
 
     </LinearLayout>
@@ -101,12 +104,13 @@
             android:layout_height="46dp"
             android:inputType="textPassword"
             android:id="@+id/sign_up_pwd"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/login_inputbox"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
-            android:gravity="top"
-            android:hint="Password"
-            />
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:hint="Password" />
 
     </LinearLayout>
 
@@ -125,10 +129,12 @@
             android:layout_height="46dp"
             android:inputType="textPassword"
             android:id="@+id/sign_up_confirm_pwd"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/login_inputbox"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
-            android:gravity="top"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
             android:hint="Confirm Password" />
     </LinearLayout>
 
@@ -151,7 +157,7 @@
             android:layout_marginRight="10dp"
             android:textColor="#FFFFFF"
             android:id="@+id/sign_up_comfirm_btn"
-            android:background="#FF5252" />
+            android:background="@drawable/login_redbutton" />
 
     </LinearLayout>
 
