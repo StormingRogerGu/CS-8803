@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Deadlines"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:textColor="#ffffff"
         />
 

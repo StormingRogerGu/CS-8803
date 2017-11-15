@@ -16,7 +16,7 @@
             android:layout_gravity="center"
             android:text="Profile"
             android:textColor="#FFFFFF"
-            android:textSize="25dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
