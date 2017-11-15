@@ -238,9 +238,10 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:textAllCaps="false"
-            android:text="       Log out                                      >"
+            android:hint="       Log out                                      >"
             android:textAlignment="textStart"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            />
 
     </LinearLayout>
 
@@ -263,7 +264,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"
             android:gravity="center"
-            android:text="Save" />
+            android:text="Save"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 

@@ -136,7 +136,7 @@ public class timesetting extends Activity {
         //numberpicker hour
         final numberpickerstyle nopicker_hour = (numberpickerstyle) findViewById(R.id.numberPicker_hour);
         nopicker_hour.setMaxValue(8);
-        nopicker_hour.setMinValue(1);
+        nopicker_hour.setMinValue(0);
 
         nopicker_hour.setWrapSelectorWheel(true);
         nopicker_hour.setBackgroundColor(Color.BLACK);
