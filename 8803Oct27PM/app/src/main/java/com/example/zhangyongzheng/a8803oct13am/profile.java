@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -44,6 +45,7 @@ public class profile extends Activity {
     private ImageButton home;
     private ImageButton puzzle;
     private ImageButton profile;
+
     private User_id my_usr_id;
     private String usr_id;
     private DatabaseReference myRef;
@@ -60,6 +62,10 @@ public class profile extends Activity {
     private EditText cfm_pwd;
     private Button sign_out;
 
+    private ImageView profile_current_user_rank_img;
+    private TextView profile_current_user_name;
+    private TextView profile_current_user_level;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +80,8 @@ public class profile extends Activity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 usr_name = dataSnapshot.getKey();
-                usrName.setText(usr_name, TextView.BufferType.EDITABLE);
+                //usrName.setText(usr_name, TextView.BufferType.EDITABLE);
+                profile_current_user_name.setText(usr_name);
 
                 usr_age = dataSnapshot.child("usr_age").getValue(String.class);
                 usrAge.setText(usr_age, TextView.BufferType.EDITABLE);
@@ -84,6 +91,29 @@ public class profile extends Activity {
 
                 usr_institution = dataSnapshot.child("usr_Institution").getValue(String.class);
                 usrInstitution.setText(usr_institution, TextView.BufferType.EDITABLE);
+
+                int num_pic = dataSnapshot.child("Time_mode").child("puzzle_ongoing_id").child("puzzle_piece_ongoing").getValue(Integer.class);
+                if(num_pic >= 0 && num_pic <=20){
+                    profile_current_user_rank_img.setImageResource(R.drawable.ant_level_1);
+                    profile_current_user_level.setText("Level 1");
+
+                }
+                else if(num_pic >= 21 && num_pic <=40){
+                    profile_current_user_rank_img.setImageResource(R.drawable.ant_level_2);
+                    profile_current_user_level.setText("Level 2");
+                }
+                else if(num_pic >= 41 && num_pic <60){
+                    profile_current_user_rank_img.setImageResource(R.drawable.ant_level_3);
+                    profile_current_user_level.setText("Level 3");
+                }
+                else if(num_pic >= 61 && num_pic <= 80){
+                    profile_current_user_rank_img.setImageResource(R.drawable.ant_level_4);
+                    profile_current_user_level.setText("Level 4");
+                }
+                else {
+                    profile_current_user_rank_img.setImageResource(R.drawable.ant_level_5);
+                    profile_current_user_level.setText("Level 5");
+                }
 
 
             }
@@ -148,7 +178,7 @@ public class profile extends Activity {
         puzzle = (ImageButton)findViewById(R.id.puzzle_profile_highlight);
         profile = (ImageButton)findViewById(R.id.profile_profile_highlight);
 
-        usrName = (TextView)findViewById(R.id.profile_usr_name);
+        //usrName = (TextView)findViewById(R.id.profile_usr_name);
         usrAge = (EditText)findViewById(R.id.profile_usr_age);
         usrEmail = (EditText)findViewById(R.id.profile_usr_email);
         usrInstitution = (EditText)findViewById(R.id.profile_usr_institution);
@@ -156,6 +186,10 @@ public class profile extends Activity {
         chage_pwd = (EditText)findViewById(R.id.profile_usr_new_password);
         cfm_pwd = (EditText)findViewById(R.id.profile_usr_cfm_password);
         sign_out = (Button)findViewById(R.id.sign_out);
+
+        profile_current_user_rank_img = (ImageView)findViewById(R.id.profile_current_rank_img);
+        profile_current_user_name = (TextView)findViewById(R.id.profile_current_user_name);
+        profile_current_user_level = (TextView)findViewById(R.id.profile_current_user_level);
     }
 
     private void setConfirm_change(){

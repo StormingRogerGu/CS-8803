@@ -7,7 +7,7 @@
         android:id="@+id/friend__page_head"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:background="#D32A2A"
         android:gravity="center">
         <TextView
@@ -113,9 +113,6 @@
                     android:textColor="#000000"/>
 
             </LinearLayout>
-
-
-
         </LinearLayout>
 
         <!--<TextView-->
