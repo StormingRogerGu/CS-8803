@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="./asset/bootstrap.min.css" rel="stylesheet">
+    <link href="./asset/signin.css" rel="stylesheet">
     <title>Task Setting</title>
 </head>
 
 <body>
 
-<div class="w3-container">
-    <div class="w3-display-container w3-blue" style="height: 80px">
-        <h1 class="w3-display-topmiddle">Task Setting</h1>
-    </div>
+<div class="container">
+   <form class="form-signin">
+    <h2 class="form-signin-heading">Task Setting</h2>
 
-    <label class="w3-text-blue"><b>Task Name</b></label>
-    <input class="w3-input" style="width: 500px" id="Task_name" type="text">
+    <label for="task" class="sr-only">TaskName</label>
+    <input class="form-control" style="margin-top: 20px" id="Task_name" type="text" placeholder="Task Name" required="" autofocus="">
 
-    <label class="w3-text-blue"><b>Due Date</b></label>
-    <input class="w3-input" style="width: 500px" id="taskDate" type="text">
+    <label class="sr-only">Due Date</label>
+    <input class="form-control" style="margin-top: 20px" id="taskDate" type="text" placeholder="Due Date" required="" autofocus="">
 
-    <label class="w3-text-blue"><b>Remind Time</b></label>
-    <input class="w3-input" style="width: 500px" type="text" id="remindTime">
+    <label class="sr-only">Remind Time</label>
+    <input class="form-control" style="margin-top: 20px" type="text" id="remindTime" placeholder="Remind Time" required="" autofocus="">
 
-    <label class="w3-text-blue"><b>Note</b></label>
-    <input class="w3-input" style="width: 500px" id="tasknote" type="text">
+    <label class="sr-only">Note</label>
+    <textarea class="form-control" style="margin-top: 20px" rows="3" id="tasknote" type="text" placeholder="Note" required="" autofocus=""></textarea>
 
-    <button class="w3-button w3-blue w3-margin-top" id="confirm_task_btn" type="button">Confirm</button>
-
+    <button  style="margin-top: 20px" class="btn btn-lg btn-primary btn-block" id="confirm_task_btn" type="button">Confirm</button>
+    </form>
 </div>
 
 
@@ -66,9 +66,9 @@
         var date = duedate.value;
         var time = remindTime.value;
         var note = tasknote.value;
-        var usr_id = "ddd"
+        var usr_id = localStorage.getItem("usr_id");
         var success = Boolean(false);
-        if (name != "" && date != "" && time != "") {
+        if (name !== "" && date !== "" && time !== "") {
 
             var addTask = firebase.database().ref('User_profile/' + usr_id + '/Task/' + name).set({
                 due_date: date,

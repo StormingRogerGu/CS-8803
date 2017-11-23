@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PRDKJMG');</script>
     <!-- End Google Tag Manager --><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./asset/bootstrap.min.css" rel="stylesheet">
+     <link href="./asset/signin.css" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="w3-container">
-    <div class="w3-display-container w3-blue" style="height: 80px">
-        <h1 class="w3-display-topmiddle">Sign In</h1>
-    </div>
+<div class="container">
+    <form class="form-signin">
+    <h2 class="form-signin-heading">Please Sign in</h2>
 
-    <label class="w3-text-blue" ><b>UserId</b></label>
-    <input class="w3-input" style="width: 500px" id="userId" type="text">
+    <label class="sr-only">UserId</label>
+    <input class="form-control" id="userId" type="text" placeholder="UserName" required="" autofocus="">
 
-    <label class="w3-text-blue" ><b>Password</b></label>
-    <input class="w3-input" style="width: 500px" id="password" type="password">
+    <label class="sr-only">Password</label>
+    <input class="form-control" id="password" type="password" placeholder="Password" required="" autofocus="">
 
 
-    <button class="w3-button w3-blue w3-margin-top" type="button" id="signin_btn">Login</button>
+    <button class="btn btn-lg btn-primary btn-block" type="button" id="signin_btn">Login</button>
+
+    </form>
 </div>
 
 
@@ -64,6 +61,7 @@
 
                 if(key==sign_in_id.value && data.user_pwd==pwd.value){
                     console.log("TRUE");
+                    localStorage.setItem("usr_id", sign_in_id.value);
                     window.location.href='main.html';
                 }
 
