@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <link href="./asset/bootstrap.min.css" rel="stylesheet">
+     <link href="./asset/signin.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="w3-container">
-    <div class="w3-display-container w3-blue" style="height: 80px">
-        <h1 class="w3-display-topmiddle">Sign up</h1>
-    </div>
+<div class="container">
+    <form class="form-signin">
+    <h2 class="form-signin-heading">Please Sign Up</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 
-    <label class="w3-text-blue" ><b>UserId</b></label>
-    <input class="w3-input" style="width: 500px" id="userId_signup" type="text">
+    <label for="username" class="sr-only" >UserId</label>
+    <input class="form-control" id="userId_signup" type="text" placeholder="UserName" required="" autofocus="">
 
-    <label class="w3-text-blue" ><b>Password</b></label>
-    <input class="w3-input" style="width: 500px" id="password_signup" type="password">
+    <label for="password" class="sr-only">Password</label>
+    <input class="form-control" id="password_signup" type="password" placeholder="Password" required="" autofocus="">
 
-    <label class="w3-text-blue" ><b>Confirm Password</b></label>
-    <input class="w3-input" style="width: 500px" id="cfm_password_signup" type="password">
 
-    <button class="w3-button w3-blue w3-margin-top" id="signup_btn" type="button">signup</button>
+    <label for="password_cfm" class="sr-only">Confirm Password</label>
+    <input class="form-control" id="cfm_password_signup" type="password" placeholder="Confirm Password" required="" autofocus="">
+
+    <button class="btn btn-lg btn-primary btn-block" id="signup_btn" type="button">sign up</button>
+    </form>
 </div>
 
 
@@ -66,10 +70,19 @@
                 console.log(username + password);
                 var addref = firebase.database().ref('User_profile/' + username).set({
                     user_pwd : password
+
                 });
+                var addref2 = firebase.database().ref('User_profile/' + username + '/Time_mode/puzzle_going_id/').set({
+                    puzzle_piece_id : '1',
+                    puzle_piece_ongoing_id : '0'
+                });
+                alert("Sign Up Successfully");
                 window.location.href='signin.html';
 
 
+            }
+            else{
+                alert("Improper Sign Up information");
             }
         });
 
