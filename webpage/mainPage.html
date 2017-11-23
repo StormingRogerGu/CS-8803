@@ -38,14 +38,16 @@
       </nav>
       </aside>-->
       
-      <div id="player">
-      </div>
+      <!--<div id="player">
+      </div>-->
+        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VAwbLlJIBkE?Version=3&autoplay=1&loop=1&playlist=VAwbLlJIBkE" frameborder="0" allowfullscreen></iframe>
 
       
     </section>
   </div>
 
-  <script>
+  <!--<script>
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
@@ -61,6 +63,7 @@
           height: '390',
           width: '640',
           videoId: 'VAwbLlJIBkE',
+          
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -76,8 +79,16 @@
       // 5. The API calls this function when the player's state changes.
       //    The function indicates that when playing a video (state=1),
       //    the player should play for six seconds and then stop.
-      var done = false;
+      //var done = false;
+      
       function onPlayerStateChange(event) {
+        autoplay=1;
+        if (event.data == YT.PlayerState.ended) {
+            player.loadVideoById('VAwbLlJIBkE');           
+        }   
+      }
+      
+      /*function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
           setTimeout(stopVideo, 6000);
           done = true;
@@ -85,8 +96,8 @@
       }
       function stopVideo() {
         player.stopVideo();
-      }
-    </script>
+      }*/
+    </script>-->
 
 
 </body>
