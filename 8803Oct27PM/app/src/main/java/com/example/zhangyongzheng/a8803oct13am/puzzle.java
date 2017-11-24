@@ -51,7 +51,7 @@ public class puzzle extends Activity {
     private RelativeLayout puzzle_piece;
     private RelativeLayout puzzle_total_piece_show;
     private ImageView turn_image;
-    private LinearLayout puzzle_total_piece_show2;
+    private RelativeLayout puzzle_total_piece_show2;
 
     private ImageButton friend;
     private ImageButton timer;
@@ -179,6 +179,7 @@ public class puzzle extends Activity {
                                     continue;
                                 }
                             }
+
                         }
 
 
@@ -381,12 +382,12 @@ public class puzzle extends Activity {
                             tAnim = new TranslateAnimation(0, max_menu_margin
                                     - latestMargin, 0, 0);
                             tAnim.setInterpolator(new DecelerateInterpolator());
-                            tAnim.setDuration(400);
+                            tAnim.setDuration(100);
                             menu.startAnimation(tAnim);
                         } else {
                             tAnim = new TranslateAnimation(0, min_menu_margin
                                     - latestMargin, 0, 0);
-                            tAnim.setDuration(1800);
+                            tAnim.setDuration(450);
                             menu.startAnimation(tAnim);
                         }
                         //在动画结束的时刻，移动menu的位置，使menu真正移动。
@@ -450,7 +451,7 @@ public class puzzle extends Activity {
         go_to_complete_puzzle_btn=(Button)findViewById(R.id.puzzle_galery_goto_completed);
         turn_image = (ImageView)findViewById(R.id.puzzle_total_show);
 
-        puzzle_total_piece_show2 = (LinearLayout)findViewById(R.id.puzzle_total_pieces2);
+        puzzle_total_piece_show2 = (RelativeLayout)findViewById(R.id.puzzle_total_pieces2);
 
     }
 
@@ -539,12 +540,12 @@ public class puzzle extends Activity {
                 tx1.setText("In Progress");
 
                 showView(tag,puzzle_piece, puzzle_total_piece_show, 90, 0);
-                showView2(tag,puzzle_piece, puzzle_total_piece_show2, 90, 0);
+                showView(tag,puzzle_piece, puzzle_total_piece_show2, 90, 0);
             } else if (tag == 1) {
                 tx1.setText("In Progress");
 
                 showView(tag,puzzle_total_piece_show, puzzle_piece, -90, 0);
-                showView3(tag,puzzle_total_piece_show2, puzzle_piece, -90, 0);
+                showView(tag,puzzle_total_piece_show2, puzzle_piece, -90, 0);
             }
         }
     }
