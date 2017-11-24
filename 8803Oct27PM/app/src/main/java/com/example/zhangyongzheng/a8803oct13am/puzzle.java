@@ -22,6 +22,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.view.MotionEvent;
+import android.support.v4.view.MotionEventCompat;
 
 import java.io.ByteArrayOutputStream;
 import java.util.*;
@@ -46,6 +51,7 @@ public class puzzle extends Activity {
     private RelativeLayout puzzle_piece;
     private RelativeLayout puzzle_total_piece_show;
     private ImageView turn_image;
+    private LinearLayout puzzle_total_piece_show2;
 
     private ImageButton friend;
     private ImageButton timer;
@@ -77,13 +83,25 @@ public class puzzle extends Activity {
     private StorageReference storageref = FirebaseStorage.getInstance().getReference().child("all_complete_puzzle");
 
 
+    private View menu;
+    private final static int SHOW_MENU = 1;
+    private final static int HIDE_MENU = -1;
+    private int swipe_tag = SHOW_MENU;
+    private int max_menu_margin = 0;
+    private int min_menu_margin;
+    private float beginX;
+    private float latestX;
+    private float diffX;
+    private float latestMargin;
+    private FrameLayout.LayoutParams lp;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle_gallery);
         setUpView();
         setUsr_id();
-
+        
         go_to_complete_puzzle_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,6 +200,7 @@ public class puzzle extends Activity {
                                                                  String picture = file + ".png";
                                                                  StorageReference temp = storageref.child(picture);
                                                                  Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp).into(turn_image);
+
                                                              }
 
                                                              @Override
@@ -329,7 +348,82 @@ public class puzzle extends Activity {
             }
         });
 
+        menu = findViewById(R.id.puzzle_total_pieces2);
+        lp = (FrameLayout.LayoutParams) menu.getLayoutParams();
+        min_menu_margin = lp.leftMargin;
 
+        menu.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                int action = MotionEventCompat.getActionMasked(event);
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        beginX = event.getX();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        latestX = event.getX();
+                        diffX = latestX - beginX;
+                        swipe_tag = diffX > 0 ? SHOW_MENU : HIDE_MENU;
+                        latestMargin = lp.leftMargin + diffX;
+
+                        if (latestMargin > min_menu_margin
+                                && latestMargin < max_menu_margin) {
+                            lp.leftMargin = (int) (latestMargin);
+                            menu.setLayoutParams(lp);
+                        }
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        TranslateAnimation tAnim;
+                        if (swipe_tag == SHOW_MENU) {
+                            tAnim = new TranslateAnimation(0, max_menu_margin
+                                    - latestMargin, 0, 0);
+                            tAnim.setInterpolator(new DecelerateInterpolator());
+                            tAnim.setDuration(400);
+                            menu.startAnimation(tAnim);
+                        } else {
+                            tAnim = new TranslateAnimation(0, min_menu_margin
+                                    - latestMargin, 0, 0);
+                            tAnim.setDuration(1800);
+                            menu.startAnimation(tAnim);
+                        }
+                        //在动画结束的时刻，移动menu的位置，使menu真正移动。
+                        tAnim.setAnimationListener(new Animation.AnimationListener() {
+
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+                                // TODO Auto-generated method stub
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+                                // TODO Auto-generated method stub
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                // TODO Auto-generated method stub
+                                if (swipe_tag == SHOW_MENU) {
+                                    lp.leftMargin = max_menu_margin;
+                                    menu.setLayoutParams(lp);
+                                } else {
+                                    lp.leftMargin = min_menu_margin;
+                                    //System.out.print(min_menu_margin);
+                                    menu.setLayoutParams(lp);
+                                }
+                                menu.clearAnimation();
+                            }
+                        });
+
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     private void setUpView(){
@@ -356,7 +450,7 @@ public class puzzle extends Activity {
         go_to_complete_puzzle_btn=(Button)findViewById(R.id.puzzle_galery_goto_completed);
         turn_image = (ImageView)findViewById(R.id.puzzle_total_show);
 
-
+        puzzle_total_piece_show2 = (LinearLayout)findViewById(R.id.puzzle_total_pieces2);
 
     }
 
@@ -445,10 +539,12 @@ public class puzzle extends Activity {
                 tx1.setText("In Progress");
 
                 showView(tag,puzzle_piece, puzzle_total_piece_show, 90, 0);
+                showView2(tag,puzzle_piece, puzzle_total_piece_show2, 90, 0);
             } else if (tag == 1) {
                 tx1.setText("In Progress");
 
                 showView(tag,puzzle_total_piece_show, puzzle_piece, -90, 0);
+                showView3(tag,puzzle_total_piece_show2, puzzle_piece, -90, 0);
             }
         }
     }
@@ -467,8 +563,45 @@ public class puzzle extends Activity {
         showView.setVisibility(View.VISIBLE);
         Rotate3D rotation = new Rotate3D(start_jd, end_jd, centerX, centerY, 310.0f, false);
         rotation.setDuration(300);
+
+
         rotation.setInterpolator(new DecelerateInterpolator());
         containerView.startAnimation(rotation);
     }
 
+    private void showView2(int tag, RelativeLayout showView, LinearLayout hiddenView, int start_jd, int end_jd) {
+
+        float centerX = showView.getWidth() / 2.0f;
+        float centerY = showView.getHeight() / 2.0f;
+        if (centerX == 0 || centerY == 0) {
+            showView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+
+            centerX = showView.getMeasuredWidth() / 2.0f;
+            centerY = showView.getMeasuredHeight() / 2.0f;
+        }
+        hiddenView.setVisibility(View.GONE);
+        showView.setVisibility(View.VISIBLE);
+        Rotate3D rotation = new Rotate3D(start_jd, end_jd, centerX, centerY, 310.0f, false);
+        rotation.setDuration(300);
+        rotation.setInterpolator(new DecelerateInterpolator());
+        containerView.startAnimation(rotation);
+    }
+
+    private void showView3(int tag, LinearLayout showView, RelativeLayout hiddenView, int start_jd, int end_jd) {
+
+        float centerX = showView.getWidth() / 2.0f;
+        float centerY = showView.getHeight() / 2.0f;
+        if (centerX == 0 || centerY == 0) {
+            showView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+
+            centerX = showView.getMeasuredWidth() / 2.0f;
+            centerY = showView.getMeasuredHeight() / 2.0f;
+        }
+        hiddenView.setVisibility(View.GONE);
+        showView.setVisibility(View.VISIBLE);
+        Rotate3D rotation = new Rotate3D(start_jd, end_jd, centerX, centerY, 310.0f, false);
+        rotation.setDuration(300);
+        rotation.setInterpolator(new DecelerateInterpolator());
+        containerView.startAnimation(rotation);
+    }
 }

@@ -200,6 +200,29 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:id="@+id/puzzle_total_pieces2"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="-398dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/second"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00CC00" />
+
+            <View
+                android:id="@+id/dragArea"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#FFCC00"
+                />
+        </LinearLayout>
 
     </FrameLayout>
 
@@ -225,5 +248,7 @@
 
         <include layout="@layout/puzzle_highlight"/>
     </LinearLayout>
+
+
 
 </RelativeLayout>
