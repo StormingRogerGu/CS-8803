@@ -236,7 +236,7 @@
                         android:layout_marginLeft="37dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="45dp"
-                        android:background="@drawable/num0"/>
+                        android:src="@drawable/num0" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -259,7 +259,7 @@
                         android:layout_marginLeft="27dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="45dp"
-                        android:background="@drawable/num1"/>
+                        android:src="@drawable/num1" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -289,7 +289,7 @@
                         android:layout_marginLeft="37dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="45dp"
-                        android:background="@drawable/num2"/>
+                        android:src="@drawable/num2" />
                 </RelativeLayout>
 
 
@@ -313,7 +313,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="45dp"
-                        android:background="@drawable/num3"/>
+                        android:src="@drawable/num3" />
                 </RelativeLayout>
 
             </LinearLayout>

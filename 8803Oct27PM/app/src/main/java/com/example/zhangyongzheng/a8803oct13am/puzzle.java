@@ -1,5 +1,6 @@
 package com.example.zhangyongzheng.a8803oct13am;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
@@ -52,6 +53,11 @@ public class puzzle extends Activity {
     private RelativeLayout puzzle_total_piece_show;
     private ImageView turn_image;
     private RelativeLayout puzzle_total_piece_show2;
+
+    private ImageView completed1;
+    private ImageView completed2;
+    private ImageView completed3;
+    private ImageView completed4;
 
     private ImageButton friend;
     private ImageButton timer;
@@ -111,6 +117,7 @@ public class puzzle extends Activity {
                 if(index == 0){
                     applyRotation(0,0,90);
                     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @SuppressLint("Range")
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             Log.v("what id","thishh");
@@ -127,12 +134,18 @@ public class puzzle extends Activity {
 
                             ongoing_id_now = ongoing_id_now % 9;
 
+                            int comp_puz = file_num - 1;
 
+                            Log.v("aaa", "aaa"+comp_puz);
 
-                            int comp_id = ongoing_id_now / 9;
+                            int completed_op = 255;
+                            switch (comp_puz){
+                                case 1: completed1.setImageAlpha(completed_op); break;
+                                case 2: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); break;
+                                case 3: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); break;
+                                case 4: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); completed4.setImageAlpha(completed_op); break;
+                            }
 
-
-                            Log.v("what id","this" + ongoing_id_now + "hh");
                             for(int i = 0; i < ongoing_id_now_cur; i++) {
                                 Log.v("wrong?","shit!");
                                 int k = i + 1;
@@ -202,6 +215,7 @@ public class puzzle extends Activity {
                                                                  StorageReference temp = storageref.child(picture);
                                                                  Glide.with(puzzle.this).using(new FirebaseImageLoader()).load(temp).into(turn_image);
 
+
                                                              }
 
                                                              @Override
@@ -236,6 +250,15 @@ public class puzzle extends Activity {
 
                 ongoing_id_now = ongoing_id_now % 9;
 
+                int comp_puz = file_num - 1;
+
+                int completed_op = 255;
+                switch (comp_puz){
+                    case 1: completed1.setImageAlpha(completed_op); break;
+                    case 2: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); break;
+                    case 3: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); break;
+                    case 4: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); completed4.setImageAlpha(completed_op); break;
+                }
 
 
                 int comp_id = ongoing_id_now / 9;
@@ -427,6 +450,7 @@ public class puzzle extends Activity {
         });
     }
 
+    @SuppressLint("Range")
     private void setUpView(){
 
         friend = (ImageButton)findViewById(R.id.friend_bar_puzzle_highlight);
@@ -452,6 +476,19 @@ public class puzzle extends Activity {
         turn_image = (ImageView)findViewById(R.id.puzzle_total_show);
 
         puzzle_total_piece_show2 = (RelativeLayout)findViewById(R.id.puzzle_total_pieces2);
+
+
+        completed1 = (ImageView)findViewById(R.id.completed_1);
+        completed2 = (ImageView)findViewById(R.id.completed_2);
+        completed3 = (ImageView)findViewById(R.id.completed_3);
+        completed4 = (ImageView)findViewById(R.id.completed_4);
+
+        int initial_op = 75;
+
+        completed1.setImageAlpha(initial_op);
+        completed2.setImageAlpha(initial_op);
+        completed3.setImageAlpha(initial_op);
+        completed4.setImageAlpha(initial_op);
 
     }
 
