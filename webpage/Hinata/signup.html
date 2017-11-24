@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link href="./asset/bootstrap.min.css" rel="stylesheet">
-     <link href="./asset/signin.css" rel="stylesheet">
+     <link href="./css/asset/bootstrap.min.css" rel="stylesheet">
+     <link href="./css/asset/signin.css" rel="stylesheet">
 
 </head>
 
@@ -25,6 +25,7 @@
     <input class="form-control" id="cfm_password_signup" type="password" placeholder="Confirm Password" required="" autofocus="">
 
     <button class="btn btn-lg btn-primary btn-block" id="signup_btn" type="button">sign up</button>
+    <button class="btn btn-lg btn-primary btn-block" id="cancel_btn" type="button">Cancel</button>
     </form>
 </div>
 
@@ -50,6 +51,10 @@
     var cfm_pwd = document.getElementById("cfm_password_signup");
     var samepwd = Boolean(false);
     var sameID = Boolean(false);
+
+    cancel_btn.addEventListener("click",function(){
+        window.location.href = 'signin.html';
+    });
 
     signup_btn.addEventListener("click",function(){
         //console.log(sign_up_id.value);

@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="ant logo_medium.png">
     <link href="./css/asset/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/ass/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="./css/asset/signin.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/gradient_colors/theme_color_8.css" id="color-option">
 </head>
 
 <body>
+
 
 <div class="container">
     <form class="form-signin">
@@ -24,6 +25,10 @@
 
 
     <button class="btn btn-lg btn-primary btn-block" type="button" id="signin_btn">Login</button>
+
+    <button class="btn btn-lg btn-primary btn-block" href="signup.html" type="button" id="signup_jmp" >Sign up</button>
+
+    <button class="btn btn-lg btn-primary btn-block" href="signup.html" type="button" id="main_jmp" >Back to mainpage</button>
 
     </form>
 </div>
@@ -47,6 +52,14 @@
     var mydatabase = firebase.database();
     var sign_in_id = document.getElementById("userId");
     var pwd = document.getElementById("password");
+
+    signup_jmp.addEventListener("click", function(){
+        window.location.href = 'signup.html';
+    });
+
+    main_jmp.addEventListener("click", function(){
+        window.location.href = "Mainpage.html";
+    });
 
 
     signin_btn.addEventListener("click",function(){
