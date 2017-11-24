@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://v4-alpha.getbootstrap.com/examples/dashboard/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
+
+    <title>Friend Ranking</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./ranking_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./ranking_files/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        
+
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-1 pt-3">
+          <h1>Ranking</h1>
+
+          <section class="row text-center placeholders">
+            <div class="col-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              
+            </div>
+            <div class="col-6 col-sm-3 placeholder">
+              
+              <h4 style="margin-top: 80px" id="Name">aaa</h4>
+              <span class="text-muted" id="rank">rank 1</span>
+            </div>
+
+            <div class="col-6 col-sm-3 placeholder">
+              
+              <h4 style="margin-top: 80px" id="Pics">Num</h4>
+              <span class="text-muted" id="rank">Pics</span>
+            </div>
+
+            <div class="col-6 col-sm-3 placeholder">
+              
+              <h4 style="margin-top: 80px" id="Name">Num</h4>
+              <span class="text-muted" id="rank">Pieces</span>
+            </div>
+            
+          </section>
+
+          <h2>Top 10</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Icon</th>
+                  <th>UserName</th>
+                  <th>Picture Number</th>
+                  <th>Pieces Number</th>
+                </tr>
+              </thead>
+              <tbody id="top10_rank"></tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+
+    <script>
+
+      // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyACsDAUeirU-gel9iB2tXzYMBUoskBkDog",
+            authDomain: "oct13am-7683b.firebaseapp.com",
+            databaseURL: "https://oct13am-7683b.firebaseio.com",
+            projectId: "oct13am-7683b",
+            storageBucket: "oct13am-7683b.appspot.com",
+            messagingSenderId: "329352361598"
+        };
+        firebase.initializeApp(config);
+
+        var usr_id = localStorage.getItem("usr_id");
+
+        var matrix;
+
+        var ref = firebase.database().ref('/User_profile/');
+
+
+        ref.orderByChild("/Time_mode/puzzle_ongoing_id/puzzle_piece_ongoing").on("child_added", function(data){
+             console.log(data.key);
+             console.log(data.val().Time_mode.puzzle_ongoing_id.puzzle_piece_ongoing);
+             //matrix.append(data.key, data.val().Time_mode.puzzle_ongoing_id.puzzle_piece_ongoing)
+             
+        });
+
+      
+    </script>
+  
+
+</body>
+</html>

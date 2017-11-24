@@ -78,8 +78,8 @@
             window.location.href = 'addtask.html';
         });
 
-        var usr_id = "ddd";
-        var taskdata = {};
+        var usr_id = localStorage.getItem("usr_id");
+  
         
         var ref1 = firebase.database().ref('/User_profile/' + usr_id+'/Task');     
         
