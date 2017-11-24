@@ -154,13 +154,13 @@ public class tasksetting extends AppCompatActivity implements ActivityCompat.OnR
     }
 
     public void add_event_to_calendar(final Context context, final String title, final String description, final long beginTime){
-//        final int calId = checkAndAddCalendarAccount(context);
-//
-//        if(calId < 0){
-//            Log.v("faill to add evet","calendar");
-//            return;
-//        }
-//        Log.v("faill to add evet2","2calendar");
+        final int cal_Id = checkAndAddCalendarAccount(context);
+
+        if(cal_Id < 0){
+            Log.v("faill to add evet","calendar");
+            return;
+        }
+        Log.v("faill to add evet2","2calendar");
 
         add_to_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,18 +168,19 @@ public class tasksetting extends AppCompatActivity implements ActivityCompat.OnR
                 String calId = "";
                 Cursor userCursor = getContentResolver().query(Uri.parse(calendarURL), null, null, null, null);
                 if (userCursor.getCount() > 0) {
-                    userCursor.moveToLast();  //注意：是向最后一个账户添加，开发者可以根据需要改变添加事件 的账户
+                    userCursor.moveToLast();  //your account
                     calId = userCursor.getString(userCursor.getColumnIndex("_id"));
+                    Log.v("calid",calId);
                 }
                 else {
-                    Toast.makeText(tasksetting.this, "没有账户，请先添加账户", Toast.LENGTH_LONG).show();
+                    Toast.makeText(tasksetting.this, "Please add a new account", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 ContentValues event = new ContentValues();
                 event.put("title", taskname.getText().toString());
                 event.put("description", tasknote.getText().toString());
-                // 插入账户
+                // insert a account
                 event.put("calendar_id", calId);
                 System.out.println("calId: " + calId);
                 event.put("eventLocation", "Earth");
@@ -213,14 +214,14 @@ public class tasksetting extends AppCompatActivity implements ActivityCompat.OnR
                 event.put("dtend", end);
                 event.put("hasAlarm", 1);
 
-                event.put(CalendarContract.Events.EVENT_TIMEZONE, "Asia/Shanghai");  //这个是时区，必须有，
-                //添加事件
+                event.put(CalendarContract.Events.EVENT_TIMEZONE, "Asia/Shanghai");  //time zone，
+                //add event
                 Uri newEvent = getContentResolver().insert(Uri.parse(calendarEventURL), event);
-                //事件提醒的设定
+                //reminder setting
                 long id = Long.parseLong(newEvent.getLastPathSegment());
                 ContentValues values = new ContentValues();
                 values.put("event_id", id);
-                // 提前10分钟有提醒
+                // reminde 10 minutes earlier
                 values.put("minutes", 10);
                 getContentResolver().insert(Uri.parse(calendarRemiderURL), values);
 
@@ -249,12 +250,12 @@ public class tasksetting extends AppCompatActivity implements ActivityCompat.OnR
 //                }
 //                ContentValues values = new ContentValues();
 //                values.put(CalendarContract.Reminders.EVENT_ID, ContentUris.parseId(newEvent));
-//                // 提前10分钟有提醒
+//
 //                values.put(CalendarContract.Reminders.MINUTES, 10);
 //                values.put(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT);
 //                Uri uri = context.getContentResolver().insert(Uri.parse(calendarRemiderURL), values);
 //                if(uri == null) {
-//                    // 添加闹钟提醒失败直接返回
+//
 //                    return;
 //                }
 
