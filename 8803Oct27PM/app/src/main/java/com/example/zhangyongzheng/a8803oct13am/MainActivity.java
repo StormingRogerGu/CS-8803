@@ -112,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,timesetting.class);
-                Drawable image = getResources().getDrawable(R.drawable.clock_icon_highlight);
-                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
 
             }
@@ -123,9 +121,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,puzzle.class);
-                Drawable image = getResources().getDrawable(R.drawable.puzzle_icon_highlight);
-                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
+
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {

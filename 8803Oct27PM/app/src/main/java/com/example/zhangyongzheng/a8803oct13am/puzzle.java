@@ -117,7 +117,7 @@ public class puzzle extends Activity {
                 if(index == 0){
                     applyRotation(0,0,90);
                     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @SuppressLint("Range")
+                        //@SuppressLint("Range")
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             Log.v("what id","thishh");
@@ -138,13 +138,13 @@ public class puzzle extends Activity {
 
                             Log.v("aaa", "aaa"+comp_puz);
 
-                            int completed_op = 255;
-                            switch (comp_puz){
-                                case 1: completed1.setImageAlpha(completed_op); break;
-                                case 2: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); break;
-                                case 3: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); break;
-                                case 4: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); completed4.setImageAlpha(completed_op); break;
-                            }
+//                            int completed_op = 255;
+//                            switch (comp_puz){
+//                                case 1: completed1.setImageAlpha(completed_op); break;
+//                                case 2: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); break;
+//                                case 3: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); break;
+//                                case 4: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); completed4.setImageAlpha(completed_op); break;
+//                            }
 
                             for(int i = 0; i < ongoing_id_now_cur; i++) {
                                 Log.v("wrong?","shit!");
@@ -252,13 +252,13 @@ public class puzzle extends Activity {
 
                 int comp_puz = file_num - 1;
 
-                int completed_op = 255;
-                switch (comp_puz){
-                    case 1: completed1.setImageAlpha(completed_op); break;
-                    case 2: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); break;
-                    case 3: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); break;
-                    case 4: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); completed4.setImageAlpha(completed_op); break;
-                }
+//                int completed_op = 255;
+//                switch (comp_puz){
+//                    case 1: completed1.setImageAlpha(completed_op); break;
+//                    case 2: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); break;
+//                    case 3: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); break;
+//                    case 4: completed1.setImageAlpha(completed_op); completed2.setImageAlpha(completed_op); completed3.setImageAlpha(completed_op); completed4.setImageAlpha(completed_op); break;
+//                }
 
 
                 int comp_id = ongoing_id_now / 9;
@@ -342,8 +342,6 @@ public class puzzle extends Activity {
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(puzzle.this,timesetting.class);
-                Drawable image = getResources().getDrawable(R.drawable.clock_icon_highlight);
-                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
             }
         });
@@ -372,85 +370,85 @@ public class puzzle extends Activity {
             }
         });
 
-        menu = findViewById(R.id.puzzle_total_pieces2);
-        lp = (FrameLayout.LayoutParams) menu.getLayoutParams();
-        min_menu_margin = lp.leftMargin;
 
-        menu.setOnTouchListener(new View.OnTouchListener() {
+        //lp = (FrameLayout.LayoutParams) menu.getLayoutParams();
+//        min_menu_margin = lp.leftMargin;
 
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
-                int action = MotionEventCompat.getActionMasked(event);
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        beginX = event.getX();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        latestX = event.getX();
-                        diffX = latestX - beginX;
-                        swipe_tag = diffX > 0 ? SHOW_MENU : HIDE_MENU;
-                        latestMargin = lp.leftMargin + diffX;
-
-                        if (latestMargin > min_menu_margin
-                                && latestMargin < max_menu_margin) {
-                            lp.leftMargin = (int) (latestMargin);
-                            menu.setLayoutParams(lp);
-                        }
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        TranslateAnimation tAnim;
-                        if (swipe_tag == SHOW_MENU) {
-                            tAnim = new TranslateAnimation(0, max_menu_margin
-                                    - latestMargin, 0, 0);
-                            tAnim.setInterpolator(new DecelerateInterpolator());
-                            tAnim.setDuration(100);
-                            menu.startAnimation(tAnim);
-                        } else {
-                            tAnim = new TranslateAnimation(0, min_menu_margin
-                                    - latestMargin, 0, 0);
-                            tAnim.setDuration(450);
-                            menu.startAnimation(tAnim);
-                        }
-                        //在动画结束的时刻，移动menu的位置，使menu真正移动。
-                        tAnim.setAnimationListener(new Animation.AnimationListener() {
-
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                // TODO Auto-generated method stub
-
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-                                // TODO Auto-generated method stub
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-                                // TODO Auto-generated method stub
-                                if (swipe_tag == SHOW_MENU) {
-                                    lp.leftMargin = max_menu_margin;
-                                    menu.setLayoutParams(lp);
-                                } else {
-                                    lp.leftMargin = min_menu_margin;
-                                    //System.out.print(min_menu_margin);
-                                    menu.setLayoutParams(lp);
-                                }
-                                menu.clearAnimation();
-                            }
-                        });
-
-                        break;
-                }
-                return true;
-            }
-        });
+//        menu.setOnTouchListener(new View.OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                // TODO Auto-generated method stub
+//                int action = MotionEventCompat.getActionMasked(event);
+//                switch (action) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        beginX = event.getX();
+//                        break;
+//                    case MotionEvent.ACTION_MOVE:
+//                        latestX = event.getX();
+//                        diffX = latestX - beginX;
+//                        swipe_tag = diffX > 0 ? SHOW_MENU : HIDE_MENU;
+//                        latestMargin = lp.leftMargin + diffX;
+//
+//                        if (latestMargin > min_menu_margin
+//                                && latestMargin < max_menu_margin) {
+//                            lp.leftMargin = (int) (latestMargin);
+//                            menu.setLayoutParams(lp);
+//                        }
+//
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        TranslateAnimation tAnim;
+//                        if (swipe_tag == SHOW_MENU) {
+//                            tAnim = new TranslateAnimation(0, max_menu_margin
+//                                    - latestMargin, 0, 0);
+//                            tAnim.setInterpolator(new DecelerateInterpolator());
+//                            tAnim.setDuration(100);
+//                            menu.startAnimation(tAnim);
+//                        } else {
+//                            tAnim = new TranslateAnimation(0, min_menu_margin
+//                                    - latestMargin, 0, 0);
+//                            tAnim.setDuration(450);
+//                            menu.startAnimation(tAnim);
+//                        }
+//                        //在动画结束的时刻，移动menu的位置，使menu真正移动。
+//                        tAnim.setAnimationListener(new Animation.AnimationListener() {
+//
+//                            @Override
+//                            public void onAnimationStart(Animation animation) {
+//                                // TODO Auto-generated method stub
+//
+//                            }
+//
+//                            @Override
+//                            public void onAnimationRepeat(Animation animation) {
+//                                // TODO Auto-generated method stub
+//
+//                            }
+//
+//                            @Override
+//                            public void onAnimationEnd(Animation animation) {
+//                                // TODO Auto-generated method stub
+//                                if (swipe_tag == SHOW_MENU) {
+//                                    lp.leftMargin = max_menu_margin;
+//                                    menu.setLayoutParams(lp);
+//                                } else {
+//                                    lp.leftMargin = min_menu_margin;
+//                                    //System.out.print(min_menu_margin);
+//                                    menu.setLayoutParams(lp);
+//                                }
+//                                menu.clearAnimation();
+//                            }
+//                        });
+//
+//                        break;
+//                }
+//                return true;
+//            }
+//        });
     }
 
-    @SuppressLint("Range")
+//    @SuppressLint("Range")
     private void setUpView(){
 
         friend = (ImageButton)findViewById(R.id.friend_bar_puzzle_highlight);
@@ -475,20 +473,22 @@ public class puzzle extends Activity {
         go_to_complete_puzzle_btn=(Button)findViewById(R.id.puzzle_galery_goto_completed);
         turn_image = (ImageView)findViewById(R.id.puzzle_total_show);
 
-        puzzle_total_piece_show2 = (RelativeLayout)findViewById(R.id.puzzle_total_pieces2);
+//        puzzle_total_piece_show2 = (RelativeLayout)findViewById(R.id.puzzle_total_pieces2);
+//
+//
+//        completed1 = (ImageView)findViewById(R.id.completed_1);
+//        completed2 = (ImageView)findViewById(R.id.completed_2);
+//        completed3 = (ImageView)findViewById(R.id.completed_3);
+//        completed4 = (ImageView)findViewById(R.id.completed_4);
+//
+//        int initial_op = 75;
+//
+//        completed1.setImageAlpha(initial_op);
+//        completed2.setImageAlpha(initial_op);
+//        completed3.setImageAlpha(initial_op);
+//        completed4.setImageAlpha(initial_op);
 
 
-        completed1 = (ImageView)findViewById(R.id.completed_1);
-        completed2 = (ImageView)findViewById(R.id.completed_2);
-        completed3 = (ImageView)findViewById(R.id.completed_3);
-        completed4 = (ImageView)findViewById(R.id.completed_4);
-
-        int initial_op = 75;
-
-        completed1.setImageAlpha(initial_op);
-        completed2.setImageAlpha(initial_op);
-        completed3.setImageAlpha(initial_op);
-        completed4.setImageAlpha(initial_op);
 
     }
 
@@ -577,12 +577,12 @@ public class puzzle extends Activity {
                 tx1.setText("In Progress");
 
                 showView(tag,puzzle_piece, puzzle_total_piece_show, 90, 0);
-                showView(tag,puzzle_piece, puzzle_total_piece_show2, 90, 0);
+                //showView(tag,puzzle_piece, puzzle_total_piece_show2, 90, 0);
             } else if (tag == 1) {
                 tx1.setText("In Progress");
 
                 showView(tag,puzzle_total_piece_show, puzzle_piece, -90, 0);
-                showView(tag,puzzle_total_piece_show2, puzzle_piece, -90, 0);
+                //showView(tag,puzzle_total_piece_show2, puzzle_piece, -90, 0);
             }
         }
     }
@@ -598,7 +598,9 @@ public class puzzle extends Activity {
             centerY = showView.getMeasuredHeight() / 2.0f;
         }
         hiddenView.setVisibility(View.GONE);
+
         showView.setVisibility(View.VISIBLE);
+
         Rotate3D rotation = new Rotate3D(start_jd, end_jd, centerX, centerY, 310.0f, false);
         rotation.setDuration(300);
 

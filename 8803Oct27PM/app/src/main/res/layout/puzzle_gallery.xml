@@ -200,130 +200,130 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/puzzle_total_pieces2"
-            android:layout_width="400dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="-395dp"
-            android:orientation="horizontal"
-            android:background="@drawable/labels_left2">
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/puzzle_total_pieces2"-->
+            <!--android:layout_width="420dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="left"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--android:layout_marginLeft="-395dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:background="@drawable/labels_left2">-->
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/scroll_l1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:id="@+id/scroll_l1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <RelativeLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/frame"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="40dp">
-                    </LinearLayout>
-                    <ImageView
-                        android:id="@+id/completed_1"
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginLeft="37dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="45dp"
-                        android:src="@drawable/num0" />
-                </RelativeLayout>
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="match_parent">-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="120dp"-->
+                        <!--android:background="@drawable/frame"-->
+                        <!--android:layout_marginTop="30dp"-->
+                        <!--android:layout_marginLeft="25dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="40dp">-->
+                    <!--</LinearLayout>-->
+                    <!--<ImageView-->
+                        <!--android:id="@+id/completed_1"-->
+                        <!--android:layout_width="95dp"-->
+                        <!--android:layout_height="95dp"-->
+                        <!--android:layout_marginTop="40dp"-->
+                        <!--android:layout_marginLeft="37dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="45dp"-->
+                        <!--android:src="@drawable/num0" />-->
+                <!--</RelativeLayout>-->
 
-                <RelativeLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/frame"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginLeft="17dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="40dp">
-                    </LinearLayout>
-                    <ImageView
-                        android:id="@+id/completed_2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginLeft="27dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="45dp"
-                        android:src="@drawable/num1" />
-                </RelativeLayout>
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="match_parent">-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="120dp"-->
+                        <!--android:background="@drawable/frame"-->
+                        <!--android:layout_marginTop="30dp"-->
+                        <!--android:layout_marginLeft="17dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="40dp">-->
+                    <!--</LinearLayout>-->
+                    <!--<ImageView-->
+                        <!--android:id="@+id/completed_2"-->
+                        <!--android:layout_width="100dp"-->
+                        <!--android:layout_height="100dp"-->
+                        <!--android:layout_marginTop="40dp"-->
+                        <!--android:layout_marginLeft="27dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="45dp"-->
+                        <!--android:src="@drawable/num1" />-->
+                <!--</RelativeLayout>-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <LinearLayout
-                android:layout_below="@+id/scroll_l1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--<LinearLayout-->
+                <!--android:layout_below="@+id/scroll_l1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <RelativeLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/frame"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="40dp">
-                    </LinearLayout>
-                    <ImageView
-                        android:id="@+id/completed_3"
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginLeft="37dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="45dp"
-                        android:src="@drawable/num2" />
-                </RelativeLayout>
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="match_parent">-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="120dp"-->
+                        <!--android:background="@drawable/frame"-->
+                        <!--android:layout_marginTop="30dp"-->
+                        <!--android:layout_marginLeft="25dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="40dp">-->
+                    <!--</LinearLayout>-->
+                    <!--<ImageView-->
+                        <!--android:id="@+id/completed_3"-->
+                        <!--android:layout_width="95dp"-->
+                        <!--android:layout_height="95dp"-->
+                        <!--android:layout_marginTop="40dp"-->
+                        <!--android:layout_marginLeft="37dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="45dp"-->
+                        <!--android:src="@drawable/num2" />-->
+                <!--</RelativeLayout>-->
 
 
-                <RelativeLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:background="@drawable/frame"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginLeft="17dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="40dp">
-                    </LinearLayout>
-                    <ImageView
-                        android:id="@+id/completed_4"
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="45dp"
-                        android:src="@drawable/num3" />
-                </RelativeLayout>
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="match_parent">-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="120dp"-->
+                        <!--android:background="@drawable/frame"-->
+                        <!--android:layout_marginTop="30dp"-->
+                        <!--android:layout_marginLeft="17dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="40dp">-->
+                    <!--</LinearLayout>-->
+                    <!--<ImageView-->
+                        <!--android:id="@+id/completed_4"-->
+                        <!--android:layout_width="95dp"-->
+                        <!--android:layout_height="95dp"-->
+                        <!--android:layout_marginTop="40dp"-->
+                        <!--android:layout_marginLeft="30dp"-->
+                        <!--android:layout_marginRight="15dp"-->
+                        <!--android:layout_marginBottom="45dp"-->
+                        <!--android:src="@drawable/num3" />-->
+                <!--</RelativeLayout>-->
 
-            </LinearLayout>
-            <!--<View-->
-                <!--android:id="@+id/dragArea"-->
-                <!--android:layout_width="1dp"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:background="#FFCC00"-->
-                <!--/>-->
-        </RelativeLayout>
+            <!--</LinearLayout>-->
+            <!--&lt;!&ndash;<View&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/dragArea"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="1dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:background="#FFCC00"&ndash;&gt;-->
+                <!--&lt;!&ndash;/>&ndash;&gt;-->
+        <!--</RelativeLayout>-->
 
     </FrameLayout>
 

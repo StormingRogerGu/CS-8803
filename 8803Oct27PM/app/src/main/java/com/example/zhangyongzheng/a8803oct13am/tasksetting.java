@@ -49,7 +49,7 @@ import com.google.firebase.database.ValueEventListener;
  * Created by guxiaofeng on 10/12/17.
  */
 
-public class tasksetting extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
+public class tasksetting extends Activity {
     private TextView showDate = null;
     private Button pickDate = null;
     private TextView showTime = null;

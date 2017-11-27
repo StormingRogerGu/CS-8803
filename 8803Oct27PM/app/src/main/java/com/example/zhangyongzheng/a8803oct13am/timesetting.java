@@ -45,11 +45,9 @@ import com.example.zhangyongzheng.a8803oct13am.numberpickerstyle;
 
 public class timesetting extends Activity {
     TextView time;
-    //TimePicker simpleTimePicker;
-    //NumberPicker nopicker = null;
+
     private ImageButton start;
-    //private numberpickerstyle nopicker_hour = null;
-    //NumberPicker nopicker_min = null;
+
 
     private ImageButton friend;
     private ImageButton timer;
@@ -65,11 +63,6 @@ public class timesetting extends Activity {
         setContentView(R.layout.time_setting);
         setUpView();
 
-        //change icon
-//        Intent intent = getIntent();
-//        byte[] new_icon = intent.getByteArrayExtra("new_image");
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(new_icon,0,new_icon.length);
-//        timer.setImageBitmap(bitmap);
 
         friend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +77,6 @@ public class timesetting extends Activity {
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(timesetting.this,timesetting.class);
-                Drawable image = getResources().getDrawable(R.drawable.clock_icon_highlight);
-                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
             }
         });
@@ -94,8 +85,6 @@ public class timesetting extends Activity {
             public void onClick(View view) {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(timesetting.this,puzzle.class);
-                Drawable image = getResources().getDrawable(R.drawable.puzzle_icon_highlight);
-                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
             }
         });
@@ -116,22 +105,6 @@ public class timesetting extends Activity {
             }
         });
 
-
-
-
-        //  initiate the view's
-//        time = (TextView) findViewById(R.id.time);
-//        simpleTimePicker = (TimePicker) findViewById(R.id.simpleTimePicker);
-//        simpleTimePicker.setIs24HourView(true); // used to not display AM/PM mode
-//        simpleTimePicker.setHour(0);
-//        // perform set on time changed listener event
-//        simpleTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-//            @Override
-//            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-//                // display a toast with changed values of time picker
-//                //Toast.makeText(getApplicationContext(), hourOfDay + " hours " + minute + "min", Toast.LENGTH_SHORT).show();
-//            }
-//        }
 
         //numberpicker hour
         final numberpickerstyle nopicker_hour = (numberpickerstyle) findViewById(R.id.numberPicker_hour);
@@ -193,34 +166,34 @@ public class timesetting extends Activity {
 
     }
 
-    public static byte[] drawable2Bytes(Drawable drawable) {
-
-
-        if (drawable == null) {
-            return null;
-        }
-        Bitmap bitmap = drawableToBitmap(drawable);
-
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        return baos.toByteArray();
-    }
-    public static Bitmap drawableToBitmap(Drawable drawable) {
-
-
-        Bitmap bitmap = Bitmap
-                .createBitmap(
-                        drawable.getIntrinsicWidth(),
-                        drawable.getIntrinsicHeight(),
-                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-                                : Bitmap.Config.RGB_565);
-        Canvas canvas = new Canvas(bitmap);
-        // canvas.setBitmap(bitmap);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
-                drawable.getIntrinsicHeight());
-        drawable.draw(canvas);
-        return bitmap;
-    }
+//    public static byte[] drawable2Bytes(Drawable drawable) {
+//
+//
+//        if (drawable == null) {
+//            return null;
+//        }
+//        Bitmap bitmap = drawableToBitmap(drawable);
+//
+//
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+//        return baos.toByteArray();
+//    }
+//    public static Bitmap drawableToBitmap(Drawable drawable) {
+//
+//
+//        Bitmap bitmap = Bitmap
+//                .createBitmap(
+//                        drawable.getIntrinsicWidth(),
+//                        drawable.getIntrinsicHeight(),
+//                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+//                                : Bitmap.Config.RGB_565);
+//        Canvas canvas = new Canvas(bitmap);
+//        // canvas.setBitmap(bitmap);
+//        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
+//                drawable.getIntrinsicHeight());
+//        drawable.draw(canvas);
+//        return bitmap;
+//    }
 
 }
