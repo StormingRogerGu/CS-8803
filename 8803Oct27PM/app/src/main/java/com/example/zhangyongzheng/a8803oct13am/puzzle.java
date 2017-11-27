@@ -335,6 +335,7 @@ public class puzzle extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(puzzle.this,friend.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         timer.setOnClickListener(new View.OnClickListener() {
@@ -343,6 +344,7 @@ public class puzzle extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(puzzle.this,timesetting.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         puzzle.setOnClickListener(new View.OnClickListener() {
@@ -351,6 +353,7 @@ public class puzzle extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(puzzle.this,puzzle.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
@@ -359,6 +362,7 @@ public class puzzle extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(puzzle.this,profile.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
@@ -367,6 +371,7 @@ public class puzzle extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(puzzle.this,MainActivity.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
 

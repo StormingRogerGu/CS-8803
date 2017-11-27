@@ -130,6 +130,7 @@ public class profile extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(profile.this,friend.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         timer.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +141,7 @@ public class profile extends Activity {
 //                Drawable image = getResources().getDrawable(R.drawable.clock_icon_highlight);
 //                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
+                finish();
             }
         });
         puzzle.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +152,7 @@ public class profile extends Activity {
 //                Drawable image = getResources().getDrawable(R.drawable.puzzle_icon_highlight);
 //                addnewtask.putExtra("new_image",drawable2Bytes(image));
                 startActivity(addnewtask);
+                finish();
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +161,7 @@ public class profile extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(profile.this,profile.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +170,7 @@ public class profile extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(profile.this,MainActivity.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
     }

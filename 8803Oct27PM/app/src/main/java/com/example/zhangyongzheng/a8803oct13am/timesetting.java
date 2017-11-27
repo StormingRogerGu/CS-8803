@@ -70,6 +70,7 @@ public class timesetting extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(timesetting.this,friend.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         timer.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +79,7 @@ public class timesetting extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(timesetting.this,timesetting.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         puzzle.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +88,7 @@ public class timesetting extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(timesetting.this,puzzle.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +97,7 @@ public class timesetting extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(timesetting.this,profile.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +106,7 @@ public class timesetting extends Activity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(timesetting.this,MainActivity.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
 

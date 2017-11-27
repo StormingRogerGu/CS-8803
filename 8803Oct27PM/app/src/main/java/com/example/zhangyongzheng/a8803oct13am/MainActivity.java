@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 addnewtask.putExtras(bundle);
                 addnewtask.setClass(MainActivity.this,tasksetting.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
 
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,friend.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
         timer.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,timesetting.class);
                 startActivity(addnewtask);
+                finish();
 
             }
         });
@@ -122,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,puzzle.class);
                 startActivity(addnewtask);
+                finish();
 
             }
         });
@@ -131,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent addnewtask = new Intent();
                 addnewtask.setClass(MainActivity.this,profile.class);
                 startActivity(addnewtask);
+                finish();
             }
         });
 
