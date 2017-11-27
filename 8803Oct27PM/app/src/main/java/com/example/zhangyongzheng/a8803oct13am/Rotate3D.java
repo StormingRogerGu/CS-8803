@@ -10,8 +10,8 @@ import android.view.animation.Transformation;
  */
 
 public class Rotate3D extends Animation {
-    private final float mFromDegrees;// 开始角度
-    private final float mToDegrees;// 结束角度
+    private final float mFromDegrees;
+    private final float mToDegrees;
     //center point
     private final float mCenterX;
     private final float mCenterY;
